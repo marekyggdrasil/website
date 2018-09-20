@@ -3,18 +3,16 @@ layout: default
 ---
 <div class="home">
 	<section class="site-header">
-		<h1 class="smallcap"><a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
-		<p>Hello, I'm Marek Narozniak and welcome to my personal website. I was born and raised in Poland, and am a graduate of <i>Université de Nantes</i>, France with a MSc. degree in <i>Optimization in Operations Research</i>.</p>
-		<p>Professionally, my interests lie in solving formal problems. I enjoy discrete mathematics, set theory and topics related to automata. Scientifically, I like to challenge myself and force myself out of my comfort zone, thus I often explore other fields of research as well.</p>
-		<p><a href="mailto:reach@mareknarozniak.com">Contact me.</a></p>
-	</section>
-	<section>
-		<ul class="post-list">
-			{% for post in site.posts %}
-			<li>
-				<a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
-			</li>
-			{% endfor %}
-		</ul>
+		<div style="width: 100%; overflow: hidden;">
+			<div style="width: 320px; float: left;">
+				<img src="/assets/mareknarozniak320x320.png">
+			</div>
+			<div style="margin-left: 340px;">
+				<h1 class="smallcap"><a class="site-title" href="/">Marek Narozniak</a></h1>
+				<p>Hello, I'm Marek Narozniak and welcome to my personal website. I was born and raised in Poland, and am a graduate of <i>Université de Nantes</i>, France with a MSc. degree in <i>Optimization in Operations Research</i>.</p>
+				<p>Professionally, my interests lie in solving formal problems. I enjoy discrete mathematics, set theory and topics related to automata. Scientifically, I like to challenge myself and force myself out of my comfort zone, thus I often explore other fields of research as well.</p>
+				<p><a href="mailto:reach@mareknarozniak.com">Contact me.</a></p>
+			</div>
+		</div>
 	</section>
 </div>
