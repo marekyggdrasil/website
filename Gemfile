@@ -5,6 +5,7 @@ group :jekyll_plugins do
     gem 'jekyll-scholar'
     gem 'github-pages'
 end
+gem 'jekyll', '3.7.3'
 gem 'html-proofer'
 gem 'tzinfo'
 gem 'tzinfo-data'
