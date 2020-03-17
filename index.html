@@ -11,8 +11,19 @@ layout: default
 				<h1 class="smallcap"><a class="site-title" href="/">Marek Narozniak</a></h1>
 				<p>Hello, I'm Marek Narozniak and welcome to my personal website. I was born and raised in Poland, and am a graduate of <i>Université de Nantes</i>, France with a MSc. degree in <i>Optimization in Operations Research</i>.</p>
 				<p>Professionally, my interests lie in solving formal problems. I enjoy discrete mathematics, set theory and topics related to automata. Scientifically, I like to challenge myself and force myself out of my comfort zone, thus I often explore other fields of research as well.</p>
-				<p><a href="mailto:reach@mareknarozniak.com">Contact me.</a></p>
 			</div>
 		</div>
+	</section>
+	<section>
+		<h1 class="smallcap"><a class="site-title" href="/">Accounts</a></h1>
+		<a class="site-title" href="https://arxiv.org/a/narozniak_m_1.html">{% include arxiv.html %}</a><a class="site-title" href="https://orcid.org/0000-0002-4315-4953">{% include orcid.html %}</a><a href="https://twitter.com/MarekNarozniak?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @MarekNarozniak</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><a href="https://twitter.com/intent/tweet?screen_name=MarekNarozniak&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet to @MarekNarozniak</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	</section>
+	<section>
+		<h1 class="smallcap"><a class="site-title" href="/">Publications</a></h1>
+		{% bibliography --file papers %}
+	</section>
+	<section>
+		<h1 class="smallcap"><a class="site-title" href="/">Preprints</a></h1>
+		{% bibliography --file preprints %}
 	</section>
 </div>
