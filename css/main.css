@@ -1,4 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Droid+Sans);
+bio { display: inline-block; }
+
 /** Reset some basic elements */
 blockquote, body, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, ol, p, pre, ul { margin: 0; padding: 0; }
 
@@ -68,7 +70,8 @@ hr { border: none; border-top: 1px solid #f7f7f7; margin: 2rem auto; }
 .post-list > li { margin-bottom: 0.5rem; list-style-type: none; margin-left: -2rem; }
 .post-list > li a, .post-list > li a:hover { color: #111; font-weight: bold; text-decoration: none; }
 .post-list > li time { font-size: 0.875rem; color: #aaa; }
-@media screen and (max-width: 600px) { .post-list > li time { display: block; font-size: 0.875rem; } }
+@media screen and (max-width: 600px) { .post-list > li time { display: block; font-size: 0.875rem; }
+  .post-list > li bio { display: block; } }
 
 .tag-title { color: #0645ad; }
 
