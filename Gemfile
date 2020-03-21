@@ -3,9 +3,11 @@ gemspec
 group :jekyll_plugins do
     gem "jekyll-sitemap"
     gem 'jekyll-scholar'
-    gem 'github-pages'
+    # gem 'github-pages'
+    # gem 'kramdown' Using kramdown 1.17.0
+    gem 'kramdown-math-katex'
 end
-gem 'jekyll', '3.7.3'
+gem 'jekyll', '4.0.0'
 gem 'html-proofer'
 gem 'tzinfo'
 gem 'tzinfo-data'

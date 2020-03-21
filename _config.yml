@@ -6,6 +6,8 @@ url: "" # default is empty
 # Build settings
 kramdown:
   input: GFM
+  math_engine: katex
+  math_engine_opts: {throw_on_error: true}
 permalink: pretty
 
 # Third-party services
