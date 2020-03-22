@@ -47,8 +47,6 @@ psi4 = snot(N=3, target=0)*psi3
 
 Applying classical correction is not easy if we work with state vectors, we will do it by projecting particular measurement outcomes of the first two qubits, which will result with four possible outcomes, then to each of those outcomes we can apply an appropriate correction.
 
-To explain the notation, for example we will project the outcome of measuring $$\left\vert 0\right>$$ on first qubits and $$\left\vert1\right>$$ on second qubit onto a statevector denoted as $$\left\vert\psi_{01}\right>$$ and so on.
-
 Lets prepare the four projection operators, one for each of those outcomes. This process can be automated by generating all the possible measurement outcomes of two qubits by using the `itertools` library.
 
 ```python
