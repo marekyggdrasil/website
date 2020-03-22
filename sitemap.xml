@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>/2020/03/22/simulating-quantum-teleportation/</loc>
+<loc>http://mareknarozniak.com/2020/03/22/simulating-quantum-teleportation/</loc>
 <lastmod>2020-03-22T00:00:00+08:00</lastmod>
 </url>
 <url>
-<loc>/</loc>
+<loc>http://mareknarozniak.com/</loc>
 </url>
 <url>
-<loc>/tagged/</loc>
+<loc>http://mareknarozniak.com/tagged/</loc>
 </url>
 </urlset>

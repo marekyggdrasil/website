@@ -1,1 +1,1 @@
-Sitemap: /sitemap.xml
+Sitemap: http://mareknarozniak.com/sitemap.xml

@@ -3,10 +3,10 @@
   <channel>
     <title>Marek Narozniak</title>
     <description></description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 22 Mar 2020 22:50:58 +0800</pubDate>
-    <lastBuildDate>Sun, 22 Mar 2020 22:50:58 +0800</lastBuildDate>
+    <link>http://mareknarozniak.com/</link>
+    <atom:link href="http://mareknarozniak.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 22 Mar 2020 22:57:32 +0800</pubDate>
+    <lastBuildDate>Sun, 22 Mar 2020 22:57:32 +0800</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -165,8 +165,8 @@
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;PhysRevLett.70.1895&quot;&gt;Bennett, C. H., Brassard, G., Crépeau, C., Jozsa, R., Peres, A., &amp;amp; Wootters, W. K. (1993). Teleporting an unknown quantum state via dual classical and Einstein-Podolsky-Rosen channels. &lt;i&gt;Phys. Rev. Lett.&lt;/i&gt;, &lt;i&gt;70&lt;/i&gt;(13), 1895–1899. https://doi.org/10.1103/PhysRevLett.70.1895&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sun, 22 Mar 2020 00:00:00 +0800</pubDate>
-        <link>/2020/03/22/simulating-quantum-teleportation/</link>
-        <guid isPermaLink="true">/2020/03/22/simulating-quantum-teleportation/</guid>
+        <link>http://mareknarozniak.com/2020/03/22/simulating-quantum-teleportation/</link>
+        <guid isPermaLink="true">http://mareknarozniak.com/2020/03/22/simulating-quantum-teleportation/</guid>
         
         <category>Quantum</category>
         
