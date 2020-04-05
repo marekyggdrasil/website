@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Marek Narozniak</title>
+    <title>Marek Narozniak's Homepage</title>
     <description></description>
     <link>https://mareknarozniak.com/</link>
     <atom:link href="https://mareknarozniak.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 23 Mar 2020 23:07:44 +0800</pubDate>
-    <lastBuildDate>Mon, 23 Mar 2020 23:07:44 +0800</lastBuildDate>
+    <pubDate>Sun, 05 Apr 2020 11:54:59 +0800</pubDate>
+    <lastBuildDate>Sun, 05 Apr 2020 11:54:59 +0800</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -37,9 +37,9 @@
 &lt;p&gt;Perform teleportation according to the following figure which holds same notation and variable names as code snippets in this tutorial.&lt;/p&gt;
 
 &lt;figure&gt;
-   &lt;a href=&quot;http://jekyllrb.com&quot;&gt;
+   &lt;a href=&quot;#&quot;&gt;
      &lt;div class=&quot;fig-container&quot;&gt;
-     &lt;img src=&quot;/assets/figures/teleportation1.jpeg&quot; class=&quot;figure&quot; alt=&quot;Jekyll logo&quot; /&gt;
+     &lt;img src=&quot;/assets/figures/teleportation1.jpeg&quot; class=&quot;figure&quot; alt=&quot;Teleportation quantum circuit&quot; /&gt;
       &lt;/div&gt;
    &lt;/a&gt;
    &lt;div class=&quot;caption&quot;&gt;Quantum circuit performing teleportation of an arbitrary state. Creating the entanglement is included.&lt;/div&gt;
