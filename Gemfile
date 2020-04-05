@@ -3,6 +3,7 @@ gemspec
 group :jekyll_plugins do
     gem "jekyll-sitemap"
     gem 'jekyll-scholar'
+    gem 'jekyll-seo-tag'
     # gem 'github-pages'
     # gem 'kramdown' Using kramdown 1.17.0
     gem 'kramdown-math-katex'

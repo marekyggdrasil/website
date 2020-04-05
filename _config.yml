@@ -10,9 +10,33 @@ kramdown:
   math_engine_opts: {throw_on_error: true}
 permalink: pretty
 
+plugins:
+  - jekyll-seo-tag
+
 # Third-party services
 # just leave empty to disable it
 google_analytics: "UA-93578712-1"
 disqus_shortname:
 # scholar:
 #  style: mla
+
+# for jekyll-seo-tag plugin
+
+title: Marek Narozniak's Homepage
+# tagline: 
+
+author:
+  picture: /assets/mareknarozniak320x320.png
+  twitter: MarekNarozniak
+
+twitter:
+  username: MarekNarozniak
+  card: summary
+
+social:
+  name: Marek Narozniak
+  links:
+    - https://twitter.com/MarekNarozniak
+    - https://twitter.com/komentoid
+    - https://www.linkedin.com/in/mareknarozniak
+    - https://github.com/marekyggdrasil

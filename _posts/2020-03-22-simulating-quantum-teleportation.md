@@ -2,6 +2,8 @@
 layout: post
 title: Simulating Quantum Teleportation
 tags: [Quantum, Tutorial, QuTip, Python]
+description: A brief tutorial on how to simulate the Quantum Teleportation protocol using Python with QuTip library.
+image: /assets/figures/teleportation1.jpeg
 ---
 
 Initially introduced in {% cite PhysRevLett.70.1895 --file references %}, a quantum teleportation describes a protocol allowing to reconstruct an unknown quantum state $$\vert \psi >$$ at a new location by using classical information channel and a pair of entangled states.
@@ -32,8 +34,8 @@ psi0 = tensor([psi, basis(2, 0), basis(2, 0)])
 
 Perform teleportation according to the following figure which holds same notation and variable names as code snippets in this tutorial.
 
-{% include figure.html url="http://jekyllrb.com"
-max-width="70%" fll="/assets/figures/teleportation1.jpeg" alt="Jekyll logo"
+{% include figure.html url="#"
+max-width="70%" fll="/assets/figures/teleportation1.jpeg" alt="Teleportation quantum circuit"
 caption="Quantum circuit performing teleportation of an arbitrary state. Creating the entanglement is included." %}
 
 We can realise this circuit as sequence of unitary operations as follows.
