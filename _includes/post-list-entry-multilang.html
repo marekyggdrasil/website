@@ -1,0 +1,7 @@
+{% assign refposts=site.posts | where:"lang-ref", post.lang-ref | sort: 'lang' %}
+{% if refposts.size > 1 %}
+available in:
+    {% for refpost in refposts %}
+    <a href="{{ site.base-url }}{{ refpost.url }}" class="{{ refpost.lang }} title="View in {{refpost.lang}}">{{ site.data.languages[refpost.lang].icon }} {{ site.data.languages[refpost.lang].label }}</a>
+    {% endfor %}
+{% endif %}

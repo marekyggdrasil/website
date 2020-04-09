@@ -1,0 +1,3 @@
+<li>
+  <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time> <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a>{% include post-list-entry-multilang.html %}
+</li>

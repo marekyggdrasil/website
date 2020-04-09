@@ -19,7 +19,7 @@ layout: default
         {% assign tags_content = tags_content_temp %}
       {% endfor %}
       <span class="tags" itemprop="tags">{{ tags_content }}</span>
-
+      {% include post-multilang.html %}
       {% endif %}
 
     </p>

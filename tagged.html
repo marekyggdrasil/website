@@ -34,9 +34,9 @@ title: Tagged
 		<ul class="post-list">
 			{% for post in site.posts %}
 	    {% if post.tags contains tag %}
-			<li>
-				<a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
-			</li>
+				{% if post.lang == 'en' %}
+					{% include post-list-entry.html %}
+				{% endif %}
 			{% endif %}
 	    {% endfor %}
 		</ul>

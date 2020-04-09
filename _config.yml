@@ -23,11 +23,9 @@ disqus_shortname:
 # for jekyll-seo-tag plugin
 
 title: Marek Narozniak's Homepage
-# tagline: 
+# tagline:
 
-author:
-  picture: /assets/mareknarozniak320x320.png
-  twitter: MarekNarozniak
+author: mareknarozniak
 
 twitter:
   username: MarekNarozniak
