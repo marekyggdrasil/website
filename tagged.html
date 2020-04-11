@@ -34,7 +34,7 @@ title: Tagged
 		<ul class="post-list">
 			{% for post in site.posts %}
 	    {% if post.tags contains tag %}
-				{% if post.lang == 'en' %}
+				{% if post.lang == 'en_US' %}
 					{% include post-list-entry.html %}
 				{% endif %}
 			{% endif %}
