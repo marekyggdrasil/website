@@ -6,7 +6,7 @@
     {% if posts.size > 1 %}
     <span itemprop="name">, read this page in a different language:</span>
         {% for post in posts %}
-        <a href="{{ site.base-url }}{{ post.url }}" class="{{ post.lang }} title="View in {{post.lang}}">{{ site.data.languages[post.lang].icon }} {{ site.data.languages[post.lang].label }}</a>
+        <a href="{{ site.base-url }}{{ post.url }}" class="{{ post.lang }} title="View in {{post.lang}}">{{ site.data.languages[post.lang].icon }}{{ site.data.languages[post.lang].label }}</a>
         {% endfor %}
     {% endif %}
 {% endif %}
