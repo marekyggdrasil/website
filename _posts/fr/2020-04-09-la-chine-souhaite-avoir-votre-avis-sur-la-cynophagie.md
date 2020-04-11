@@ -19,7 +19,7 @@ Je suis impliqué dans le sauvetage d'animaux et mon réseau de médecins vété
 
 Un débat ouvert a été lancé en Chine concernant l’interdiction de la consommation de la viande canine. Il y a un fort point logique et éthique dans cet argument, mais ce à quoi je m'oppose principalement n'est pas la consommation de viande de chien elle-même, mais la façon extrêmement cruelle dont elle est organisée.
 
-L’objectif de mon appel n’est pas d’exposer de détails gores de la cynophagie, on est tous plus ou moins conscient à ce sujet, mais google et votre ami si cela vous intéresse. Cet article a la vocation d’être bref mais axé sur les solutions par rapport au problème de cynophagie.
+L’objectif de mon appel n’est pas d’exposer des détails gores de la cynophagie, on est tous plus ou moins conscient à ce sujet, mais google est votre ami si cela vous intéresse. Cet article a la vocation d’être bref mais axé sur les solutions par rapport au problème de cynophagie.
 
 Aujourd’hui, une annonce a été publiée sur [le site officiel du Ministère de l’agriculture et des affaires rurales de la République populaire de Chine](http://www.moa.gov.cn/hd/zqyj/202004/t20200408_6341067.htm), qui est une demande d’avis sur la question de la consommation animale.
 
