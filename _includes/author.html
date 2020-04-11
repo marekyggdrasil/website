@@ -1,0 +1,1 @@
+{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{% if site.data.authors[page.author].website %}<a href="{{ site.data.authors[page.author].website }}">{{ page.author }}</a>{% else %}{{ page.author }}{% endif %}</span></span>{% endif %}
