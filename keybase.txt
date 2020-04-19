@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/renzokuken
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://mareknarozniak.com
+  * I am renzokuken (https://keybase.io/renzokuken) on keybase.
+  * I have a public key ASBlmYD61f2p1NbjpbpO7pCJH_4zOEmIbMry26gc4P7lIAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120659980fad5fda9d4d6e3a5ba4eee90891ffe333849886ccaf2dba81ce0fee5200a",
+      "host": "keybase.io",
+      "kid": "0120659980fad5fda9d4d6e3a5ba4eee90891ffe333849886ccaf2dba81ce0fee5200a",
+      "uid": "a31ff351b30f40082c028d44c9c60119",
+      "username": "renzokuken"
+    },
+    "merkle_root": {
+      "ctime": 1587307465,
+      "hash": "a2f96d68ffa7c803048604d75f101e5ea794f174b7be57a8ec8f98442fa572b89f6f1619c5d133a18ef8c2f3b98dac87ee15832569b16aabb7fa0d9fb59636e2",
+      "hash_meta": "e0427929a965bc7599cee20cc9137d2216e409e4d91a975f9679d9203201de08",
+      "seqno": 15978087
+    },
+    "service": {
+      "entropy": "xevkZLfdJjzo5UEZuOCVH62o",
+      "hostname": "mareknarozniak.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.4.0"
+  },
+  "ctime": 1587307480,
+  "expire_in": 504576000,
+  "prev": "f5f35bba9e3f8d6ea65991cc02817175de2bb4d7e12ece35468844f3579ee9e8",
+  "seqno": 10,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgZZmA+tX9qdTW46W6Tu6QiR/+MzhJiGzK8tuoHOD+5SAKp3BheWxvYWTESpcCCsQg9fNbup4/jW6mWZHMAoFxdd4rtNfhLs41RohE81ee6ejEIAl1Ar0opehVU6yUKcGVBHX4086+K4KEyUS35Ry8l0BYAgHCo3NpZ8RAQIo9jgwe68nSSijY/k5mh0h38qYelHgUS0vaPZS8ioeTnFPexPEg96LQk/M/YO5KjtlLSmO4raDTFgH+7kGICqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIH6ueSOS3I+qF3BXECcJ3oDBsi1/lwrHmmmn6O2LZaLeo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/renzokuken
+
+==================================================================
