@@ -10,6 +10,8 @@ body { font: 400 16px/1.5 "Droid Sans", sans-serif; color: #111; background-colo
 /** Set `margin-bottom` to maintain vertical rhythm */
 blockquote, dl, figure, h1, h2, h3, h4, h5, h6, ol, p, pre, table, ul { margin-bottom: 1rem; }
 
+.thingy-centered { text-align: center; width: 100%; }
+
 /** Images */
 img { max-width: 100%; vertical-align: middle; }
 
@@ -23,11 +25,11 @@ figure > img { display: block; }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) { img.figure { max-width: 65%; }
-  div.caption { margin-right: 17.5%; margin-left: 17.5%; } }
+  div.caption { margin-right: 17.5%; } }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) { img.figure { max-width: 65%; }
-  div.caption { margin-right: 17.5%; margin-left: 17.5%; } }
+  div.caption { margin-right: 17.5%; } }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) { img.figure { max-width: 65%; } }
