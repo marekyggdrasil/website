@@ -2,7 +2,7 @@
    <a href="{{ include.url }}">
      <div class="fig-container">
      <img src="{{ include.fll }}" class="figure"
-        alt="{{ include.alt }}"/>
+        alt="{{ include.alt }}" {% if include.min-width %}style="min-width: {{ include.min-width }};"{% endif %}/>
       </div>
    </a>
    <div class="caption">{{ include.caption }}</div>

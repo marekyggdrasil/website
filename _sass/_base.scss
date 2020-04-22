@@ -48,6 +48,10 @@ table,
 ul {
     margin-bottom: $spacing-unit / 2;
 }
+.thingy-centered {
+    text-align:center;
+    width:100%;
+}
 /**
  * Images
  */
@@ -79,8 +83,7 @@ figure > img {
       max-width: 65%
   }
   div.caption {
-    margin-right: 17.5%;
-    margin-left: 17.5%;
+    margin-right: 17.5%
   }
 }
 
@@ -90,8 +93,7 @@ figure > img {
       max-width: 65%
   }
   div.caption {
-    margin-right: 17.5%;
-    margin-left: 17.5%;
+    margin-right: 17.5%
   }
 }
 
