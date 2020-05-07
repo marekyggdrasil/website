@@ -6,6 +6,7 @@ description: A brief tutorial on how to simulate the Quantum Teleportation proto
 image: /assets/figures/teleportation1.jpeg
 lang: en_US
 lang-ref: simulate-quantum-teleportation
+katex: true
 ---
 
 Initially introduced in {% cite PhysRevLett.70.1895 --file references %}, a quantum teleportation describes a protocol allowing to reconstruct an unknown quantum state $$\vert \psi >$$ at a new location by using classical information channel and a pair of entangled states.

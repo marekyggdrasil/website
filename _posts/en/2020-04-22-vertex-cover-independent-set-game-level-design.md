@@ -5,7 +5,8 @@ tags: [Computer Science, Graph Theory, Optimization, Problems, Pokémon, Python,
 description: A brief tutorial on how to simulate the Quantum Teleportation protocol using Python with QuTip library.
 lang: en_US
 lang-ref: vc-is-pokemons
-image: /assets/figures/vc_mis_kanto.png
+image: /assets/figures/vc_mis_results.png
+katex: true
 ---
 
 I wanted to write something fun related to optimization since the moment of my graduation. In this article I will introduce you to few basic concepts in the graph theory, the *vertex cover* and *independent set*. By showing you how those can form *decision problems* and *optimization problems*, we will discover how useful they could be in modelling and solving practical problems in game level design. As an example, we will introduce a problem of placing Pokémon Centers and Pokémon Gyms on the map of Kanto region from the classic Pokémon games!
