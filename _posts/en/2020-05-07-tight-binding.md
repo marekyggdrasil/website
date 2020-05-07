@@ -2,6 +2,7 @@
 layout: post
 title: The 1D Tight-Binding Model
 tags: [Quantum, Tutorial, QuTip, Python]
+description: Solving the 1D Tight-Binding approximation theoretically and numerically, then plotting the dispersion relation.
 lang: en_US
 lang-ref: tight-binding-model
 image: /assets/figures/tight_binding_diag.png
