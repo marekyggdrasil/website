@@ -2,7 +2,7 @@
 layout: post
 title: Vertex Covers and Independent Sets in game level design
 tags: [Computer Science, Graph Theory, Optimization, Problems, Pokémon, Python, Game Design]
-description: A brief tutorial on how to simulate the Quantum Teleportation protocol using Python with QuTip library.
+description: A tutorial on how to model game design problems with basic graph theory problems with a cool Pokémon example problem!
 lang: en_US
 lang-ref: vc-is-pokemons
 image: /assets/figures/vc_mis_results.png
@@ -15,7 +15,7 @@ I wanted to write something fun related to optimization since the moment of my g
 
 I always loved to play Pokémon games, I do it until this day. The Pokémon-related optimization problem is mostly meant to entertain you a little bit while trying to learn some optimization, however it could (and I hope it will!) inspire you to try to use such optimization techniques for various design problems, such as in case of this article it is a game map design problem. This connects the optimization to the *procedural content generation*, often used in game design. After reading this article you can think of some other design problems which could be modelled as graphs.
 
-Let us begin with the definitions. A *vertex cover* is a subset of vertices of a graph such that every edge of that graph has at least on of its endpoints included in the *vertex cover*
+Let us begin with the definitions. A *vertex cover* is a subset of vertices of a graph such that every edge of that graph has at least one of its endpoints included in the *vertex cover*
 
 $$ V_\text{cover}(G) \subseteq V(G), \forall \{a, b\} \in E(G), \{a, b\} \cap V_\text{cover}(G) \neq \emptyset \tag{VC} $$
 
