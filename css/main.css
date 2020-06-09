@@ -20,6 +20,8 @@ figure > img { display: block; }
 
 .fig-container { text-align: center; }
 
+.pixelated { image-rendering: pixelated; }
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) { img.figure { max-width: 100%; } }
 
