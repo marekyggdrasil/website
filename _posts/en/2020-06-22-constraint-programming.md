@@ -18,14 +18,14 @@ $$ (\Chi, D, C) \tag{CSP} $$
 
 [diophantine equation over finite domains]
 
-As an example problem, let us define the CSP for solving a particular example of a [diophantine equation](https://en.wikipedia.org/wiki/Diophantine_equation) $$x^3+x^2-z^2=0$$ over finite domain $$[1 \dots 10]$$ for each of the variables $$x$$, $$y$$ and $$z$$.
+As an example problem, let us define the CSP for solving a particular example of a [diophantine equation](https://en.wikipedia.org/wiki/Diophantine_equation) $$x^3+y^2-z^2=0$$ over finite domain $$[1 \dots 10]$$ for each of the variables $$x$$, $$y$$ and $$z$$.
 
 $$
 \begin{aligned}
 P &= (\Chi, D, C), \\
 \Chi &= \{x, y, z\},\\
 D &= \{x \in [1 \dots 10], y \in [1 \dots 10], z \in [1 \dots 10]\},\\
-C &= \{x^3+x^2-z^2=0\}
+C &= \{x^3+y^2-z^2=0\}
 \end{aligned}
 $$
 
@@ -68,7 +68,7 @@ This provides us with the following output.
 | $$3$$ | $$3$$ | $$6$$ |
 | $$2$$ | $$1$$ | $$3$$ |
 
-If we plug in those values to $$x^3+x^2-z^2=0$$ it indeed check out. It is a small but good example showing how powerful constraint programming is for solving the combinatorial problem.
+If we plug in those values to $$x^3+y^2-z^2=0$$ it indeed check out. It is a small but good example showing how powerful constraint programming is for solving the combinatorial problem.
 
 What about optimization problems? What differs *constraint satisfaction problem* from *constraint optimization problem* would be the objective function and a criterion. The objective function is a mathematical function accepting assignment of values to variables $$\Chi$$ withing their respective domains $$D$$ and returns a number. The criterion is either minimization either maximization, since those are equivalent up to a sign let us just assume from now on we we have minimization by default. If we incorporate those concepts the *constraint satisfaction problem* will become the *constraint optimization problem* and what differs them is there is some sort of measure of quality of solution and not all solutions are equivalent, some are preferred over others.
 
@@ -133,18 +133,18 @@ for solution in solutions:
     values = list(solution.values())
     nb_gyms = values.count('gym')
     nb_centers = values.count('center')
+    # MVC criterion
+    if nb_centers < best_mvc_size:
+        best_mvc = [solution]
+        best_mvc_size = nb_centers
+    elif nb_gyms == best_mvc_size:
+        best_mvc.append(solution)
     # MIS criterion
     if nb_gyms > best_mis_size:
         best_mis = [solution]
         best_mis_size = nb_gyms
-    elif nb_gyms == best_mis_size:
-        best_mis.append(solution)
-    # MVC criterion
-    if nb_centers < best_mis_size:
-        best_mvc = [solution]
-        best_mvc_size = nb_centers
     elif nb_centers == best_mis_size:
-        best_mvc.append(solution)
+        best_mis.append(solution)
 ```
 
 Let us this Python trick to check if lists of dictionaries are deeply equal.
