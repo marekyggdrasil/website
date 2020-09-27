@@ -60,6 +60,16 @@
     }
 }
 
+@media only screen and (min-width: 768px) {
+    .post-list > li {
+        display: flex;
+        time + div.title-container {
+            position: absolute;
+            margin-left: 6rem;
+        }
+    }
+}
+
 .tag-title {
     color: $link-color;
 }
