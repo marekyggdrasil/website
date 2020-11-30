@@ -203,7 +203,7 @@ n P &amp;= \sum_{k=1}^n P.
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">eccScalarMult</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">Px</span><span class="p">,</span> <span class="n">Py</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">onCurve</span><span class="p">(</span><span class="n">Px</span><span class="p">,</span> <span class="n">Py</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">[],</span> <span class="p">[],</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span>
     <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="c1"># k * point = -k * (-point)
 </span>        <span class="n">Rx</span><span class="p">,</span> <span class="n">Ry</span> <span class="o">=</span> <span class="n">eccNegation</span><span class="p">(</span><span class="n">Px</span><span class="p">,</span> <span class="n">Py</span><span class="p">)</span>
@@ -211,7 +211,7 @@ n P &amp;= \sum_{k=1}^n P.
     <span class="n">rx</span><span class="p">,</span> <span class="n">ry</span> <span class="o">=</span> <span class="n">Px</span><span class="p">,</span> <span class="n">Py</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
         <span class="n">rx</span><span class="p">,</span> <span class="n">ry</span> <span class="o">=</span> <span class="n">eccFiniteAddition</span><span class="p">(</span><span class="n">rx</span><span class="p">,</span> <span class="n">ry</span><span class="p">,</span> <span class="n">Px</span><span class="p">,</span> <span class="n">Py</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">Rxs</span><span class="p">,</span> <span class="n">Rys</span><span class="p">,</span> <span class="n">rx</span><span class="p">,</span> <span class="n">ry</span>
+    <span class="k">return</span> <span class="n">rx</span><span class="p">,</span> <span class="n">ry</span>
 </code></pre></div></div>
 
 <p>where <code class="highlighter-rouge">eccNegation</code> negates the point on the curve and the <code class="highlighter-rouge">inverse</code> implements the modular multiplicative inverse algorithm. Those are defined in <a href="https://gist.github.com/marekyggdrasil/32d905648d6eb1b235a09775c43e8681#file-ecc-py">gist</a> dedicated for this article.</p>
