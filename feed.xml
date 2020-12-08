@@ -5,8 +5,8 @@
     <description></description>
     <link>https://mareknarozniak.com/</link>
     <atom:link href="https://mareknarozniak.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 30 Nov 2020 23:05:27 +0800</pubDate>
-    <lastBuildDate>Mon, 30 Nov 2020 23:05:27 +0800</lastBuildDate>
+    <pubDate>Tue, 08 Dec 2020 14:06:09 +0800</pubDate>
+    <lastBuildDate>Tue, 08 Dec 2020 14:06:09 +0800</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -114,7 +114,7 @@ n P &amp;amp;= \sum_{k=1}^n P.
 
 &lt;p&gt;where &lt;code class=&quot;highlighter-rouge&quot;&gt;eccNegation&lt;/code&gt; negates the point on the curve and the &lt;code class=&quot;highlighter-rouge&quot;&gt;inverse&lt;/code&gt; implements the modular multiplicative inverse algorithm. Those are defined in &lt;a href=&quot;https://gist.github.com/marekyggdrasil/32d905648d6eb1b235a09775c43e8681#file-ecc-py&quot;&gt;gist&lt;/a&gt; dedicated for this article.&lt;/p&gt;
 
-&lt;p&gt;We can also control the size of this discrete space by choosing &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;p&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.625em;vertical-align:-0.19444em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;p&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; prime number of appropriate magnitude. Now what is the motivation of that? What is so great about it? The advantage of that is, we can efficiently calculate sums and products, but we cannot efficiently divide points from this space. This indicates group formed by the elliptic curve implements a trapdoor function which works efficiently one way around but not the other way around. A bit similar as we did in our &lt;a href=&quot;/2020/07/13/satisfiability/&quot;&gt;satisfiability article&lt;/a&gt; but much more efficietly! Let us illustrate a practical use-case of that by introducing the Diffie-Hellman Key Exchange protocol &lt;a class=&quot;citation&quot; href=&quot;#Merkle1978&quot;&gt;(Merkle, 1978; Diffie &amp;amp; Hellman, 1976)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We can also control the size of this discrete space by choosing &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;p&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.625em;vertical-align:-0.19444em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;p&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; prime number of appropriate magnitude. Now what is the motivation of that? What is so great about it? The advantage of that is, we can efficiently calculate sums and products, but we cannot efficiently divide points from this space. If you wonder why, I challenge you to pick two points &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;P&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;P&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;P&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; and &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;Q&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;Q&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.8777699999999999em;vertical-align:-0.19444em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;Q&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; on the elliptic curve in finite field graph and try to find a constant number of additions &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;k&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.69444em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03148em;&quot;&gt;k&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; such that &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mi&gt;P&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;Q&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;k P = Q&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.69444em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03148em;&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.8777699999999999em;vertical-align:-0.19444em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;Q&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;. You will end up blindly trying all possible values of &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;k&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.69444em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03148em;&quot;&gt;k&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; until you find one that works, which is not a deterministic approach. This indicates group formed by the elliptic curve implements a trapdoor function which works efficiently one way around but not the other way around. A bit similar as we did in our &lt;a href=&quot;/2020/07/13/satisfiability/&quot;&gt;satisfiability article&lt;/a&gt; but much more efficietly! Let us illustrate a practical use-case of that by introducing the Diffie-Hellman Key Exchange protocol &lt;a class=&quot;citation&quot; href=&quot;#Merkle1978&quot;&gt;(Merkle, 1978; Diffie &amp;amp; Hellman, 1976)&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Let us imagine Alice and Bob want to establish a secure communication via an unsafe channel. A third participant - Charlie - is constantly checking all their messages (yes, Charlie the unicorn). Both Alice and Bob agree on the &lt;code class=&quot;highlighter-rouge&quot;&gt;key size&lt;/code&gt; which in this case is the prime number &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;p&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.625em;vertical-align:-0.19444em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;p&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;. The larger, the better security as it increases the size of the &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi mathvariant=&quot;double-struck&quot;&gt;F&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;/msub&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\mathbb{F}_p&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.974998em;vertical-align:-0.286108em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathbb&quot;&gt;F&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15139200000000003em;&quot;&gt;&lt;span style=&quot;top:-2.5500000000000003em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot;&gt;p&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.286108em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; space. They also agree on a &lt;code class=&quot;highlighter-rouge&quot;&gt;generator&lt;/code&gt; &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;G&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;G&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;G&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; which is a point in the &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi mathvariant=&quot;double-struck&quot;&gt;F&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;/msub&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\mathbb{F}_p&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.974998em;vertical-align:-0.286108em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathbb&quot;&gt;F&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15139200000000003em;&quot;&gt;&lt;span style=&quot;top:-2.5500000000000003em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot;&gt;p&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.286108em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; space. They also both chose their &lt;code class=&quot;highlighter-rouge&quot;&gt;private key&lt;/code&gt;, which is simply a scalar number, for Alice let us call it &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/msub&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;k_A&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.84444em;vertical-align:-0.15em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03148em;&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.32833099999999993em;&quot;&gt;&lt;span style=&quot;top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot;&gt;A&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; and for Bob &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/msub&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;k_B&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.84444em;vertical-align:-0.15em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03148em;&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.32833099999999993em;&quot;&gt;&lt;span style=&quot;top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot; style=&quot;margin-right:0.05017em;&quot;&gt;B&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;. In principle, because addition is associative we can expect the following to hold&lt;/p&gt;
 
@@ -168,7 +168,7 @@ p_B &amp;amp;= k_B G
 Alice private key:  4
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;In practice, however, the key size &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;p&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.625em;vertical-align:-0.19444em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;p&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; is supposed to be a huge number elliminating the possibility of brute-forcing the key. If you find a deterministic algorithm that finds the multiplication scalar based on two points on the elliptic curve you would solve the &lt;a href=&quot;https://en.wikipedia.org/wiki/Discrete_logarithm&quot;&gt;discrete logarithm problem&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In practice, however, the key size &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;p&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.625em;vertical-align:-0.19444em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;p&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; is supposed to be a huge number eliminating the possibility of brute-forcing the key. If you find a deterministic algorithm that finds the multiplication scalar based on two points on the elliptic curve you would solve the &lt;a href=&quot;https://en.wikipedia.org/wiki/Discrete_logarithm&quot;&gt;discrete logarithm problem&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;To wrap it up I would like to share few excellent articles that I used while learning about the elliptic curve and preparing the coding examples. I recommend the &lt;a href=&quot;https://wizardforcel.gitbooks.io/practical-cryptography-for-developers-book/content/asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.html&quot;&gt;Practical Cryptography for Developers book&lt;/a&gt; as well as the &lt;a href=&quot;https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/&quot;&gt;gentle introduction&lt;/a&gt;, &lt;a href=&quot;https://andrea.corbellini.name/2015/05/23/elliptic-curve-cryptography-finite-fields-and-discrete-logarithms/&quot;&gt;finite fields&lt;/a&gt; and the excellent &lt;a href=&quot;https://andrea.corbellini.name/ecc/interactive/reals-add.html&quot;&gt;interactive tool&lt;/a&gt; by Andrea Corbellini. My examples and code are heavily based on those materials and I hihly recommend you check read them for more information. The repository with source-code that renders all the plots is available in &lt;a href=&quot;https://gist.github.com/marekyggdrasil/32d905648d6eb1b235a09775c43e8681&quot;&gt;this public gist repository&lt;/a&gt;. As usual, if you find typos, errors, something is not clear, something is wrong, do not hesitate to let me know and feel free to tweet me!&lt;/p&gt;
 
@@ -186,27 +186,6 @@ Alice private key:  4
         <category>Python</category>
         
         <category>Cryptography</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>The 1D Tight-Binding Model in Second Quantization</title>
-        <description>&lt;p&gt;&lt;a href=&quot;/2020/05/07/tight-binding/&quot;&gt;1D Tight Binding Model&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 22 Oct 2020 00:00:00 +0800</pubDate>
-        <link>https://mareknarozniak.com/2020/10/22/tight-binding-second-quantization/</link>
-        <guid isPermaLink="true">https://mareknarozniak.com/2020/10/22/tight-binding-second-quantization/</guid>
-        
-        <category>Quantum</category>
-        
-        <category>Fermions</category>
-        
-        <category>Tutorial</category>
-        
-        <category>QuTip</category>
-        
-        <category>Python</category>
         
         
       </item>
@@ -2309,6 +2288,115 @@ lst, min = solveAll([], 0, 9999, list(V), G)
         <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
         <link>https://mareknarozniak.com/2020/04/09/chinom-zalezy-na-twoim-zdaniu-w-kwestii-konsumpcji-psow/</link>
         <guid isPermaLink="true">https://mareknarozniak.com/2020/04/09/chinom-zalezy-na-twoim-zdaniu-w-kwestii-konsumpcji-psow/</guid>
+        
+        <category>Activism</category>
+        
+        <category>China</category>
+        
+        <category>Personal</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>La Chine souhaite avoir votre avis sur la cynophagie (la consommation de viande de chien)</title>
+        <description>&lt;p&gt;Existe-t-il un moyen d’interdire enfin la consommation de viande de chien en Chine?&lt;/p&gt;
+
+&lt;p&gt;Cela fait à peu près trois ans que je vis en Chine, une estimation approximative si nous résumons tous mes séjours plus courts.&lt;/p&gt;
+
+&lt;p&gt;Je connais bien les pratiques cruelles d’abattage de chiens en Chine continentale, même si personnellement je n’ai pas été témoin de cette pratique.&lt;/p&gt;
+
+&lt;p&gt;Je suis impliqué dans le sauvetage d’animaux et mon réseau de médecins vétérinaires est limité à Shanghai, la ville où je suis basé.  J’évite de voyager à travers la Chine car je ne veux pas risquer de rencontrer un chien ou un chat blessé en détresse sans pouvoir apporter de l’aide.&lt;/p&gt;
+
+&lt;p&gt;Un débat ouvert a été lancé en Chine concernant l’interdiction de la consommation de la viande canine. Il y a un fort point logique et éthique dans cet argument, mais ce à quoi je m’oppose principalement n’est pas la consommation de viande de chien elle-même, mais la façon extrêmement cruelle dont elle est organisée.&lt;/p&gt;
+
+&lt;p&gt;L’objectif de mon appel n’est pas d’exposer des détails gores de la cynophagie, on est tous plus ou moins conscient à ce sujet, mais google est votre ami si cela vous intéresse. Cet article a la vocation d’être bref mais axé sur les solutions par rapport au problème de cynophagie.&lt;/p&gt;
+
+&lt;p&gt;Aujourd’hui, une annonce a été publiée sur &lt;a href=&quot;http://www.moa.gov.cn/hd/zqyj/202004/t20200408_6341067.htm&quot;&gt;le site officiel du Ministère de l’agriculture et des affaires rurales de la République populaire de Chine&lt;/a&gt;, qui est une demande d’avis sur la question de la consommation animale.&lt;/p&gt;
+
+&lt;p&gt;Conformément au règlement concernant l’interdiction du commerce illégal d’espèces sauvages, l’élimination de la maltraitance des animaux sauvages et la sauvegarde de la santé et de la sécurité du peuple, le ministère de l’Agriculture et des Affaires rurales de la République populaire de Chine a publié un projet qui énonce les types d’animaux pouvant être élevés pour la viande, la fourrure ou à des fins médicales.&lt;/p&gt;
+
+&lt;p&gt;Dans le document ci-joint, le point n°5 a attiré mon attention. Il traite de la question canine, soulignant que les chiens doivent être traités comme des compagnons humains et que, à l’échelle internationale, ils ne sont pas élevés comme nourriture - en Chine, ils ne doivent pas non plus être considérés comme de la nourriture.&lt;/p&gt;
+
+&lt;p&gt;Le gouvernement de la République Populaire de Chine demande au public de lui faire part de ses observations à ce sujet et énumère les canaux de communication disponibles, l’un d’eux étant l’adresse électronique zysxzc@agri.gov.cn. Il n’est pas précisé si les opinions de chacun sont les bienvenues, ou seulement des citoyens chinois. Nous pouvons supposer donc que tout le monde, chinois ou pas, peut participer à cette discussion.&lt;/p&gt;
+
+&lt;p&gt;Ci-dessous citation officielle du Ministère de l’agriculture et des affaires rurales de la République populaire de Chine dont j’ai donné des explications dans les paragraphes précédents.&lt;/p&gt;
+
+&lt;figure&gt;
+   &lt;a href=&quot;http://www.moa.gov.cn/hd/zqyj/202004/t20200408_6341067.htm&quot;&gt;
+     &lt;div class=&quot;fig-container&quot;&gt;
+     &lt;img src=&quot;/assets/figures/doge_figure_1.png&quot; class=&quot;figure&quot; alt=&quot;Citation officielle du Ministère de l’agriculture et des affaires rurales de la République populaire de Chine&quot; /&gt;
+      &lt;/div&gt;
+   &lt;/a&gt;
+   &lt;div class=&quot;caption&quot;&gt;Citation officielle du Ministère de l’agriculture et des affaires rurales de la République populaire de Chine&lt;/div&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;C’est une initiative du gouvernement chinois, donc les chances qu’ils prennent en compte votre opinion à ce sujet sont bien plus grandes qu’en cas de signature d’une pétition en ligne régulière.&lt;/p&gt;
+
+&lt;p&gt;Avec de l’aide de mes amis qui sont des locuteurs chinois, j’ai rédigé un court contenu de courrier électronique que vous pouvez utiliser pour contacter l’adresse email indiquée ci-dessus. &lt;a href=&quot;mailto:zysxzc@agri.gov.cn&quot;&gt;zysxzc@agri.gov.cn&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Voici le texte en chinois:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;尊敬的中国农业农村部，&lt;/p&gt;
+
+  &lt;p&gt;您好！我是 VOTRE NOM，感谢您方组织起草了《国家畜禽遗传资源目录（征求意见稿）》并于4月9日面向社会公开征求意见。我在仔细阅读了您方提议的基础上，现郑重提供我的反馈：&lt;/p&gt;
+
+  &lt;p&gt;我非常支持中国全面禁止非法野生动物交易、革除滥食野生动物陋习。特别的，关于征求意见稿中的“（五）关于狗。随着人类文明进步和公众对动物保护的关注及偏爱，狗已从传统家畜“特化”为伴侣动物，国际上普遍不作为畜禽，我国不宜列入畜禽管理。”，我支持此项决定，并呼吁广大群众能加强对猫狗的保护与关注，希望中国不将其列入畜禽管理，希望有法律措施防止偷盗、贩卖以及恶意捕杀、食用等行为。&lt;/p&gt;
+
+  &lt;p&gt;特此邮件，提供我的反馈。感谢您方的采纳。&lt;/p&gt;
+
+  &lt;p&gt;此致&lt;/p&gt;
+
+  &lt;p&gt;敬礼&lt;/p&gt;
+
+  &lt;p&gt;VOTRE NOM&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;La traduction du contenu de l’email ci-dessus:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Cher Ministère de l’Agriculture et des Affaires Rurales,&lt;/p&gt;
+
+  &lt;p&gt;Bonjour Je m’appelle VOTRE NOM. Merci d’avoir organisé la rédaction du répertoire national des ressources zoogénétiques (ébauche pour commentaires) et des commentaires du public le 9 avril. Après avoir lu attentivement votre proposition, je donne maintenant solennellement mes commentaires:&lt;/p&gt;
+
+  &lt;p&gt;Je soutiens fermement l’interdiction complète par la Chine du commerce illégal d’espèces sauvages et l’élimination de l’abus des animaux sauvages. En particulier, concernant le point (5) sur les chiens dans le projet de consultation. Avec les progrès de la civilisation humaine et la préoccupation et la préférence du public pour la protection des animaux, les chiens sont devenus des “animaux de compagnie”.
+Je soutiens cette décision et appelle le grand public à renforcer la protection et l’attention des chats et des chiens. J’espère que la Chine ne les inclura pas dans la gestion du bétail et de la volaille, trafic, chasse malveillante, etc.&lt;/p&gt;
+
+  &lt;p&gt;Par courrier électronique, fournissez mes commentaires. Merci pour votre adoption.&lt;/p&gt;
+
+  &lt;p&gt;Cordialement.&lt;/p&gt;
+
+  &lt;p&gt;VOTRE NOM&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Comment pouvez-vous aider?&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Copiez le contenu de la lettre d’appréciation, signez-la avec votre nom en remplaçant les étiquettes de nom par votre nom réel.
+Prenez &lt;code class=&quot;highlighter-rouge&quot;&gt;农业 农村 部 关于 《国家 畜禽 遗传 资源 目录》 公开 征求 意见 反馈&lt;/code&gt;. comme objet de l’e-mail.&lt;/li&gt;
+  &lt;li&gt;Envoyez-le à &lt;a href=&quot;mailto:zysxzc@agri.gov.cn&quot;&gt;zysxzc@agri.gov.cn&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Aidez à diffuser le message!&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;La date limite pour soumettre vos commentaires à l’e-mail ci-dessus est le 8 mai 2020.
+Votre email avec l’objet de l’email et le message il devrait ressembler à ceci (c’est la capture de mon écran avec mon email prêt à être envoyé)&lt;/p&gt;
+
+&lt;p&gt;Les flèches rouges indiquent l’adresse email du gouvernement chinois, l’objet de l’email, ainsi que mon nom et prénom. Vous devez faire pareil, sauf que vous devez mettre VOTRE &lt;code class=&quot;highlighter-rouge&quot;&gt;NOM&lt;/code&gt; et &lt;code class=&quot;highlighter-rouge&quot;&gt;PRÉNOM&lt;/code&gt; à la place du mien. Voilà tout.&lt;/p&gt;
+
+&lt;figure&gt;
+   &lt;a href=&quot;#&quot;&gt;
+     &lt;div class=&quot;fig-container&quot;&gt;
+     &lt;img src=&quot;/assets/figures/dog_meat_ban_appreciation_email_arrows.png&quot; class=&quot;figure&quot; alt=&quot;Screenshot of the e-mail draft ready to send.&quot; /&gt;
+      &lt;/div&gt;
+   &lt;/a&gt;
+   &lt;div class=&quot;caption&quot;&gt;&lt;/div&gt;
+&lt;/figure&gt;
+
+</description>
+        <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
+        <link>https://mareknarozniak.com/2020/04/09/la-chine-souhaite-avoir-votre-avis-sur-la-cynophagie/</link>
+        <guid isPermaLink="true">https://mareknarozniak.com/2020/04/09/la-chine-souhaite-avoir-votre-avis-sur-la-cynophagie/</guid>
         
         <category>Activism</category>
         
