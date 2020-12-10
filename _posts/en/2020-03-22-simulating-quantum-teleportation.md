@@ -13,7 +13,61 @@ Initially introduced in {% cite PhysRevLett.70.1895 --file references %}, a quan
 
 The word `teleportation` does fit well here as this phenomenon occurs instantaneously and is not affected by distance or separating barriers. The instantaneously teleported state cannot be used to achieve faster than light communication, as in order to be properly reconstructed requires classical information about measurement performed at the sender location, making it sensitive to limitations imposed by the speed of light.
 
-I would like to keep this tutorial as practical as possible, for the complete source code please consult the [gist repository](https://gist.github.com/marekyggdrasil/862333a779915a0ee39d6cab77bde8c4), and no more bla bla, lets get this teleportation started by importing required dependencies.
+Quantum teleportation requires three qubits, where first one holds the state to be teleported and the remaining ones are initialised to $$\left \vert 0 \right>$$, and consists of performing the following quantum circuit.
+
+{% include figure.html url="#"
+max-width="70%" fll="/assets/figures/teleportation1.jpeg" alt="Teleportation quantum circuit"
+caption="Quantum circuit performing teleportation of an arbitrary state. Creating the entanglement is included." %}
+
+Let us derive the quantum state at each of those steps. We denote a $$ \text{CNOT} $$-gate with control qubit $$ c $$ and target qubit $$ t $$ by $$ C^c_t $$ and a Hadamard gate with target $$ t $$ as $$ H_t $$. We are going to teleport a quantum state of a general form $$ \alpha \left \vert 0 \right > + \beta \left \vert 1 \right > $$.
+
+$$
+\begin{aligned}
+\left \vert \psi_0 \right > &= (\alpha \left \vert 0 \right > + \beta \left \vert 1 \right >) \otimes \left \vert 00 \right > \\
+&= \alpha \left \vert 000 \right > + \beta \left \vert 100 \right >
+\end{aligned}
+$$
+
+We apply the first Hadamard gate to the middle qubit.
+
+$$
+\begin{aligned}
+H_2 \left \vert \psi_0 \right > &= \alpha \left \vert 0+0 \right > + \beta \left \vert 1+0 \right > \\
+&= \frac{1}{\sqrt{2}} (\alpha \left \vert 000 \right > + \alpha \left \vert 010 \right > + \beta \left \vert 100 \right > + \beta \left \vert 110 \right >) \\
+&= \left \vert \psi_1 \right >
+\end{aligned}
+$$
+
+Step that follows is a $$ \text{CNOT} $$-gate with third qubit as a target and middle superposition qubit as control.
+
+$$
+\begin{aligned}
+C_2^3 \left \vert \psi_1 \right > &= \frac{1}{\sqrt{2}} (\alpha \left \vert 000 \right > + \alpha \left \vert 011 \right > + \beta \left \vert 100 \right > + \beta \left \vert 111 \right >) \\
+&= \left \vert \psi_2 \right >
+\end{aligned}
+$$
+
+This completes the creation of the entangled state between second and third qubit. Now we can apply the actual teleportation, starting from another $$ \text{CNOT} $$-gate with qubit to be teleported as control and middle qubit as target.
+
+$$
+\begin{aligned}
+C_1^2 \left \vert \psi_2 \right > &= \frac{1}{\sqrt{2}} (\alpha \left \vert 000 \right > + \alpha \left \vert 011 \right > + \beta \left \vert 110 \right > + \beta \left \vert 101 \right >) \\
+&= \left \vert \psi_3 \right >
+\end{aligned}
+$$
+
+The final Hadamard gate applied to to-be-teleported state completes the teleportation procedure. Let us write it in a nicely factored form.
+
+$$
+\begin{aligned}
+H_1 \left \vert \psi_2 \right > &= \frac{1}{2} \left \vert 00 \right > (\alpha \left \vert 0 \right > + \beta \left \vert 1 \right >) + \frac{1}{2} \left \vert 01 \right > (\alpha \left \vert 1 \right > + \beta \left \vert 0 \right >) + \frac{1}{2} \left \vert 10 \right > (\alpha \left \vert 0 \right > - \beta \left \vert 1 \right >) + \frac{1}{2} \left \vert 11 \right > (\alpha \left \vert 1 \right > - \beta \left \vert 0 \right >) \\
+&= \left \vert \psi_4 \right >
+\end{aligned}
+$$
+
+In this form it is visible what gates have to applied to the last qubit to make it match the input teleported state $$ \alpha \left \vert 0 \right > + \beta \left \vert 1 \right > $$. The gates to be applied depend on the measurement of the first two qubits as teleported state is still entangled with them. That is the motivation behind the idea of classical correction.
+
+Now lets simulate this protocol. I would like to keep this tutorial as practical as possible, for the complete source code please consult the [gist repository](https://gist.github.com/marekyggdrasil/862333a779915a0ee39d6cab77bde8c4), and no more bla bla, lets get this teleportation started by importing required dependencies.
 
 ```python
 import numpy as np
@@ -23,23 +77,17 @@ import itertools
 from qutip import basis, tensor, rand_ket, snot, cnot, rx, rz, qeye
 ```
 
-We create a random two-level state $$\vert \psi >$$ to be teleported.
+We create a random two-level state $$\left \vert \psi \right >$$ to be teleported.
 
 ```python
 psi = rand_ket(2)
 ```
 
-Quantum teleportation requires three qubits, where first one holds the state to be teleported and the remaining ones are initialised to $$\left \vert 0 \right>$$, thus the initial state for entire teleportation circuit can be defined as $$\left \vert \psi_0 \right> = \left \vert \psi \right > \otimes \left \vert 0 \right > \otimes \left \vert 0 \right >$$ and QuTip provides us with a convenient way of writing that down as follows
+The initial state for entire teleportation circuit can be defined as $$\left \vert \psi_0 \right> = \left \vert \psi \right > \otimes \left \vert 0 \right > \otimes \left \vert 0 \right >$$ and QuTip provides us with a convenient way of writing that down as follows
 
 ```python
 psi0 = tensor([psi, basis(2, 0), basis(2, 0)])
 ```
-
-Perform teleportation according to the following figure which holds same notation and variable names as code snippets in this tutorial.
-
-{% include figure.html url="#"
-max-width="70%" fll="/assets/figures/teleportation1.jpeg" alt="Teleportation quantum circuit"
-caption="Quantum circuit performing teleportation of an arbitrary state. Creating the entanglement is included." %}
 
 We can realise this circuit as sequence of unitary operations as follows.
 
