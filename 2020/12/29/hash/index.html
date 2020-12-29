@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="/assets/favicons/android-chrome-192x192.png" sizes=192x192>
+  <link rel="icon" type="image/png" href="/assets/favicons/android-chrome-512x512.png" sizes=512x512>
+  <link rel="apple-touch-icon" type="image/png" href="/assets/favicons/apple-touch-icon.png" sizes=x>
+  <link rel="icon" type="image/png" href="/assets/favicons/favicon-16x16.png" sizes=16x16>
+  <link rel="icon" type="image/png" href="/assets/favicons/favicon-32x32.png" sizes=32x32>
+  <link rel="icon" type="image/x-icon" href="/assets/favicons/favicon.ico">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hash Functions - Marek Narozniak's Homepage</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="https://mareknarozniak.com/2020/12/29/hash/">
+  <link rel="alternate" type="application/rss+xml" title="Marek Narozniak's Homepage" href="https://mareknarozniak.com/feed.xml">
+  <link rel="stylesheet" href="/assets/katex/katex.css">
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Hash Functions | Marek Narozniak’s Homepage</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Hash Functions" />
+<meta name="author" content="Marek Narozniak" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Basic introduction to hash functions and their properties." />
+<meta property="og:description" content="Basic introduction to hash functions and their properties." />
+<link rel="canonical" href="https://mareknarozniak.com/2020/12/29/hash/" />
+<meta property="og:url" content="https://mareknarozniak.com/2020/12/29/hash/" />
+<meta property="og:site_name" content="Marek Narozniak’s Homepage" />
+<meta property="og:image" content="https://mareknarozniak.com/assets/figures/png/hash/hash_pokemon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-12-29T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:image" content="https://mareknarozniak.com/assets/figures/png/hash/hash_pokemon.png" />
+<meta property="twitter:title" content="Hash Functions" />
+<meta name="twitter:site" content="@MarekNarozniak" />
+<meta name="twitter:creator" content="@MarekNarozniak" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://mareknarozniak.com/2020/12/29/hash/"},"image":"https://mareknarozniak.com/assets/figures/png/hash/hash_pokemon.png","url":"https://mareknarozniak.com/2020/12/29/hash/","author":{"@type":"Person","name":"Marek Narozniak"},"headline":"Hash Functions","description":"Basic introduction to hash functions and their properties.","datePublished":"2020-12-29T00:00:00+08:00","dateModified":"2020-12-29T00:00:00+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  
+</head>
+
+  <body>
+    <div class="page-content">
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <span class="back">&larr; <a href="/">Index</a></span>
+    <h1 class="post-title" itemprop="name headline">Hash Functions</h1>
+    <p class="post-meta">
+      <time datetime="2020-12-29T00:00:00+08:00" itemprop="datePublished">Dec 29, 2020</time>
+      
+
+
+      
+       • tags:
+      
+      
+      <span class="tags" itemprop="tags">
+          
+          
+          <a href="https://mareknarozniak.com/tagged#tutorial">#Tutorial</a>
+        <a href="https://mareknarozniak.com/tagged#python">#Python</a>
+        <a href="https://mareknarozniak.com/tagged#cryptography">#Cryptography</a>
+        </span>
+      
+    
+    
+    
+
+
+      
+
+    </p>
+    
+
+<style>
+#share-buttons {display: inline-block; vertical-align: middle; }
+#share-buttons:after {content: ""; display: block; clear: both;}
+#share-buttons > div {
+    position: relative;
+    text-align: left;
+    height: 36px;
+    width: 32px;
+    float: left;
+    text-align: center;
+}
+#share-buttons > div > svg {height: 16px; fill: #d5d5d5; margin-top: 10px;}
+#share-buttons > div:hover {cursor: pointer;}
+#share-buttons > div.facebook:hover > svg {fill: #3B5998;}
+#share-buttons > div.twitter:hover > svg {fill: #55ACEE;}
+#share-buttons > div.linkedin:hover > svg {fill: #0077b5;}
+#share-buttons > div.pinterest:hover > svg {fill: #CB2027;}
+#share-buttons > div.gplus:hover > svg {fill: #dd4b39;}
+#share-buttons > div.mail:hover > svg {fill: #7D7D7D;}
+#share-buttons > div.instagram:hover > svg {fill: #C73B92;}
+#share-buttons > div.facebook > svg {height: 18px; margin-top: 9px;}
+#share-buttons > div.twitter > svg {height: 20px; margin-top: 8px;}
+#share-buttons > div.linkedin > svg {height: 19px; margin-top: 7px;}
+#share-buttons > div.pinterest > svg {height: 20px; margin-top: 9px;}
+#share-buttons > div.gplus > svg {height: 17px; margin-top: 9px; position: relative; left: 1px;}
+#share-buttons > div.mail > svg {height: 14px; margin-top: 11px;}
+</style>
+
+<span style="color: silver;">Share on: </span><div id="share-buttons">
+    <div class="facebook" title="Share this on Facebook" onclick="window.open('http://www.facebook.com/share.php?u=https://mareknarozniak.com/2020/12/29/hash/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"/></svg></div>
+    <div class="twitter" title="Share this on Twitter" onclick="window.open('https://twitter.com/intent/tweet?text=Hash Functions&url=https://mareknarozniak.com/2020/12/29/hash/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/></svg></div>
+    <div class="linkedin" title="Share this on Linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=https://mareknarozniak.com/2020/12/29/hash/&title=&summary=&source=');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"/></svg></div>
+    <div class="pinterest" title="Share this on Pinterest" onclick="window.open('https://pinterest.com/pin/create/button/?url=&media=https://mareknarozniak.com/assets/figures/png/hash/hash_pokemon.png&description=');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M256 597q0-108 37.5-203.5t103.5-166.5 152-123 185-78 202-26q158 0 294 66.5t221 193.5 85 287q0 96-19 188t-60 177-100 149.5-145 103-189 38.5q-68 0-135-32t-96-88q-10 39-28 112.5t-23.5 95-20.5 71-26 71-32 62.5-46 77.5-62 86.5l-14 5-9-10q-15-157-15-188 0-92 21.5-206.5t66.5-287.5 52-203q-32-65-32-169 0-83 52-156t132-73q61 0 95 40.5t34 102.5q0 66-44 191t-44 187q0 63 45 104.5t109 41.5q55 0 102-25t78.5-68 56-95 38-110.5 20-111 6.5-99.5q0-173-109.5-269.5t-285.5-96.5q-200 0-334 129.5t-134 328.5q0 44 12.5 85t27 65 27 45.5 12.5 30.5q0 28-15 73t-37 45q-2 0-17-3-51-15-90.5-56t-61-94.5-32.5-108-11-106.5z"/></svg></div>
+    <div class="gplus" title="Share this on Google Plus" onclick="window.open('https://plus.google.com/share?url=https://mareknarozniak.com/2020/12/29/hash/');"><svg viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/></svg></div>
+    <div class="mail" title="Share this through Email" onclick="window.open('mailto:?&body=https://mareknarozniak.com/2020/12/29/hash/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/></svg></div>
+</div>
+
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    <p>Have you ever wondered what it would be like to assign a label to literally anything? If yes, this article might attract your interest as this is exactly what hash functions are about. Those are the functions that accept input of an arbitrary length and provide output of fixed length which uniquely identifies the provided input. Really uniquely? Well… It depends how good the hash function is!</p>
+
+<p>This article is going to be a lot less math-heavy than usual. We will briefly discuss what hash functions are, why are they important and how to distinguish good hash functions from bad hash functions. We will implement a simple hash function in Python and calculate hashes of some Pokémon and other things.</p>
+
+<p>Given different input, hash function is expected to provide distinct output. If that is not the case — if provided two different inputs same output is given — a <em>collision</em> occurs. Such <em>collisions</em> are rare and extremely hard to find (as we will realize soon). For the widely used modern hash functions such as SHA256 no collision has ever been found. A good hash function would satisfy the following properties.</p>
+
+<ol>
+  <li>Deterministic, same input should always lead to same hash value.</li>
+  <li>Efficient, fast to compute.</li>
+  <li>Difficult to analyze, chaotic, small change of input should change output a lot. It should be infeasible to find pattern and predict the output.</li>
+  <li>Irreversible. Given a hash value it should be computationally hard to find matching input.</li>
+  <li>Collision free. In practice it should be extremely unlikely to encounter a collision.</li>
+</ol>
+
+<p>Cryptographic hash functions have wide range of applications. They can be used to store user passwords, which makes it possible to verify if password is correct without knowing the password. They are used to generate pseudorandom numbers, by applying hash function many times to some <em>seed</em> input. The proof of work algorithms in cryptocurrencies also take advantage of hash function properties. It is also possible to use hash function to address resources by their content, as done in IPFS file system. We will not discuss examples of those usages, as we are going to discuss those kind of applications in the future tutorials and now just need to briefly introduce the concept.</p>
+
+<p>An example of a <a href="https://www.quora.com/What-is-the-simplest-example-of-a-hash-function/answer/Mike-McCormick-3">insecure hash function would be bitwise XOR operation</a> which we can implement in Python. First lets implement <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>XOR</mtext></mrow><annotation encoding="application/x-tex">\text{XOR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">XOR</span></span></span></span></span> operation of two <code class="highlighter-rouge">byte</code>-type values which is well done <a href="https://nitratine.net/blog/post/xor-python-byte-strings/#byte-xor">here</a></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">byte_xor</span><span class="p">(</span><span class="n">ba1</span><span class="p">,</span> <span class="n">ba2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">_a</span> <span class="o">^</span> <span class="n">_b</span> <span class="k">for</span> <span class="n">_a</span><span class="p">,</span> <span class="n">_b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ba1</span><span class="p">,</span> <span class="n">ba2</span><span class="p">)])</span>
+</code></pre></div></div>
+<p>then based on that we can split an arbitrary length input into chunks of $32$-byte length and pad last one with zeros (if required). Finally compute the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>XOR</mtext></mrow><annotation encoding="application/x-tex">\text{XOR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">XOR</span></span></span></span></span> operation of all the chunks leading to a simple hash function fixed length output</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bitwiseXOR</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">chunks</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">32</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="mi">32</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chunks</span><span class="p">)):</span>
+        <span class="n">chunk</span> <span class="o">=</span> <span class="n">chunks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">hexchunk</span> <span class="o">=</span> <span class="n">chunk</span><span class="o">.</span><span class="nb">hex</span><span class="p">()</span>
+        <span class="n">len_diff</span> <span class="o">=</span> <span class="mi">32</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">len_diff</span><span class="p">:</span>
+            <span class="n">hexchunk</span> <span class="o">+=</span> <span class="s">'00'</span> <span class="o">*</span> <span class="n">len_diff</span>
+            <span class="n">chunk</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">hexchunk</span><span class="p">)</span>
+            <span class="n">chunks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">chunk</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s">'00'</span> <span class="o">*</span> <span class="mi">32</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">chunks</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">byte_xor</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">chunk</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span>
+</code></pre></div></div>
+
+<p>I need to apply it to something. I decided it would be good to continue our little Pokémon tradition which began back in with <a href="/2020/04/22/vertex-cover-independent-set-game-level-design/">Vertex Cover</a> and continued in <a href="/2020/05/22/quantum-adiabatic-optimization/">Quantum Adiabatic Optimization</a> and <a href="/2020/06/22/constraint-programming/">Constraint Programming</a> articles. We will calculate hash values of Pokémons and search for collisions. I borrowed some sprites from <a href="https://archives.bulbagarden.net/wiki/Category:Red_and_Blue_sprites">bulbagarden</a> and used them as input for bitwise <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>XOR</mtext></mrow><annotation encoding="application/x-tex">\text{XOR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">XOR</span></span></span></span></span> and <a href="https://en.wikipedia.org/wiki/SHA-2">SHA256</a> hash function. Below you can find first and last five Pokémons and their hashes.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#   SHA256                                                           Bitwise XOR                                                     
+001 43aa5ea04dc0ee3fb3aa5269639703b9756cb4fb88cbda2885288a983c9f6357 799e4fabfe1ff7600e7fe347cbe36a5a81c4a8d4f5eb8b439da39a0fcf84d819
+002 184bff41d64d393528346e4f36e2b517e65f6385b180d66c5562c59314b2d7c0 1f65203a3e0f997e8a4d69a8d19de13e05b3cd8e094792330f31dc82cd2cbbfe
+003 e13c27acbbdc7d89457c44af6e7bb5212610350d1bbced0f0ac0dc171c3b48d1 e18b6909143385e10e5ee35f58980fbe897417222328b8f39e581ceffd7b36ec
+004 960c166bc063123aaa38e8acde3b8d3667e9568d4eeaa5eb29df316b05b33e94 b6b2b70ccb51d459aa17cf59e962f77b0c1f3fdb40b874dc0a4ef3e9d0c5f560
+005 41c24cfacc10a1916efdc07fc511b2e761aa0954e749570a647ac9beade385ff ebe6d64781a59427278f18abd92b0cee4c4345eeae365de7b01f74497deb789a
+
+...
+
+148 517a572314f132af1514515119b53931cbd8c40b42c15c24525f0a8783005977 08d08b9abb7279cb11dad4e23ebb41de372c33929139028b7187f9fa508f1384
+149 fe3390a3bcc6cd9fc352a9b071e907d8187daf1544f5c9869ee2341b93eaee5f 31b3afd221fbb01f729ded1be4af69e4d0486c3b0f3ec9151a50c852c71e624c
+150 9ca51be1e824179bee4d5e821fbbd5ab45ea73b6cd7b4d6ffd4e7da89925d965 2330bb0c369daef8ed6a68c8c25eae6a5ce8e11afd7ee9b5146896d4acdb110d
+151 8e4a8eb7817ee0987eeb58b294344867504e6e6feffaa17d2b4e3883219ef4f1 c4ece21913a43e9943c988a4e9ca4e863c20fc3c9b3e3413c0eb504673b8c14b
+
+No collisions found...
+</code></pre></div></div>
+
+<p>No collisions found!!! The bitwise <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>XOR</mtext></mrow><annotation encoding="application/x-tex">\text{XOR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">XOR</span></span></span></span></span> operation is not a secure hash function, yet it does seem secure enough to characterize the first <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>151</mn></mrow><annotation encoding="application/x-tex">151</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">5</span><span class="mord">1</span></span></span></span> Pokémons based on their sprites from Pokémon RGB version. It is important to mention here that the sprite used as input were encoded as PNG images, thus compressed. Another limitation was that they were not <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>-byte pixels (as should be in case of GameBoy graphics). Those sprites are SGB colored. They contain a lot more information than regular GameBoy sprites used. Below I provide a little visualization of first nine Pokémons with their sprites and hash value QR codes. The regular GameBoy sprites would look similar to the Mario figure from <a href="/2020/06/09/simulating-superdense-coding/">Simulating Superdense Coding</a> article.</p>
+
+<figure>
+   <a href="#">
+     <div class="fig-container">
+     <img src="/assets/figures/png/hash/hash_pokemon.png" class="figure pixelated" alt="" style="min-width: 100%" />
+      </div>
+   </a>
+   <div class="caption"></div>
+</figure>
+
+<p>That was my internal dillema regarding aesthetics. There is a chance regular <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>-bit GameBoy pixels would provide a bitwise <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>XOR</mtext></mrow><annotation encoding="application/x-tex">\text{XOR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">XOR</span></span></span></span></span> collision among first <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>151</mn></mrow><annotation encoding="application/x-tex">151</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">5</span><span class="mord">1</span></span></span></span> Pokémons, but I just cannot look at those sprites without SGB coloring, I spent too many hours playing this game as a child to bear looking at regular sprites…</p>
+
+<p>We failed to find bitwise <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>XOR</mtext></mrow><annotation encoding="application/x-tex">\text{XOR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">XOR</span></span></span></span></span> collision in the Pokémons sprites. I decided to try one more thing. Back in Poland we have this book-length poem called <a href="https://en.wikipedia.org/wiki/Pan_Tadeusz">Pan Tadeusz</a>. I did not read it… (even given that it was mandatory to read it at school, it was just too not-interesting) however I finally found a use-case for it! It is a pretty long poem, <a href="https://wolnelektury.pl/media/book/txt/pan-tadeusz.txt">available online</a> and not protected by any copyright licence so I searched for collisions in its verses. The first and last ten verses provided below.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#    Verse                                                            Bitwise XOR                                                     
+0001 Litwo! Ojczyzno moja! ty jesteś jak zdrowie:                     6c03151c4f5b443d0514131c406e6f206d6f6a6121207479206a65737465c59b
+0002 Ile cię trzeba cenić, ten tylko się dowie,                       264c1649a7f0e4fd4f031b1f4962612063656e69c4872c2074656e2074796c6b
+0003 Kto cię stracił. Dziś piękność twą w całej ozdobie               8eefaba7431db35da55303520202ac47e744002b000daaf9491569c4996b6e6f
+0004 Widzę i opisuję, bo tęsknię po tobie.                            2706440eabfb490c0e6f706973756ac4992c20626f2074c499736b6e69c49920
+0005 Panno święta, co Jasnej bronisz Częstochowy                      2a412d14abb9b6ef180aacf603182c20636f204a61736e656a2062726f6e6973
+0006 I w Ostrej świecisz Bramie! Ty, co gród zamkowy                  694318002801b7c1014a5aa4f61c06121a69737a204272616d6965212054792c
+0007 Nowogródzki ochraniasz z jego wiernym ludem!                     270a05011e1fe3df111e0e04016f636872616e6961737a207a206a65676f2077
+0008 Jak mnie dziecko do zdrowia powróciłaś cudem                     89d20849a8ec08a0bb44191c0106066f20646f207a64726f77696120706f7772
+0009 (Gdy od płaczącej matki, pod Twoją opiekę                        5f280ebda54f0b5019a0e9a5fa7ac48563656a206d61746b692c20706f642054
+0010 Ofiarowany, martwą podniosłem powiekę;                           3f091e081704b3f855792c206d61727477c48520706f646e696f73c582656d20
+
+...
+
+9933 A przy stoliku drewnianym pan włodarz                            c34f141308032073746f6c696b7520647265776e69616e796d2070616e2077c5
+9934 Albo ekonom, lub nawet gospodarz,                                6d6c626f20656b6f6e6f6d2c206c7562206e6177657420676f73706f6461727a
+9935 Nie bronił czytać i sam słuchać raczył,                          2fade20010130c141000000c637a797461c48720692073616d2073c582756368
+9936 I młodszym rzeczy trudniejsze tłumaczył,                         8ca218a8e30c1e0abffb4120727a65637a7920747275646e69656a737a652074
+9937 Chwalił piękności, a błędom wybaczył.                            631f0e030d0abffbe5f247c4996b6e6fc59b63692c20612062c582c499646f6d
+9938 I zazdrościła młodzież wieszczów sławie,                         2a5ab9d20d4401aa47fa1400a0ae61206dc5826f647a6965c5bc20776965737a
+9939 Która tam dotąd brzmi w lasach i w polu,                         6b1de3c452114f18144120646f74c485642062727a6d692077206c6173616368
+9940 I którym droższy niż laur Kapitolu,                              20540418b69f72796d2064726fc5bc737a79206e69c5bc206c617572204b6170
+9941 Wianek rękami wieśniaczki usnuty                                 2310616e656b2072c4996b616d6920776965c59b6e6961637a6b692075736e75
+9942 Z modrych bławatków i zielonej ruty…                             7a52181b1d90f9c5682062c582617761746bc3b3772069207a69656c6f6e656a
+
+No collisions found...
+</code></pre></div></div>
+
+<p>Again, no collisions! I conclude that bitwise <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>XOR</mtext></mrow><annotation encoding="application/x-tex">\text{XOR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">XOR</span></span></span></span></span> is more secure than I anticipated (but still, please do not use it, you <em>will</em> find collision in large-enough dataset). I also learned that it is not easy to find collisions even for insecure hash function. How about you? Would you take the challenge and find a bitwise <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>XOR</mtext></mrow><annotation encoding="application/x-tex">\text{XOR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">XOR</span></span></span></span></span> collision? If you do, please tweet me! The complete source code for this article is provided in <a href="https://github.com/marekyggdrasil/hashing">this public github repository</a>. If you want to read more about hash functions I recommend the <a href="https://wizardforcel.gitbooks.io/practical-cryptography-for-developers-book/content/cryptographic-hash-functions.html">Practical Cryptography for Developers book</a>. That would be all for this article… But expect the hash function to appear on this blog very often from now on and point back to this text.</p>
+
+
+    <p>[<a href="#top">Back to Top</a>]</p>
+  </div>
+  
+
+</article>
+
+    </div>
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-93578712-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  </body>
+</html>

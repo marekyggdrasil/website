@@ -5,9 +5,125 @@
     <description></description>
     <link>https://mareknarozniak.com/</link>
     <atom:link href="https://mareknarozniak.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 15 Dec 2020 10:22:12 +0800</pubDate>
-    <lastBuildDate>Tue, 15 Dec 2020 10:22:12 +0800</lastBuildDate>
+    <pubDate>Tue, 29 Dec 2020 21:37:37 +0800</pubDate>
+    <lastBuildDate>Tue, 29 Dec 2020 21:37:37 +0800</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Hash Functions</title>
+        <description>&lt;p&gt;Have you ever wondered what it would be like to assign a label to literally anything? If yes, this article might attract your interest as this is exactly what hash functions are about. Those are the functions that accept input of an arbitrary length and provide output of fixed length which uniquely identifies the provided input. Really uniquely? Well… It depends how good the hash function is!&lt;/p&gt;
+
+&lt;p&gt;This article is going to be a lot less math-heavy than usual. We will briefly discuss what hash functions are, why are they important and how to distinguish good hash functions from bad hash functions. We will implement a simple hash function in Python and calculate hashes of some Pokémon and other things.&lt;/p&gt;
+
+&lt;p&gt;Given different input, hash function is expected to provide distinct output. If that is not the case — if provided two different inputs same output is given — a &lt;em&gt;collision&lt;/em&gt; occurs. Such &lt;em&gt;collisions&lt;/em&gt; are rare and extremely hard to find (as we will realize soon). For the widely used modern hash functions such as SHA256 no collision has ever been found. A good hash function would satisfy the following properties.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Deterministic, same input should always lead to same hash value.&lt;/li&gt;
+  &lt;li&gt;Efficient, fast to compute.&lt;/li&gt;
+  &lt;li&gt;Difficult to analyze, chaotic, small change of input should change output a lot. It should be infeasible to find pattern and predict the output.&lt;/li&gt;
+  &lt;li&gt;Irreversible. Given a hash value it should be computationally hard to find matching input.&lt;/li&gt;
+  &lt;li&gt;Collision free. In practice it should be extremely unlikely to encounter a collision.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Cryptographic hash functions have wide range of applications. They can be used to store user passwords, which makes it possible to verify if password is correct without knowing the password. They are used to generate pseudorandom numbers, by applying hash function many times to some &lt;em&gt;seed&lt;/em&gt; input. The proof of work algorithms in cryptocurrencies also take advantage of hash function properties. It is also possible to use hash function to address resources by their content, as done in IPFS file system. We will not discuss examples of those usages, as we are going to discuss those kind of applications in the future tutorials and now just need to briefly introduce the concept.&lt;/p&gt;
+
+&lt;p&gt;An example of a &lt;a href=&quot;https://www.quora.com/What-is-the-simplest-example-of-a-hash-function/answer/Mike-McCormick-3&quot;&gt;insecure hash function would be bitwise XOR operation&lt;/a&gt; which we can implement in Python. First lets implement &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mtext&gt;XOR&lt;/mtext&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\text{XOR}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord text&quot;&gt;&lt;span class=&quot;mord&quot;&gt;XOR&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; operation of two &lt;code class=&quot;highlighter-rouge&quot;&gt;byte&lt;/code&gt;-type values which is well done &lt;a href=&quot;https://nitratine.net/blog/post/xor-python-byte-strings/#byte-xor&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;byte_xor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ba1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ba2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_b&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_b&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;zip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ba1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ba2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;then based on that we can split an arbitrary length input into chunks of $32$-byte length and pad last one with zeros (if required). Finally compute the &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mtext&gt;XOR&lt;/mtext&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\text{XOR}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord text&quot;&gt;&lt;span class=&quot;mord&quot;&gt;XOR&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; operation of all the chunks leading to a simple hash function fixed length output&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bitwiseXOR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;chunks&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chunks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;chunk&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chunks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;hexchunk&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chunk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;hex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;len_diff&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chunk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;len_diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;hexchunk&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'00'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;len_diff&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;chunk&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bytearray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fromhex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hexchunk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;chunks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chunk&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fromhex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'00'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chunk&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chunks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;byte_xor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chunk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I need to apply it to something. I decided it would be good to continue our little Pokémon tradition which began back in with &lt;a href=&quot;/2020/04/22/vertex-cover-independent-set-game-level-design/&quot;&gt;Vertex Cover&lt;/a&gt; and continued in &lt;a href=&quot;/2020/05/22/quantum-adiabatic-optimization/&quot;&gt;Quantum Adiabatic Optimization&lt;/a&gt; and &lt;a href=&quot;/2020/06/22/constraint-programming/&quot;&gt;Constraint Programming&lt;/a&gt; articles. We will calculate hash values of Pokémons and search for collisions. I borrowed some sprites from &lt;a href=&quot;https://archives.bulbagarden.net/wiki/Category:Red_and_Blue_sprites&quot;&gt;bulbagarden&lt;/a&gt; and used them as input for bitwise &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mtext&gt;XOR&lt;/mtext&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\text{XOR}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord text&quot;&gt;&lt;span class=&quot;mord&quot;&gt;XOR&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; and &lt;a href=&quot;https://en.wikipedia.org/wiki/SHA-2&quot;&gt;SHA256&lt;/a&gt; hash function. Below you can find first and last five Pokémons and their hashes.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#   SHA256                                                           Bitwise XOR                                                     
+001 43aa5ea04dc0ee3fb3aa5269639703b9756cb4fb88cbda2885288a983c9f6357 799e4fabfe1ff7600e7fe347cbe36a5a81c4a8d4f5eb8b439da39a0fcf84d819
+002 184bff41d64d393528346e4f36e2b517e65f6385b180d66c5562c59314b2d7c0 1f65203a3e0f997e8a4d69a8d19de13e05b3cd8e094792330f31dc82cd2cbbfe
+003 e13c27acbbdc7d89457c44af6e7bb5212610350d1bbced0f0ac0dc171c3b48d1 e18b6909143385e10e5ee35f58980fbe897417222328b8f39e581ceffd7b36ec
+004 960c166bc063123aaa38e8acde3b8d3667e9568d4eeaa5eb29df316b05b33e94 b6b2b70ccb51d459aa17cf59e962f77b0c1f3fdb40b874dc0a4ef3e9d0c5f560
+005 41c24cfacc10a1916efdc07fc511b2e761aa0954e749570a647ac9beade385ff ebe6d64781a59427278f18abd92b0cee4c4345eeae365de7b01f74497deb789a
+
+...
+
+148 517a572314f132af1514515119b53931cbd8c40b42c15c24525f0a8783005977 08d08b9abb7279cb11dad4e23ebb41de372c33929139028b7187f9fa508f1384
+149 fe3390a3bcc6cd9fc352a9b071e907d8187daf1544f5c9869ee2341b93eaee5f 31b3afd221fbb01f729ded1be4af69e4d0486c3b0f3ec9151a50c852c71e624c
+150 9ca51be1e824179bee4d5e821fbbd5ab45ea73b6cd7b4d6ffd4e7da89925d965 2330bb0c369daef8ed6a68c8c25eae6a5ce8e11afd7ee9b5146896d4acdb110d
+151 8e4a8eb7817ee0987eeb58b294344867504e6e6feffaa17d2b4e3883219ef4f1 c4ece21913a43e9943c988a4e9ca4e863c20fc3c9b3e3413c0eb504673b8c14b
+
+No collisions found...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;No collisions found!!! The bitwise &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mtext&gt;XOR&lt;/mtext&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\text{XOR}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord text&quot;&gt;&lt;span class=&quot;mord&quot;&gt;XOR&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; operation is not a secure hash function, yet it does seem secure enough to characterize the first &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;151&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;151&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.64444em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; Pokémons based on their sprites from Pokémon RGB version. It is important to mention here that the sprite used as input were encoded as PNG images, thus compressed. Another limitation was that they were not &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;2&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.64444em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;-byte pixels (as should be in case of GameBoy graphics). Those sprites are SGB colored. They contain a lot more information than regular GameBoy sprites used. Below I provide a little visualization of first nine Pokémons with their sprites and hash value QR codes. The regular GameBoy sprites would look similar to the Mario figure from &lt;a href=&quot;/2020/06/09/simulating-superdense-coding/&quot;&gt;Simulating Superdense Coding&lt;/a&gt; article.&lt;/p&gt;
+
+&lt;figure&gt;
+   &lt;a href=&quot;#&quot;&gt;
+     &lt;div class=&quot;fig-container&quot;&gt;
+     &lt;img src=&quot;/assets/figures/png/hash/hash_pokemon.png&quot; class=&quot;figure pixelated&quot; alt=&quot;&quot; style=&quot;min-width: 100%&quot; /&gt;
+      &lt;/div&gt;
+   &lt;/a&gt;
+   &lt;div class=&quot;caption&quot;&gt;&lt;/div&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;That was my internal dillema regarding aesthetics. There is a chance regular &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;2&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.64444em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;-bit GameBoy pixels would provide a bitwise &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mtext&gt;XOR&lt;/mtext&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\text{XOR}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord text&quot;&gt;&lt;span class=&quot;mord&quot;&gt;XOR&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; collision among first &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;151&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;151&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.64444em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; Pokémons, but I just cannot look at those sprites without SGB coloring, I spent too many hours playing this game as a child to bear looking at regular sprites…&lt;/p&gt;
+
+&lt;p&gt;We failed to find bitwise &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mtext&gt;XOR&lt;/mtext&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\text{XOR}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord text&quot;&gt;&lt;span class=&quot;mord&quot;&gt;XOR&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; collision in the Pokémons sprites. I decided to try one more thing. Back in Poland we have this book-length poem called &lt;a href=&quot;https://en.wikipedia.org/wiki/Pan_Tadeusz&quot;&gt;Pan Tadeusz&lt;/a&gt;. I did not read it… (even given that it was mandatory to read it at school, it was just too not-interesting) however I finally found a use-case for it! It is a pretty long poem, &lt;a href=&quot;https://wolnelektury.pl/media/book/txt/pan-tadeusz.txt&quot;&gt;available online&lt;/a&gt; and not protected by any copyright licence so I searched for collisions in its verses. The first and last ten verses provided below.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#    Verse                                                            Bitwise XOR                                                     
+0001 Litwo! Ojczyzno moja! ty jesteś jak zdrowie:                     6c03151c4f5b443d0514131c406e6f206d6f6a6121207479206a65737465c59b
+0002 Ile cię trzeba cenić, ten tylko się dowie,                       264c1649a7f0e4fd4f031b1f4962612063656e69c4872c2074656e2074796c6b
+0003 Kto cię stracił. Dziś piękność twą w całej ozdobie               8eefaba7431db35da55303520202ac47e744002b000daaf9491569c4996b6e6f
+0004 Widzę i opisuję, bo tęsknię po tobie.                            2706440eabfb490c0e6f706973756ac4992c20626f2074c499736b6e69c49920
+0005 Panno święta, co Jasnej bronisz Częstochowy                      2a412d14abb9b6ef180aacf603182c20636f204a61736e656a2062726f6e6973
+0006 I w Ostrej świecisz Bramie! Ty, co gród zamkowy                  694318002801b7c1014a5aa4f61c06121a69737a204272616d6965212054792c
+0007 Nowogródzki ochraniasz z jego wiernym ludem!                     270a05011e1fe3df111e0e04016f636872616e6961737a207a206a65676f2077
+0008 Jak mnie dziecko do zdrowia powróciłaś cudem                     89d20849a8ec08a0bb44191c0106066f20646f207a64726f77696120706f7772
+0009 (Gdy od płaczącej matki, pod Twoją opiekę                        5f280ebda54f0b5019a0e9a5fa7ac48563656a206d61746b692c20706f642054
+0010 Ofiarowany, martwą podniosłem powiekę;                           3f091e081704b3f855792c206d61727477c48520706f646e696f73c582656d20
+
+...
+
+9933 A przy stoliku drewnianym pan włodarz                            c34f141308032073746f6c696b7520647265776e69616e796d2070616e2077c5
+9934 Albo ekonom, lub nawet gospodarz,                                6d6c626f20656b6f6e6f6d2c206c7562206e6177657420676f73706f6461727a
+9935 Nie bronił czytać i sam słuchać raczył,                          2fade20010130c141000000c637a797461c48720692073616d2073c582756368
+9936 I młodszym rzeczy trudniejsze tłumaczył,                         8ca218a8e30c1e0abffb4120727a65637a7920747275646e69656a737a652074
+9937 Chwalił piękności, a błędom wybaczył.                            631f0e030d0abffbe5f247c4996b6e6fc59b63692c20612062c582c499646f6d
+9938 I zazdrościła młodzież wieszczów sławie,                         2a5ab9d20d4401aa47fa1400a0ae61206dc5826f647a6965c5bc20776965737a
+9939 Która tam dotąd brzmi w lasach i w polu,                         6b1de3c452114f18144120646f74c485642062727a6d692077206c6173616368
+9940 I którym droższy niż laur Kapitolu,                              20540418b69f72796d2064726fc5bc737a79206e69c5bc206c617572204b6170
+9941 Wianek rękami wieśniaczki usnuty                                 2310616e656b2072c4996b616d6920776965c59b6e6961637a6b692075736e75
+9942 Z modrych bławatków i zielonej ruty…                             7a52181b1d90f9c5682062c582617761746bc3b3772069207a69656c6f6e656a
+
+No collisions found...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Again, no collisions! I conclude that bitwise &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mtext&gt;XOR&lt;/mtext&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\text{XOR}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord text&quot;&gt;&lt;span class=&quot;mord&quot;&gt;XOR&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; is more secure than I anticipated (but still, please do not use it, you &lt;em&gt;will&lt;/em&gt; find collision in large-enough dataset). I also learned that it is not easy to find collisions even for insecure hash function. How about you? Would you take the challenge and find a bitwise &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mtext&gt;XOR&lt;/mtext&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\text{XOR}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord text&quot;&gt;&lt;span class=&quot;mord&quot;&gt;XOR&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; collision? If you do, please tweet me! The complete source code for this article is provided in &lt;a href=&quot;https://github.com/marekyggdrasil/hashing&quot;&gt;this public github repository&lt;/a&gt;. If you want to read more about hash functions I recommend the &lt;a href=&quot;https://wizardforcel.gitbooks.io/practical-cryptography-for-developers-book/content/cryptographic-hash-functions.html&quot;&gt;Practical Cryptography for Developers book&lt;/a&gt;. That would be all for this article… But expect the hash function to appear on this blog very often from now on and point back to this text.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 29 Dec 2020 00:00:00 +0800</pubDate>
+        <link>https://mareknarozniak.com/2020/12/29/hash/</link>
+        <guid isPermaLink="true">https://mareknarozniak.com/2020/12/29/hash/</guid>
+        
+        <category>Tutorial</category>
+        
+        <category>Python</category>
+        
+        <category>Cryptography</category>
+        
+        
+      </item>
     
       <item>
         <title>Elliptic Curve Cryptography and Diffie-Hellman Key Exchange</title>
@@ -2288,115 +2404,6 @@ lst, min = solveAll([], 0, 9999, list(V), G)
         <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
         <link>https://mareknarozniak.com/2020/04/09/chinom-zalezy-na-twoim-zdaniu-w-kwestii-konsumpcji-psow/</link>
         <guid isPermaLink="true">https://mareknarozniak.com/2020/04/09/chinom-zalezy-na-twoim-zdaniu-w-kwestii-konsumpcji-psow/</guid>
-        
-        <category>Activism</category>
-        
-        <category>China</category>
-        
-        <category>Personal</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>La Chine souhaite avoir votre avis sur la cynophagie (la consommation de viande de chien)</title>
-        <description>&lt;p&gt;Existe-t-il un moyen d’interdire enfin la consommation de viande de chien en Chine?&lt;/p&gt;
-
-&lt;p&gt;Cela fait à peu près trois ans que je vis en Chine, une estimation approximative si nous résumons tous mes séjours plus courts.&lt;/p&gt;
-
-&lt;p&gt;Je connais bien les pratiques cruelles d’abattage de chiens en Chine continentale, même si personnellement je n’ai pas été témoin de cette pratique.&lt;/p&gt;
-
-&lt;p&gt;Je suis impliqué dans le sauvetage d’animaux et mon réseau de médecins vétérinaires est limité à Shanghai, la ville où je suis basé.  J’évite de voyager à travers la Chine car je ne veux pas risquer de rencontrer un chien ou un chat blessé en détresse sans pouvoir apporter de l’aide.&lt;/p&gt;
-
-&lt;p&gt;Un débat ouvert a été lancé en Chine concernant l’interdiction de la consommation de la viande canine. Il y a un fort point logique et éthique dans cet argument, mais ce à quoi je m’oppose principalement n’est pas la consommation de viande de chien elle-même, mais la façon extrêmement cruelle dont elle est organisée.&lt;/p&gt;
-
-&lt;p&gt;L’objectif de mon appel n’est pas d’exposer des détails gores de la cynophagie, on est tous plus ou moins conscient à ce sujet, mais google est votre ami si cela vous intéresse. Cet article a la vocation d’être bref mais axé sur les solutions par rapport au problème de cynophagie.&lt;/p&gt;
-
-&lt;p&gt;Aujourd’hui, une annonce a été publiée sur &lt;a href=&quot;http://www.moa.gov.cn/hd/zqyj/202004/t20200408_6341067.htm&quot;&gt;le site officiel du Ministère de l’agriculture et des affaires rurales de la République populaire de Chine&lt;/a&gt;, qui est une demande d’avis sur la question de la consommation animale.&lt;/p&gt;
-
-&lt;p&gt;Conformément au règlement concernant l’interdiction du commerce illégal d’espèces sauvages, l’élimination de la maltraitance des animaux sauvages et la sauvegarde de la santé et de la sécurité du peuple, le ministère de l’Agriculture et des Affaires rurales de la République populaire de Chine a publié un projet qui énonce les types d’animaux pouvant être élevés pour la viande, la fourrure ou à des fins médicales.&lt;/p&gt;
-
-&lt;p&gt;Dans le document ci-joint, le point n°5 a attiré mon attention. Il traite de la question canine, soulignant que les chiens doivent être traités comme des compagnons humains et que, à l’échelle internationale, ils ne sont pas élevés comme nourriture - en Chine, ils ne doivent pas non plus être considérés comme de la nourriture.&lt;/p&gt;
-
-&lt;p&gt;Le gouvernement de la République Populaire de Chine demande au public de lui faire part de ses observations à ce sujet et énumère les canaux de communication disponibles, l’un d’eux étant l’adresse électronique zysxzc@agri.gov.cn. Il n’est pas précisé si les opinions de chacun sont les bienvenues, ou seulement des citoyens chinois. Nous pouvons supposer donc que tout le monde, chinois ou pas, peut participer à cette discussion.&lt;/p&gt;
-
-&lt;p&gt;Ci-dessous citation officielle du Ministère de l’agriculture et des affaires rurales de la République populaire de Chine dont j’ai donné des explications dans les paragraphes précédents.&lt;/p&gt;
-
-&lt;figure&gt;
-   &lt;a href=&quot;http://www.moa.gov.cn/hd/zqyj/202004/t20200408_6341067.htm&quot;&gt;
-     &lt;div class=&quot;fig-container&quot;&gt;
-     &lt;img src=&quot;/assets/figures/doge_figure_1.png&quot; class=&quot;figure&quot; alt=&quot;Citation officielle du Ministère de l’agriculture et des affaires rurales de la République populaire de Chine&quot; /&gt;
-      &lt;/div&gt;
-   &lt;/a&gt;
-   &lt;div class=&quot;caption&quot;&gt;Citation officielle du Ministère de l’agriculture et des affaires rurales de la République populaire de Chine&lt;/div&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;C’est une initiative du gouvernement chinois, donc les chances qu’ils prennent en compte votre opinion à ce sujet sont bien plus grandes qu’en cas de signature d’une pétition en ligne régulière.&lt;/p&gt;
-
-&lt;p&gt;Avec de l’aide de mes amis qui sont des locuteurs chinois, j’ai rédigé un court contenu de courrier électronique que vous pouvez utiliser pour contacter l’adresse email indiquée ci-dessus. &lt;a href=&quot;mailto:zysxzc@agri.gov.cn&quot;&gt;zysxzc@agri.gov.cn&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Voici le texte en chinois:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;尊敬的中国农业农村部，&lt;/p&gt;
-
-  &lt;p&gt;您好！我是 VOTRE NOM，感谢您方组织起草了《国家畜禽遗传资源目录（征求意见稿）》并于4月9日面向社会公开征求意见。我在仔细阅读了您方提议的基础上，现郑重提供我的反馈：&lt;/p&gt;
-
-  &lt;p&gt;我非常支持中国全面禁止非法野生动物交易、革除滥食野生动物陋习。特别的，关于征求意见稿中的“（五）关于狗。随着人类文明进步和公众对动物保护的关注及偏爱，狗已从传统家畜“特化”为伴侣动物，国际上普遍不作为畜禽，我国不宜列入畜禽管理。”，我支持此项决定，并呼吁广大群众能加强对猫狗的保护与关注，希望中国不将其列入畜禽管理，希望有法律措施防止偷盗、贩卖以及恶意捕杀、食用等行为。&lt;/p&gt;
-
-  &lt;p&gt;特此邮件，提供我的反馈。感谢您方的采纳。&lt;/p&gt;
-
-  &lt;p&gt;此致&lt;/p&gt;
-
-  &lt;p&gt;敬礼&lt;/p&gt;
-
-  &lt;p&gt;VOTRE NOM&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;La traduction du contenu de l’email ci-dessus:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Cher Ministère de l’Agriculture et des Affaires Rurales,&lt;/p&gt;
-
-  &lt;p&gt;Bonjour Je m’appelle VOTRE NOM. Merci d’avoir organisé la rédaction du répertoire national des ressources zoogénétiques (ébauche pour commentaires) et des commentaires du public le 9 avril. Après avoir lu attentivement votre proposition, je donne maintenant solennellement mes commentaires:&lt;/p&gt;
-
-  &lt;p&gt;Je soutiens fermement l’interdiction complète par la Chine du commerce illégal d’espèces sauvages et l’élimination de l’abus des animaux sauvages. En particulier, concernant le point (5) sur les chiens dans le projet de consultation. Avec les progrès de la civilisation humaine et la préoccupation et la préférence du public pour la protection des animaux, les chiens sont devenus des “animaux de compagnie”.
-Je soutiens cette décision et appelle le grand public à renforcer la protection et l’attention des chats et des chiens. J’espère que la Chine ne les inclura pas dans la gestion du bétail et de la volaille, trafic, chasse malveillante, etc.&lt;/p&gt;
-
-  &lt;p&gt;Par courrier électronique, fournissez mes commentaires. Merci pour votre adoption.&lt;/p&gt;
-
-  &lt;p&gt;Cordialement.&lt;/p&gt;
-
-  &lt;p&gt;VOTRE NOM&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Comment pouvez-vous aider?&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Copiez le contenu de la lettre d’appréciation, signez-la avec votre nom en remplaçant les étiquettes de nom par votre nom réel.
-Prenez &lt;code class=&quot;highlighter-rouge&quot;&gt;农业 农村 部 关于 《国家 畜禽 遗传 资源 目录》 公开 征求 意见 反馈&lt;/code&gt;. comme objet de l’e-mail.&lt;/li&gt;
-  &lt;li&gt;Envoyez-le à &lt;a href=&quot;mailto:zysxzc@agri.gov.cn&quot;&gt;zysxzc@agri.gov.cn&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Aidez à diffuser le message!&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;La date limite pour soumettre vos commentaires à l’e-mail ci-dessus est le 8 mai 2020.
-Votre email avec l’objet de l’email et le message il devrait ressembler à ceci (c’est la capture de mon écran avec mon email prêt à être envoyé)&lt;/p&gt;
-
-&lt;p&gt;Les flèches rouges indiquent l’adresse email du gouvernement chinois, l’objet de l’email, ainsi que mon nom et prénom. Vous devez faire pareil, sauf que vous devez mettre VOTRE &lt;code class=&quot;highlighter-rouge&quot;&gt;NOM&lt;/code&gt; et &lt;code class=&quot;highlighter-rouge&quot;&gt;PRÉNOM&lt;/code&gt; à la place du mien. Voilà tout.&lt;/p&gt;
-
-&lt;figure&gt;
-   &lt;a href=&quot;#&quot;&gt;
-     &lt;div class=&quot;fig-container&quot;&gt;
-     &lt;img src=&quot;/assets/figures/dog_meat_ban_appreciation_email_arrows.png&quot; class=&quot;figure&quot; alt=&quot;Screenshot of the e-mail draft ready to send.&quot; /&gt;
-      &lt;/div&gt;
-   &lt;/a&gt;
-   &lt;div class=&quot;caption&quot;&gt;&lt;/div&gt;
-&lt;/figure&gt;
-
-</description>
-        <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
-        <link>https://mareknarozniak.com/2020/04/09/la-chine-souhaite-avoir-votre-avis-sur-la-cynophagie/</link>
-        <guid isPermaLink="true">https://mareknarozniak.com/2020/04/09/la-chine-souhaite-avoir-votre-avis-sur-la-cynophagie/</guid>
         
         <category>Activism</category>
         
