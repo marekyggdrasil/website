@@ -279,7 +279,7 @@ The solution proposed here is not very MW related. The disadvantage of that is l
 
 The requirement of operating on layer 1 has not been addressed in this article due to my lack of appropriate definition what this exactly means. Further discussion is essential to address that.
 
-This proposal is not very strict. Certainly more theoretical and practical details are required, as well as the solid peer review process. For that purpose I open a [thread in the grin Forum](http://link.com). Please feel free to provide your feedback there. I will gladly discuss this idea and adjust this article accordingly.
+This proposal is not very strict. Certainly more theoretical and practical details are required, as well as the solid peer review process. For that purpose I open a [thread in the grin Forum](https://forum.grin.mw/t/a-trustless-aggregator-based-on-scalable-bft-protocol/8311). Please feel free to provide your feedback there. I will gladly discuss this idea and adjust this article accordingly.
 
 ## References
 [↑ Top](#contents)
