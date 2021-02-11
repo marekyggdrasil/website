@@ -31,6 +31,14 @@ layout: default
 		{% bibliography --file proceedings %}
 	</section>
 	<section>
+		<h1 class="smallcap"><a class="site-title" href="/">Mentions</a></h1>
+		<ul class="post-list">
+			{% for mention in site.data.mentions %}
+				{% include mention-list-entry.html %}
+			{% endfor %}
+		</ul>
+	</section>
+	<section>
 		<h1 class="smallcap"><a class="site-title" href="/">Online articles and tutorials</a></h1>
 		<ul class="post-list">
 			{% for post in site.posts %}
