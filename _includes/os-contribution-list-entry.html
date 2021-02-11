@@ -1,0 +1,4 @@
+<li>
+  <time class="post-time" datetime="{{ contribution.date | date_to_xmlschema }}">{{ contribution.date | date: "%b %d, %Y" }}</time><div class="title-container">{{ contribution.title }}<i> for <a href="https://github.com/{{contribution.repository}}">{{contribution.repository}}</a></i>{% if contribution.suggestion %} <a href="{{ contribution.suggestion.url }}"> 💡{{ contribution.suggestion.type }} #{{ contribution.suggestion.nb }}</a>{% endif %} <a href="{{ contribution.pr.url }}"> ✅pull request #{{ contribution.pr.nb }}</a>
+  </div>
+</li>

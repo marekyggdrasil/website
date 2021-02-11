@@ -1,0 +1,36 @@
+- date: 2021-02-10
+  title: Text on a path SVG element
+  repository: cduck/drawSvg
+  suggestion:
+    url: https://github.com/cduck/drawSvg/issues/21
+    nb: 21
+    type: issue
+  pr:
+    url: https://github.com/cduck/drawSvg/pull/22
+    nb: 22
+- date: 2020-12-31
+  title: Implemented including the last inserted row id if available
+  repository: aosingh/sqlite_rx
+  pr:
+    url: https://github.com/aosingh/sqlite_rx/pull/5
+    nb: 5
+- date: 2019-11-28
+  title: Patch to avoid division by zero and fixed Travis tests
+  repository: scrapy/scrapely
+  pr:
+    url: https://github.com/scrapy/scrapely/pull/119
+    nb: 119
+  suggestion:
+    url: https://github.com/scrapy/scrapely/issues/49#issuecomment-189951172
+    nb: 49
+    type: comment under issue
+- date: 2019-03-19
+  title: Possibility of choosing a  seed for random quantum objects generation
+  repository: qutip/qutip
+  pr:
+    url: https://github.com/qutip/qutip/pull/917
+    nb: 917
+  suggestion:
+    url: https://github.com/qutip/qutip/issues/856#issuecomment-426192168
+    nb: 856
+    type: issue

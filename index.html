@@ -48,4 +48,12 @@ layout: default
 			{% endfor %}
 		</ul>
 	</section>
+	<section>
+		<h1 class="smallcap"><a class="site-title" href="/">Open-Source Contributions</a></h1>
+		<ul class="post-list">
+			{% for contribution in site.data.contributions %}
+				{% include os-contribution-list-entry.html %}
+			{% endfor %}
+		</ul>
+	</section>
 </div>
