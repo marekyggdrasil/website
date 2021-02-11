@@ -199,7 +199,7 @@ Until here, basic theory required to build scalable BFT computing clusters has b
 
 Earlier an idea for protecting the cluster from the Sybil attacks by introducing refundable deposits has been proposed in the [Deposits](#deposits) section. It operates by introducing a temporary cost to join the cluster. The overall number of nodes has also been expanded by an order of magnitude by introducing the candidates pool in the [Candidates pool](#candidates-pool) section. The paper {% cite Jalalzai2019 --file references %} does discuss security of scalable BFT cluster, here a further will be provided to take into account the modifications mentioned above.
 
-The process of random nodes joining the cluster from one pool into another can be probabilistically represented using the [urn problem](https://en.wikipedia.org/wiki/Urn_problem). For instance, let $$E^{(1)}_{abcd}$$ be an event of drawing $$a$$ red and $$b$$ white balls from an urn containing $c$ red balls and $d$ white balls. So the total number of balls drawn from the urn is $$a+b$$ and total number of balls in the urn is $$c+d$$. The probability of $$E^{(1)}_{abcd}$$ is given by the hypergeometric distribution
+The process of random nodes joining the cluster from one pool into another can be probabilistically represented using the [urn problem](https://en.wikipedia.org/wiki/Urn_problem). For instance, let $$E^{(1)}_{abcd}$$ be an event of drawing $$a$$ red and $$b$$ white balls from an urn containing $$c$$ red balls and $$d$$ white balls. So the total number of balls drawn from the urn is $$a+b$$ and total number of balls in the urn is $$c+d$$. The probability of $$E^{(1)}_{abcd}$$ is given by the hypergeometric distribution
 
 $$
 \begin{aligned}
