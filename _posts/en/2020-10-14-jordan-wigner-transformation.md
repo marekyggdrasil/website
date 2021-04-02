@@ -89,7 +89,15 @@ Also, as usual, product, sum and power operators that act on generic `Object`-ty
 
 ```python
 def osum(lst): return np.sum(np.array(lst, dtype=object))
-def oprd(lst): return np.prod(np.array(lst, dtype=object))
+
+def oprd(lst, d=None):
+    if len(lst) == 0:
+        return d
+    p = lst[0]
+    for U in lst[1:]:
+        p = p*U
+    return p
+
 def opow(op, N): return oprd([op for i in range(N)])
 ```
 
@@ -97,16 +105,16 @@ Using these we can defined Jordan-Wigner operators.
 
 ```python
 def a_(N, n, Opers=None):
-  Sa, Sb, Sc = Sx, Sy, Sz
-  if Opers is not None:
-    Sa, Sb, Sc = Opers
-  return oprd([Sa(N, j) for j in range(n)])*(Sb + 1j*Sc)/2.
+    Sa, Sb, Sc = Sz, Sx, Sy
+    if Opers is not None:
+        Sa, Sb, Sc = Opers
+    return oprd([Sa(N, j) for j in range(n)], d=I(N))*(Sb(N, n) + 1j*Sc(N, n))/2.
 
-def ad(L, n, Opers=None):
-  Sa, Sb, Sc = Sx, Sy, Sz
-  if Opers is not None:
-    Sa, Sb, Sc = Opers
-  return oprd([Sa(N, j) for j in range(n)])*(Sb - 1j*Sc)/2.
+def ad(N, n, Opers=None):
+    Sa, Sb, Sc = Sz, Sx, Sy
+    if Opers is not None:
+        Sa, Sb, Sc = Opers
+    return oprd([Sa(N, j) for j in range(n)], d=I(N))*(Sb(N, n) - 1j*Sc(N, n))/2.
 ```
 
 We could have just use `a_.dag()` for the definition of `ad` as they only differ by a sign but I find it beneficial to sometimes follow the definitions strictly even if they differ only by a sign. Benefit of that is it helps to correlate things for those who read this article and see those things for the first time. We also need identity operator, but not just any identity... We need identity that matches the QuTip's quantum object type of Hilbert space of $$N$$ $$2$$-level particles.
