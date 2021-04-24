@@ -5,32 +5,117 @@
     <description></description>
     <link>https://mareknarozniak.com/</link>
     <atom:link href="https://mareknarozniak.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 24 Apr 2021 13:52:14 +0800</pubDate>
-    <lastBuildDate>Sat, 24 Apr 2021 13:52:14 +0800</lastBuildDate>
+    <pubDate>Sat, 24 Apr 2021 15:53:07 +0800</pubDate>
+    <lastBuildDate>Sat, 24 Apr 2021 15:53:07 +0800</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
         <title>Symmetric Ciphers</title>
-        <description>
-&lt;p&gt;https://github.com/openthread/openthread/issues/1137#issuecomment-401999528&lt;/p&gt;
+        <description>&lt;p&gt;Cryptography is about writing secrets. From Ancient Greek κρυπτός (kryptós) means ‘hidden’ or ‘secret’, then γράφειν (graphein) means ‘to write’. Some of the related subjects such as &lt;a href=&quot;/2020/11/30/ecdh/&quot;&gt;Diffie-Hellman key exchange over eliptic curve&lt;/a&gt;, &lt;a href=&quot;/2020/12/29/hash/&quot;&gt;hashing functions&lt;/a&gt; and &lt;a href=&quot;/2021/03/16/ecdsa/&quot;&gt;eliptic curve digital signature algorithm&lt;/a&gt; have already been covered on this blog. However, we haven’t yet explicitly written a secret message in protected way which was making this &lt;a href=&quot;/tagged/#cryptography&quot;&gt;cryptography&lt;/a&gt; tutorial series less intuitive.&lt;/p&gt;
 
-&lt;p&gt;https://en.wikipedia.org/wiki/Symmetric-key_algorithm&lt;/p&gt;
+&lt;p&gt;This gives us an excellent opportunity to introduce symmetric ciphers, which are the kind of ciphers that use same key for encryption and decryption. You can think of it in a way that there is no concept of public key, there is only private key. The message to be encrypted is called &lt;code class=&quot;highlighter-rouge&quot;&gt;plaintext&lt;/code&gt;, private key that encrypts it is called &lt;code class=&quot;highlighter-rouge&quot;&gt;cipher&lt;/code&gt; and once encrypted we call it &lt;code class=&quot;highlighter-rouge&quot;&gt;ciphertext&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;advanced-encryption-standard&lt;/p&gt;
+&lt;p&gt;Simplest example I know is rotation cipher, such as &lt;code class=&quot;highlighter-rouge&quot;&gt;ROT13&lt;/code&gt; which is insecure and used mainly to hide spoilers on online boards. It consists of rotating the charset of domain size &lt;code class=&quot;highlighter-rouge&quot;&gt;26&lt;/code&gt; by &lt;code class=&quot;highlighter-rouge&quot;&gt;13&lt;/code&gt;, which makes it an &lt;a href=&quot;https://en.wikipedia.org/wiki/Involution_(mathematics)&quot;&gt;involutory function&lt;/a&gt; as &lt;code class=&quot;highlighter-rouge&quot;&gt;ROT13(ROT13(X))=x&lt;/code&gt;. That’s how I chosen my robot name, &lt;code class=&quot;highlighter-rouge&quot;&gt;ROT13(Marek)=Znerx&lt;/code&gt; is my robot name! You can check &lt;a href=&quot;https://rot13.com/&quot;&gt;here&lt;/a&gt; the meaning of following spoiler: &lt;code class=&quot;highlighter-rouge&quot;&gt;Inqre vf Yhxr'f sngure!&lt;/code&gt;. In case of &lt;code class=&quot;highlighter-rouge&quot;&gt;ROT13&lt;/code&gt; the private key is the number &lt;code class=&quot;highlighter-rouge&quot;&gt;13&lt;/code&gt;. The entire alphabet can be rotated by &lt;code class=&quot;highlighter-rouge&quot;&gt;rot&lt;/code&gt; using a following function&lt;/p&gt;
 
-&lt;p&gt;https://brilliant.org/wiki/symmetric-ciphers/#simple-symmetric-ciphers&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;rotate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alphabet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alphabet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alphabet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://medium.com/quick-code/aes-implementation-in-python-a82f582f51c2&quot;&gt;tutorial article&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;ROT13&lt;/code&gt; cipher is a particular case of &lt;a href=&quot;https://en.wikipedia.org/wiki/Caesar_cipher&quot;&gt;Caesar’s cipher&lt;/a&gt; with private key, or shift value, fixed to &lt;code class=&quot;highlighter-rouge&quot;&gt;13&lt;/code&gt;. It does not make it much more secure as one might perform a frequency analysis of symbols and after a fair amount of trials guess the rotation number. We can make it slightly less insecure by introducing a key-word which is a specific word with unique letters that introduces a slight re-ordering in the charset. The key-word becomes the first letters of the charset and those letters are removed later on.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://gist.github.com/PaburoTC/74f96510479d5129100b994d1c06885a#file-aescipher-py&quot;&gt;gist repository&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;applyCipher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alphabet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cipher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;unique&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fromkeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cipher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;applied&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alphabet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unique&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;applied&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;applied&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;applied&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unique&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;applied&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;applied&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;https://www.researchgate.net/publication/303393583_AES_algorithm_implementation_for_a_simple_low_cost_portable_8-bit_microcontroller&lt;/p&gt;
+&lt;p&gt;Encryption function would then work as follows, it would rotate the key-worded alphabet and replace characters in the ciphertext by their rotated counterparts&lt;/p&gt;
 
-&lt;p&gt;https://www.youtube.com/watch?v=gP4PqVGudtg&amp;amp;t=194s&amp;amp;ab_channel=AppliedGo&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;encrypt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plaintext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alphabet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cipher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lookup&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rotate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applyCipher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alphabet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cipher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ciphertext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plaintext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alphabet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lookup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ciphertext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ciphertext&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;and decryption is same opration in reverse&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;decrypt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ciphertext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alphabet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cipher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lookup&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rotate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applyCipher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alphabet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cipher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;plaintext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ciphertext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lookup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alphabet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;plaintext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plaintext&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I prepared two plaintexts and computed their ciphertexts for you as an example. But I only give you the first plaintext, its key-word is &lt;code class=&quot;highlighter-rouge&quot;&gt;disappear&lt;/code&gt; and alphabet gets rotated by &lt;code class=&quot;highlighter-rouge&quot;&gt;7&lt;/code&gt; characters. Do you recognize the song?&lt;/p&gt;
+
+&lt;figure&gt;
+   &lt;a href=&quot;#&quot;&gt;
+     &lt;div class=&quot;fig-container&quot;&gt;
+     &lt;img src=&quot;/assets/figures/png/symmetric/plaintext1.png&quot; class=&quot;figure&quot; alt=&quot;modified pokétext charset&quot; style=&quot;min-width: 60%&quot; /&gt;
+      &lt;/div&gt;
+   &lt;/a&gt;
+   &lt;div class=&quot;caption&quot;&gt;&lt;/div&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;As for the second plaintext, I will keep it secret, but I give you the ciphertext and cipher is not strong so maybe if you have time and energy you could break it. The only hint I’ll give you is that is also a song!&lt;/p&gt;
+
+&lt;p&gt;If you are familiar with this blog you know I am in love with old 8-bit Pokémon aesthetics and I use them a lot in my tutorials. Started with figures in the &lt;a href=&quot;/2020/04/22/vertex-cover-independent-set-game-level-design/&quot;&gt;vertex cover and independent set tutorial&lt;/a&gt;, &lt;a href=&quot;/2020/05/22/quantum-adiabatic-optimization/&quot;&gt;quantum adiabatic optimization&lt;/a&gt; and &lt;a href=&quot;/2020/06/22/constraint-programming/&quot;&gt;constraint programming&lt;/a&gt;. I also use pokétext to write &lt;a href=&quot;https://www.instagram.com/lowfiboy/&quot;&gt;instagram blog&lt;/a&gt;. I decided it is about time to use pokétext to create a charset that can cover all single byte values and have my own raw bytes rendering module. I added math symbols and removed some graphics like borders, just to make it more usable for my purpose. So here it is&lt;/p&gt;
+
+&lt;figure&gt;
+   &lt;a href=&quot;#&quot;&gt;
+     &lt;div class=&quot;fig-container&quot;&gt;
+     &lt;img src=&quot;/assets/figures/png/symmetric/charset.png&quot; class=&quot;figure&quot; alt=&quot;modified pokétext charset&quot; style=&quot;min-width: 60%&quot; /&gt;
+      &lt;/div&gt;
+   &lt;/a&gt;
+   &lt;div class=&quot;caption&quot;&gt;&lt;/div&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Now we can render raw byte strings in pokétext so it is time to try some more serious ciphers. My goal is to present to you the &lt;code class=&quot;highlighter-rouge&quot;&gt;Rijndael&lt;/code&gt;, also known as &lt;code class=&quot;highlighter-rouge&quot;&gt;Advanced Encryption Standards&lt;/code&gt; or simply &lt;code class=&quot;highlighter-rouge&quot;&gt;AES&lt;/code&gt; since it has been announced as standard by NIST.&lt;/p&gt;
+
+&lt;p&gt;This is going to be a very top-down intro to AES because I did not implement it. For &lt;a href=&quot;/2020/11/30/ecdh/&quot;&gt;Diffie-Hellman key exchange over eliptic curve&lt;/a&gt; and &lt;a href=&quot;/2021/03/16/ecdsa/&quot;&gt;eliptic curve digital signature algorithm&lt;/a&gt; we implemented those methods from scratch for purely educational purposes and I heard comments from some readers it is nice to see but also an overkill. So this time instead of visualizing steps of AES I will leave you with a &lt;a href=&quot;https://en.wikipedia.org/wiki/Advanced_Encryption_Standard#High-level_description_of_the_algorithm&quot;&gt;reference&lt;/a&gt; and &lt;a href=&quot;https://www.youtube.com/watch?v=gP4PqVGudtg&quot;&gt;animation&lt;/a&gt; and instead of explaining it step by step I will show you something cool you can do with it.&lt;/p&gt;
+
+&lt;p&gt;The feature I find the most amazing is called hidden volumes. It makes is possible to concatenate ciphertexts one with another and hide encrypted data somewhere in the middle or at the end of the data block. This is effective because the plaintext is supposed to be padded with random data and ciphertext is indistinguishable from the random data. Let me show you what I mean. Below you can see a ciphertext I prepared.&lt;/p&gt;
+
+&lt;figure&gt;
+   &lt;a href=&quot;#&quot;&gt;
+     &lt;div class=&quot;fig-container&quot;&gt;
+     &lt;img src=&quot;/assets/figures/png/symmetric/ciphertext3.png&quot; class=&quot;figure&quot; alt=&quot;modified pokétext charset&quot; style=&quot;min-width: 100%&quot; /&gt;
+      &lt;/div&gt;
+   &lt;/a&gt;
+   &lt;div class=&quot;caption&quot;&gt;&lt;/div&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The leftmost text is the ciphertext. You can’t tell where encrypted data is. In the middle you can see decrypted plaintext from this ciphertext after applying &lt;code class=&quot;highlighter-rouge&quot;&gt;stakhanov&lt;/code&gt; cipher padded to &lt;code class=&quot;highlighter-rouge&quot;&gt;16&lt;/code&gt; bits length and specific initial vector &lt;code class=&quot;highlighter-rouge&quot;&gt;6248a0359582697f1ad391525bebcfb0&lt;/code&gt; (hexadecimal). It provides a decrypted message at the beginning. However, if instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;stakhanov&lt;/code&gt; we use &lt;code class=&quot;highlighter-rouge&quot;&gt;d0om3rplyl1st&lt;/code&gt; cipher and different specific initial vector &lt;code class=&quot;highlighter-rouge&quot;&gt;8cc95298fdb22717f9710091ab74b1f5&lt;/code&gt; from &lt;em&gt;the same ciphertext&lt;/em&gt; we get a completely different message! This time at the end!&lt;/p&gt;
+
+&lt;p&gt;This has huge implications! You can carry around encrypted data with hidden volumes inside of it and if someone accuses you of having illegal secrets you can always provide a different ciphertext, one that decrypts the data you want them to see. You are in control. They can see only what you allow them to see.&lt;/p&gt;
+
+&lt;p&gt;I must say, there is one more hidden volume inside of the ciphertext, but I do not encourage you to break it. It is &lt;code class=&quot;highlighter-rouge&quot;&gt;AES128&lt;/code&gt; with &lt;a href=&quot;https://pycryptodome.readthedocs.io/en/latest/src/cipher/classic.html#cbc-mode&quot;&gt;CBC mode&lt;/a&gt;, pointless to even try. I used &lt;a href=&quot;https://pycryptodome.readthedocs.io/en/latest/src/cipher/aes.html&quot;&gt;pycryptodome&lt;/a&gt; implementation. All the examples are included in the &lt;a href=&quot;https://gist.github.com/marekyggdrasil/c92fbd293a350da4412d9865e83f7a89&quot;&gt;gist repository&lt;/a&gt; however for &lt;code class=&quot;highlighter-rouge&quot;&gt;AES128&lt;/code&gt; the decrypted output will be raw bytes as I have not yet decided if I want to make my pokétext renderer public or not.&lt;/p&gt;
+
+&lt;p&gt;How could that be used in practice? If you ever used &lt;a href=&quot;https://github.com/mimblewimble/grin-wallet&quot;&gt;grin-wallet&lt;/a&gt; for &lt;a href=&quot;https://grin.mw/&quot;&gt;Grin cryptocurrency&lt;/a&gt; it has a function called &lt;a href=&quot;https://docs.rs/grin_wallet_api/5.0.1/grin_wallet_api/trait.OwnerRpc.html#tymethod.init_secure_api&quot;&gt;init_secure_api&lt;/a&gt;. What it does it, first it runs a &lt;a href=&quot;/2020/11/30/ecdh/&quot;&gt;Diffie-Hellman key exchange over eliptic curve&lt;/a&gt; to establish a shared secret, then this shared secret is used as symmetric cipher between the two parties to encrypt the communication between the user and the wallet. This allows to use the wallet API in secure way even in insecure setup (such as lack of https protection).&lt;/p&gt;
+
+&lt;p&gt;Ciphers help us protect secrets. Hidden volumes help us protect the very existence of the secret. If you have some secrets to protect on your computer, do not handmade ciphers with Python, I recommend software like &lt;a href=&quot;https://www.veracrypt.fr/en/Home.html&quot;&gt;VeraCrypt&lt;/a&gt; to handle that for you.&lt;/p&gt;
+
+&lt;p&gt;It wouldn’t be my article if I didn’t make a cartoon-related anegdote, so here it comes. If &lt;a href=&quot;https://en.wikipedia.org/wiki/Sorceress_of_Castle_Grayskull&quot;&gt;the Sorceress&lt;/a&gt; knew about &lt;code class=&quot;highlighter-rouge&quot;&gt;AES128&lt;/code&gt; maybe she would not need &lt;a href=&quot;https://en.wikipedia.org/wiki/He-Man&quot;&gt;He-Man&lt;/a&gt; to protect the secrets of Castle Grayskull from the Evil Forces of &lt;a href=&quot;https://en.wikipedia.org/wiki/Skeletor&quot;&gt;Skeletor&lt;/a&gt;. That would make the cartoon far less fun to watch. As usual, hope you enjoyed this short tutorial with few basic examples and feel free to tweet me if you find errors!&lt;/p&gt;
 </description>
         <pubDate>Thu, 22 Apr 2021 00:00:00 +0800</pubDate>
-        <link>https://mareknarozniak.com/2021/04/22/symmetric-ciphers/</link>
-        <guid isPermaLink="true">https://mareknarozniak.com/2021/04/22/symmetric-ciphers/</guid>
+        <link>https://mareknarozniak.com/2021/04/22/symmetric/</link>
+        <guid isPermaLink="true">https://mareknarozniak.com/2021/04/22/symmetric/</guid>
+        
+        <category>Tutorial</category>
+        
+        <category>Python</category>
+        
+        <category>Cryptography</category>
         
         
       </item>

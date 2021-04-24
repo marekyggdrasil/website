@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="/assets/favicons/android-chrome-192x192.png" sizes=192x192>
+  <link rel="icon" type="image/png" href="/assets/favicons/android-chrome-512x512.png" sizes=512x512>
+  <link rel="apple-touch-icon" type="image/png" href="/assets/favicons/apple-touch-icon.png" sizes=x>
+  <link rel="icon" type="image/png" href="/assets/favicons/favicon-16x16.png" sizes=16x16>
+  <link rel="icon" type="image/png" href="/assets/favicons/favicon-32x32.png" sizes=32x32>
+  <link rel="icon" type="image/x-icon" href="/assets/favicons/favicon.ico">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Symmetric Ciphers - Marek Narozniak's Homepage</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="https://mareknarozniak.com/2021/04/22/symmetric/">
+  <link rel="alternate" type="application/rss+xml" title="Marek Narozniak's Homepage" href="https://mareknarozniak.com/feed.xml">
+  
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Symmetric Ciphers | Marek Narozniak’s Homepage</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Symmetric Ciphers" />
+<meta name="author" content="Marek Narozniak" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Few words about how to be the one in control of your own secrets." />
+<meta property="og:description" content="Few words about how to be the one in control of your own secrets." />
+<link rel="canonical" href="https://mareknarozniak.com/2021/04/22/symmetric/" />
+<meta property="og:url" content="https://mareknarozniak.com/2021/04/22/symmetric/" />
+<meta property="og:site_name" content="Marek Narozniak’s Homepage" />
+<meta property="og:image" content="https://mareknarozniak.com/assets/figures/png/symmetric/ciphertext3.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-04-22T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:image" content="https://mareknarozniak.com/assets/figures/png/symmetric/ciphertext3.png" />
+<meta property="twitter:title" content="Symmetric Ciphers" />
+<meta name="twitter:site" content="@MarekNarozniak" />
+<meta name="twitter:creator" content="@MarekNarozniak" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://mareknarozniak.com/2021/04/22/symmetric/"},"image":"https://mareknarozniak.com/assets/figures/png/symmetric/ciphertext3.png","url":"https://mareknarozniak.com/2021/04/22/symmetric/","author":{"@type":"Person","name":"Marek Narozniak"},"headline":"Symmetric Ciphers","description":"Few words about how to be the one in control of your own secrets.","datePublished":"2021-04-22T00:00:00+08:00","dateModified":"2021-04-22T00:00:00+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  
+</head>
+
+  <body>
+    <div class="page-content">
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <span class="back">&larr; <a href="/">Index</a></span>
+    <h1 class="post-title" itemprop="name headline">Symmetric Ciphers</h1>
+    <p class="post-meta">
+      <time datetime="2021-04-22T00:00:00+08:00" itemprop="datePublished">Apr 22, 2021</time>
+      
+
+
+      
+       • tags:
+      
+      
+      <span class="tags" itemprop="tags">
+          
+          
+          <a href="https://mareknarozniak.com/tagged#tutorial">#Tutorial</a>
+        <a href="https://mareknarozniak.com/tagged#python">#Python</a>
+        <a href="https://mareknarozniak.com/tagged#cryptography">#Cryptography</a>
+        </span>
+      
+    
+    
+    
+
+
+      
+
+    </p>
+    
+
+<style>
+#share-buttons {display: inline-block; vertical-align: middle; }
+#share-buttons:after {content: ""; display: block; clear: both;}
+#share-buttons > div {
+    position: relative;
+    text-align: left;
+    height: 36px;
+    width: 32px;
+    float: left;
+    text-align: center;
+}
+#share-buttons > div > svg {height: 16px; fill: #d5d5d5; margin-top: 10px;}
+#share-buttons > div:hover {cursor: pointer;}
+#share-buttons > div.facebook:hover > svg {fill: #3B5998;}
+#share-buttons > div.twitter:hover > svg {fill: #55ACEE;}
+#share-buttons > div.linkedin:hover > svg {fill: #0077b5;}
+#share-buttons > div.pinterest:hover > svg {fill: #CB2027;}
+#share-buttons > div.gplus:hover > svg {fill: #dd4b39;}
+#share-buttons > div.mail:hover > svg {fill: #7D7D7D;}
+#share-buttons > div.instagram:hover > svg {fill: #C73B92;}
+#share-buttons > div.facebook > svg {height: 18px; margin-top: 9px;}
+#share-buttons > div.twitter > svg {height: 20px; margin-top: 8px;}
+#share-buttons > div.linkedin > svg {height: 19px; margin-top: 7px;}
+#share-buttons > div.pinterest > svg {height: 20px; margin-top: 9px;}
+#share-buttons > div.gplus > svg {height: 17px; margin-top: 9px; position: relative; left: 1px;}
+#share-buttons > div.mail > svg {height: 14px; margin-top: 11px;}
+</style>
+
+<span style="color: silver;">Share on: </span><div id="share-buttons">
+    <div class="facebook" title="Share this on Facebook" onclick="window.open('http://www.facebook.com/share.php?u=https://mareknarozniak.com/2021/04/22/symmetric/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"/></svg></div>
+    <div class="twitter" title="Share this on Twitter" onclick="window.open('https://twitter.com/intent/tweet?text=Symmetric Ciphers&url=https://mareknarozniak.com/2021/04/22/symmetric/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/></svg></div>
+    <div class="linkedin" title="Share this on Linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=https://mareknarozniak.com/2021/04/22/symmetric/&title=&summary=&source=');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"/></svg></div>
+    <div class="pinterest" title="Share this on Pinterest" onclick="window.open('https://pinterest.com/pin/create/button/?url=&media=https://mareknarozniak.com/assets/figures/png/symmetric/ciphertext3.png&description=');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M256 597q0-108 37.5-203.5t103.5-166.5 152-123 185-78 202-26q158 0 294 66.5t221 193.5 85 287q0 96-19 188t-60 177-100 149.5-145 103-189 38.5q-68 0-135-32t-96-88q-10 39-28 112.5t-23.5 95-20.5 71-26 71-32 62.5-46 77.5-62 86.5l-14 5-9-10q-15-157-15-188 0-92 21.5-206.5t66.5-287.5 52-203q-32-65-32-169 0-83 52-156t132-73q61 0 95 40.5t34 102.5q0 66-44 191t-44 187q0 63 45 104.5t109 41.5q55 0 102-25t78.5-68 56-95 38-110.5 20-111 6.5-99.5q0-173-109.5-269.5t-285.5-96.5q-200 0-334 129.5t-134 328.5q0 44 12.5 85t27 65 27 45.5 12.5 30.5q0 28-15 73t-37 45q-2 0-17-3-51-15-90.5-56t-61-94.5-32.5-108-11-106.5z"/></svg></div>
+    <div class="gplus" title="Share this on Google Plus" onclick="window.open('https://plus.google.com/share?url=https://mareknarozniak.com/2021/04/22/symmetric/');"><svg viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/></svg></div>
+    <div class="mail" title="Share this through Email" onclick="window.open('mailto:?&body=https://mareknarozniak.com/2021/04/22/symmetric/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/></svg></div>
+</div>
+
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    <p>Cryptography is about writing secrets. From Ancient Greek κρυπτός (kryptós) means ‘hidden’ or ‘secret’, then γράφειν (graphein) means ‘to write’. Some of the related subjects such as <a href="/2020/11/30/ecdh/">Diffie-Hellman key exchange over eliptic curve</a>, <a href="/2020/12/29/hash/">hashing functions</a> and <a href="/2021/03/16/ecdsa/">eliptic curve digital signature algorithm</a> have already been covered on this blog. However, we haven’t yet explicitly written a secret message in protected way which was making this <a href="/tagged/#cryptography">cryptography</a> tutorial series less intuitive.</p>
+
+<p>This gives us an excellent opportunity to introduce symmetric ciphers, which are the kind of ciphers that use same key for encryption and decryption. You can think of it in a way that there is no concept of public key, there is only private key. The message to be encrypted is called <code class="highlighter-rouge">plaintext</code>, private key that encrypts it is called <code class="highlighter-rouge">cipher</code> and once encrypted we call it <code class="highlighter-rouge">ciphertext</code>.</p>
+
+<p>Simplest example I know is rotation cipher, such as <code class="highlighter-rouge">ROT13</code> which is insecure and used mainly to hide spoilers on online boards. It consists of rotating the charset of domain size <code class="highlighter-rouge">26</code> by <code class="highlighter-rouge">13</code>, which makes it an <a href="https://en.wikipedia.org/wiki/Involution_(mathematics)">involutory function</a> as <code class="highlighter-rouge">ROT13(ROT13(X))=x</code>. That’s how I chosen my robot name, <code class="highlighter-rouge">ROT13(Marek)=Znerx</code> is my robot name! You can check <a href="https://rot13.com/">here</a> the meaning of following spoiler: <code class="highlighter-rouge">Inqre vf Yhxr'f sngure!</code>. In case of <code class="highlighter-rouge">ROT13</code> the private key is the number <code class="highlighter-rouge">13</code>. The entire alphabet can be rotated by <code class="highlighter-rouge">rot</code> using a following function</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span><span class="n">alphabet</span><span class="p">,</span> <span class="n">rot</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">alphabet</span><span class="p">[</span><span class="n">rot</span><span class="p">:]</span> <span class="o">+</span> <span class="n">alphabet</span><span class="p">[:</span><span class="n">rot</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">ROT13</code> cipher is a particular case of <a href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar’s cipher</a> with private key, or shift value, fixed to <code class="highlighter-rouge">13</code>. It does not make it much more secure as one might perform a frequency analysis of symbols and after a fair amount of trials guess the rotation number. We can make it slightly less insecure by introducing a key-word which is a specific word with unique letters that introduces a slight re-ordering in the charset. The key-word becomes the first letters of the charset and those letters are removed later on.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">applyCipher</span><span class="p">(</span><span class="n">alphabet</span><span class="p">,</span> <span class="n">cipher</span><span class="p">):</span>
+    <span class="n">unique</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">cipher</span><span class="p">)))))</span>
+    <span class="n">applied</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">alphabet</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">unique</span><span class="p">:</span>
+        <span class="n">applied</span> <span class="o">=</span> <span class="n">applied</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="s">''</span><span class="p">)</span>
+    <span class="n">applied</span> <span class="o">=</span> <span class="n">unique</span> <span class="o">+</span> <span class="n">applied</span>
+    <span class="k">return</span> <span class="n">applied</span>
+</code></pre></div></div>
+
+<p>Encryption function would then work as follows, it would rotate the key-worded alphabet and replace characters in the ciphertext by their rotated counterparts</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">encrypt</span><span class="p">(</span><span class="n">plaintext</span><span class="p">,</span> <span class="n">alphabet</span><span class="p">,</span> <span class="n">cipher</span><span class="p">,</span> <span class="n">rot</span><span class="p">):</span>
+    <span class="n">lookup</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">applyCipher</span><span class="p">(</span><span class="n">alphabet</span><span class="p">,</span> <span class="n">cipher</span><span class="p">),</span> <span class="n">rot</span><span class="p">)</span>
+    <span class="n">ciphertext</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">plaintext</span><span class="p">:</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">alphabet</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">cp</span> <span class="o">=</span> <span class="n">lookup</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="n">ciphertext</span> <span class="o">+=</span> <span class="n">cp</span>
+    <span class="k">return</span> <span class="n">ciphertext</span>
+</code></pre></div></div>
+
+<p>and decryption is same opration in reverse</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">decrypt</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">,</span> <span class="n">alphabet</span><span class="p">,</span> <span class="n">cipher</span><span class="p">,</span> <span class="n">rot</span><span class="p">):</span>
+    <span class="n">lookup</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">applyCipher</span><span class="p">(</span><span class="n">alphabet</span><span class="p">,</span> <span class="n">cipher</span><span class="p">),</span> <span class="n">rot</span><span class="p">)</span>
+    <span class="n">plaintext</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ciphertext</span><span class="p">:</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">lookup</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">cp</span> <span class="o">=</span> <span class="n">alphabet</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="n">plaintext</span> <span class="o">+=</span> <span class="n">cp</span>
+    <span class="k">return</span> <span class="n">plaintext</span>
+</code></pre></div></div>
+
+<p>I prepared two plaintexts and computed their ciphertexts for you as an example. But I only give you the first plaintext, its key-word is <code class="highlighter-rouge">disappear</code> and alphabet gets rotated by <code class="highlighter-rouge">7</code> characters. Do you recognize the song?</p>
+
+<figure>
+   <a href="#">
+     <div class="fig-container">
+     <img src="/assets/figures/png/symmetric/plaintext1.png" class="figure" alt="modified pokétext charset" style="min-width: 60%" />
+      </div>
+   </a>
+   <div class="caption"></div>
+</figure>
+
+<p>As for the second plaintext, I will keep it secret, but I give you the ciphertext and cipher is not strong so maybe if you have time and energy you could break it. The only hint I’ll give you is that is also a song!</p>
+
+<p>If you are familiar with this blog you know I am in love with old 8-bit Pokémon aesthetics and I use them a lot in my tutorials. Started with figures in the <a href="/2020/04/22/vertex-cover-independent-set-game-level-design/">vertex cover and independent set tutorial</a>, <a href="/2020/05/22/quantum-adiabatic-optimization/">quantum adiabatic optimization</a> and <a href="/2020/06/22/constraint-programming/">constraint programming</a>. I also use pokétext to write <a href="https://www.instagram.com/lowfiboy/">instagram blog</a>. I decided it is about time to use pokétext to create a charset that can cover all single byte values and have my own raw bytes rendering module. I added math symbols and removed some graphics like borders, just to make it more usable for my purpose. So here it is</p>
+
+<figure>
+   <a href="#">
+     <div class="fig-container">
+     <img src="/assets/figures/png/symmetric/charset.png" class="figure" alt="modified pokétext charset" style="min-width: 60%" />
+      </div>
+   </a>
+   <div class="caption"></div>
+</figure>
+
+<p>Now we can render raw byte strings in pokétext so it is time to try some more serious ciphers. My goal is to present to you the <code class="highlighter-rouge">Rijndael</code>, also known as <code class="highlighter-rouge">Advanced Encryption Standards</code> or simply <code class="highlighter-rouge">AES</code> since it has been announced as standard by NIST.</p>
+
+<p>This is going to be a very top-down intro to AES because I did not implement it. For <a href="/2020/11/30/ecdh/">Diffie-Hellman key exchange over eliptic curve</a> and <a href="/2021/03/16/ecdsa/">eliptic curve digital signature algorithm</a> we implemented those methods from scratch for purely educational purposes and I heard comments from some readers it is nice to see but also an overkill. So this time instead of visualizing steps of AES I will leave you with a <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard#High-level_description_of_the_algorithm">reference</a> and <a href="https://www.youtube.com/watch?v=gP4PqVGudtg">animation</a> and instead of explaining it step by step I will show you something cool you can do with it.</p>
+
+<p>The feature I find the most amazing is called hidden volumes. It makes is possible to concatenate ciphertexts one with another and hide encrypted data somewhere in the middle or at the end of the data block. This is effective because the plaintext is supposed to be padded with random data and ciphertext is indistinguishable from the random data. Let me show you what I mean. Below you can see a ciphertext I prepared.</p>
+
+<figure>
+   <a href="#">
+     <div class="fig-container">
+     <img src="/assets/figures/png/symmetric/ciphertext3.png" class="figure" alt="modified pokétext charset" style="min-width: 100%" />
+      </div>
+   </a>
+   <div class="caption"></div>
+</figure>
+
+<p>The leftmost text is the ciphertext. You can’t tell where encrypted data is. In the middle you can see decrypted plaintext from this ciphertext after applying <code class="highlighter-rouge">stakhanov</code> cipher padded to <code class="highlighter-rouge">16</code> bits length and specific initial vector <code class="highlighter-rouge">6248a0359582697f1ad391525bebcfb0</code> (hexadecimal). It provides a decrypted message at the beginning. However, if instead of <code class="highlighter-rouge">stakhanov</code> we use <code class="highlighter-rouge">d0om3rplyl1st</code> cipher and different specific initial vector <code class="highlighter-rouge">8cc95298fdb22717f9710091ab74b1f5</code> from <em>the same ciphertext</em> we get a completely different message! This time at the end!</p>
+
+<p>This has huge implications! You can carry around encrypted data with hidden volumes inside of it and if someone accuses you of having illegal secrets you can always provide a different ciphertext, one that decrypts the data you want them to see. You are in control. They can see only what you allow them to see.</p>
+
+<p>I must say, there is one more hidden volume inside of the ciphertext, but I do not encourage you to break it. It is <code class="highlighter-rouge">AES128</code> with <a href="https://pycryptodome.readthedocs.io/en/latest/src/cipher/classic.html#cbc-mode">CBC mode</a>, pointless to even try. I used <a href="https://pycryptodome.readthedocs.io/en/latest/src/cipher/aes.html">pycryptodome</a> implementation. All the examples are included in the <a href="https://gist.github.com/marekyggdrasil/c92fbd293a350da4412d9865e83f7a89">gist repository</a> however for <code class="highlighter-rouge">AES128</code> the decrypted output will be raw bytes as I have not yet decided if I want to make my pokétext renderer public or not.</p>
+
+<p>How could that be used in practice? If you ever used <a href="https://github.com/mimblewimble/grin-wallet">grin-wallet</a> for <a href="https://grin.mw/">Grin cryptocurrency</a> it has a function called <a href="https://docs.rs/grin_wallet_api/5.0.1/grin_wallet_api/trait.OwnerRpc.html#tymethod.init_secure_api">init_secure_api</a>. What it does it, first it runs a <a href="/2020/11/30/ecdh/">Diffie-Hellman key exchange over eliptic curve</a> to establish a shared secret, then this shared secret is used as symmetric cipher between the two parties to encrypt the communication between the user and the wallet. This allows to use the wallet API in secure way even in insecure setup (such as lack of https protection).</p>
+
+<p>Ciphers help us protect secrets. Hidden volumes help us protect the very existence of the secret. If you have some secrets to protect on your computer, do not handmade ciphers with Python, I recommend software like <a href="https://www.veracrypt.fr/en/Home.html">VeraCrypt</a> to handle that for you.</p>
+
+<p>It wouldn’t be my article if I didn’t make a cartoon-related anegdote, so here it comes. If <a href="https://en.wikipedia.org/wiki/Sorceress_of_Castle_Grayskull">the Sorceress</a> knew about <code class="highlighter-rouge">AES128</code> maybe she would not need <a href="https://en.wikipedia.org/wiki/He-Man">He-Man</a> to protect the secrets of Castle Grayskull from the Evil Forces of <a href="https://en.wikipedia.org/wiki/Skeletor">Skeletor</a>. That would make the cartoon far less fun to watch. As usual, hope you enjoyed this short tutorial with few basic examples and feel free to tweet me if you find errors!</p>
+
+
+    <p>[<a href="#top">Back to Top</a>]</p>
+  </div>
+  
+
+</article>
+
+    </div>
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-93578712-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  </body>
+</html>
