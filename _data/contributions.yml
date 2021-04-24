@@ -1,3 +1,9 @@
+- date: 2021-04-21
+  title: preparing for releasing a Python module
+  repository: grinfans/grin.py
+  pr:
+    url: https://github.com/grinfans/grin.py/pull/4
+    nb: 4
 - date: 2021-02-10
   title: Text on a path SVG element
   repository: cduck/drawSvg
