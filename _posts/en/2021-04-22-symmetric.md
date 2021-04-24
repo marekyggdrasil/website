@@ -5,7 +5,7 @@ tags: [Tutorial, Python, Cryptography]
 description: Few words about how to be the one in control of your own secrets.
 lang: en_US
 lang-ref: symmetric
-image: /assets/figures/png/mzms/figure_thumbnail.png
+image: /assets/figures/png/symmetric/ciphertext3.png
 katex: false
 gist: https://gist.github.com/marekyggdrasil/c92fbd293a350da4412d9865e83f7a89
 ---
