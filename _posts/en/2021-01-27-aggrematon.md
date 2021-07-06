@@ -281,6 +281,8 @@ The requirement of operating on layer 1 has not been addressed in this article d
 
 This proposal is not very strict. Certainly more theoretical and practical details are required, as well as the solid peer review process. For that purpose I open a [thread in the grin Forum](https://forum.grin.mw/t/a-trustless-aggregator-based-on-scalable-bft-protocol/8311). Please feel free to provide your feedback there. I will gladly discuss this idea and adjust this article accordingly.
 
+Almost six months later I get back to this proposal to clarify that this idea was missing two essential solutions: how to ensure outputs get locked during the process of aggregation to prevent double spending, and also how to prove the outputs exist to the aggregating nodes of the BFT cluster. Perhaps someday we could think of it again.
+
 ## References
 [↑ Top](#contents)
 
