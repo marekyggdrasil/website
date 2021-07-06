@@ -5,8 +5,8 @@
     <description></description>
     <link>https://mareknarozniak.com/</link>
     <atom:link href="https://mareknarozniak.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 23 Jun 2021 21:32:11 +0800</pubDate>
-    <lastBuildDate>Wed, 23 Jun 2021 21:32:11 +0800</lastBuildDate>
+    <pubDate>Tue, 06 Jul 2021 10:02:04 +0800</pubDate>
+    <lastBuildDate>Tue, 06 Jul 2021 10:02:04 +0800</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -1549,6 +1549,8 @@ P(E^{(3)}_{f_\text{ca}}) &amp;amp;= \sum_{k=\frac{n_{\text{co}}}{2}}^{n_{\text{c
 &lt;p&gt;The requirement of operating on layer 1 has not been addressed in this article due to my lack of appropriate definition what this exactly means. Further discussion is essential to address that.&lt;/p&gt;
 
 &lt;p&gt;This proposal is not very strict. Certainly more theoretical and practical details are required, as well as the solid peer review process. For that purpose I open a &lt;a href=&quot;https://forum.grin.mw/t/a-trustless-aggregator-based-on-scalable-bft-protocol/8311&quot;&gt;thread in the grin Forum&lt;/a&gt;. Please feel free to provide your feedback there. I will gladly discuss this idea and adjust this article accordingly.&lt;/p&gt;
+
+&lt;p&gt;Almost six months later I get back to this proposal to clarify that this idea was missing two essential solutions: how to ensure outputs get locked during the process of aggregation to prevent double spending, and also how to prove the outputs exist to the aggregating nodes of the BFT cluster. Perhaps someday we could think of it again.&lt;/p&gt;
 
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;#contents&quot;&gt;↑ Top&lt;/a&gt;&lt;/p&gt;
