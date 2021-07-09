@@ -324,12 +324,21 @@ H_1 \left \vert \psi_2 \right &gt; &amp;= \frac{1}{2} \left \vert 00 \right &gt;
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>m0 m1 fidelity
  0  0      1.0
- 0  1    0.022
- 1  0    0.568
- 1  1    0.409
+ 0  1    0.166
+ 1  0    0.349
+ 1  1    0.485
 </code></pre></div></div>
 
 <p>So, if the measurement outcome on first two qubits is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo fence="true">∣</mo><mn>00</mn><mo fence="true">&gt;</mo></mrow><annotation encoding="application/x-tex">\left \vert 00 \right &gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">∣</span><span class="mord">0</span><span class="mord">0</span><span class="mclose delimcenter" style="top:0em;">⟩</span></span></span></span></span> then fidelity is good but note that this also happens to be the case that requires no correction!</p>
+
+<figure>
+   <a href="#">
+     <div class="fig-container">
+     <img src="/assets/figures/png/simulating-quantum-teleportation/outcomes.png" class="figure" alt="Effect of classical correction on fidelities per outcome" />
+      </div>
+   </a>
+   <div class="caption">Bar plot showing how unreliable teleportation is without the classical correction.</div>
+</figure>
 
 <p>Our faster than light communication is not very reliable, would work only assuming the first two qubits get this particular measurement outcome and in general case would lead the person on the other side of the universe to receive a random noise instead of the message that was intended to be received.</p>
 
