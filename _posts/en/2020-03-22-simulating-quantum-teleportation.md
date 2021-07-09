@@ -203,12 +203,16 @@ Displays the following output
 ```
 m0 m1 fidelity
  0  0      1.0
- 0  1    0.022
- 1  0    0.568
- 1  1    0.409
+ 0  1    0.166
+ 1  0    0.349
+ 1  1    0.485
 ```
 
 So, if the measurement outcome on first two qubits is $$\left \vert 00 \right >$$ then fidelity is good but note that this also happens to be the case that requires no correction!
+
+{% include figure.html url="#"
+max-width="70%" fll="/assets/figures/png/simulating-quantum-teleportation/outcomes.png" alt="Effect of classical correction on fidelities per outcome"
+caption="Bar plot showing how unreliable teleportation is without the classical correction." %}
 
 Our faster than light communication is not very reliable, would work only assuming the first two qubits get this particular measurement outcome and in general case would lead the person on the other side of the universe to receive a random noise instead of the message that was intended to be received.
 
