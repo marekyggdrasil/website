@@ -4,6 +4,18 @@
   source: Grin POST
   url: https://grinpost.medium.com/grin-is-dead-bfac7af6b48b
   emoji: 🌎
+- key: inside-quantum-technology-crypto-news
+  date: 2021-04-26
+  title: Ethereum Won't Hide From Quantum Computers Behind PoS Shield
+  source: Inside Quantum Technology
+  url: https://www.insidequantumtechnology.com/news-archive/ethereum-wont-hide-from-quantum-computers-behind-pos-shield/
+  emoji: 🌎
+- key: dongtai-news
+  date: 2021-03-16
+  title: 上海纽约大学最新研究：用马约拉纳费米子实现量子隐形传态
+  source: eol.cn 新闻中心
+  url: https://www.eol.cn/news/dongtai/202103/t20210316_2084978.shtml
+  emoji: 🌏
 - key: nyush-majorana-teleportation
   date: 2021-02-05
   title: NYU Shanghai Scientists Develop a Method of Teleporting Quantum States Using Majorana Fermions
