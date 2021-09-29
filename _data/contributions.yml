@@ -1,3 +1,13 @@
+- date: 2021-09-29
+  title: Implemented a possibility of mixing measurement operators and callback functions in e_ops list
+  repository: qutip/qutip
+  pr:
+    url: https://github.com/qutip/qutip/pull/1655
+    nb: 1655
+  suggestion:
+    url: https://github.com/qutip/qutip/issues/1238
+    nb: 1238
+    type: issue
 - date: 2021-04-21
   title: preparing for releasing a Python module
   repository: grinfans/grin.py
