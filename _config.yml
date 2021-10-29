@@ -14,7 +14,7 @@ plugins:
   - jekyll-seo-tag
 
 # extra directories
-include: [.well-known]
+include: ['.well-known']
 
 # Third-party services
 # just leave empty to disable it
