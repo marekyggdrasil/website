@@ -13,6 +13,9 @@ permalink: pretty
 plugins:
   - jekyll-seo-tag
 
+# extra directories
+include: [.well-known]
+
 # Third-party services
 # just leave empty to disable it
 google_analytics: "UA-93578712-1"
