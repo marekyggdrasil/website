@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: mareknarozniak.com
+Token: 5542c7b74b59979efd5b5b6560f7a69bbd4cafb8f78fdc0fce44d31f3e1408c5
