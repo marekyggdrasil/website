@@ -27,6 +27,13 @@ disqus_shortname:
 # for jekyll-seo-tag plugin
 
 title: Marek Narozniak's Homepage
+
+# livestream variables
+
+liveyoutube: https://www.youtube.com/channel/UCyKg9ULXBgUyXoKcFL9BpVw/videos?view=2&sort=dd&live_view=502&shelf_id=0
+livefb: https://www.facebook.com/Marek-Narozniaks-LiveStreams-105029995305548
+livefbevents: https://www.facebook.com/Marek-Narozniaks-LiveStreams-105029995305548/events/
+
 # tagline:
 
 author: mareknarozniak

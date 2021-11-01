@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<div class="home">
+	  <section>
+		    <h1 class="smallcap"><a class="site-title" href="/">Marek Narozniak's LiveStream</a></h1>
+        <span class="back">&larr; <a href="{{ site.baseurl }}/">Index</a></span>
+        <p>To join me live, check the <a href="{{ site.liveyoutube }}">upcoming live events</a>. There is also a dedicated <a href="{{site.livefb}}">Facebook page</a> along with regularly updated <a href="{{site.livefbevents}}">events</a>.</p>
+		    <ul class="post-list">
+			      {% for mention in site.data.livestream %}
+				    {% include video-list-entry.html %}
+			      {% endfor %}
+		    </ul>
+        <span class="back">&larr; <a href="{{ site.baseurl }}/">Index</a></span>
+	  </section>
+</div>
