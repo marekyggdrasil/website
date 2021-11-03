@@ -159,6 +159,13 @@ a {
     }
 }
 /**
+ * Grayed list items
+ */
+.grayed {
+    color: gray;
+    text-decoration: none;
+}
+/**
  * Blockquotes
  */
 blockquote {

@@ -58,6 +58,13 @@
             font-size: $small-font-size;
         }
     }
+
+    .grayed {
+        color: gray;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: not-allowed;
+    }
 }
 
 @media only screen and (min-width: 768px) {
