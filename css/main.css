@@ -55,6 +55,9 @@ a { color: #0645ad; text-decoration: none; }
 
 a:hover { text-decoration: underline; }
 
+/** Grayed list items */
+.grayed { color: gray; text-decoration: none; }
+
 /** Blockquotes */
 blockquote { color: #aaa; padding-left: 1rem; border-left: 2px solid #eaeaea; font-style: italic; font-size: 0.875rem; }
 
@@ -103,6 +106,8 @@ hr { border: none; border-top: 1px solid #f7f7f7; margin: 2rem auto; }
 
 @media screen and (max-width: 600px) { .post-list > li time { display: block; font-size: 0.875rem; }
   .post-list > li bio { display: block; } }
+
+.post-list > li .grayed { color: gray; font-weight: bold; text-decoration: none; cursor: not-allowed; }
 
 @media only screen and (min-width: 768px) { .post-list > li { display: flex; }
   .post-list > li time + div.title-container { position: absolute; margin-left: 6rem; } }
