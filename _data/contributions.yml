@@ -1,3 +1,9 @@
+- date: 2021-11-11
+  title: Prepared a more meaningful example of tvtk usage in Mayavi
+  repository: enthought/mayavi
+  pr:
+    url: https://github.com/enthought/mayavi/pull/974
+    nb: 974
 - date: 2021-09-29
   title: Implemented a possibility of mixing measurement operators and callback functions in e_ops list
   repository: qutip/qutip
