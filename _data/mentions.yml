@@ -1,9 +1,16 @@
-- key: grinnews-grinventions-1
+- key: grinnews-grinventions-2
   date: 2021-11-18
   title: A New Mining Guide For The Newly Launched GAEA-Pool
   source: Grin Newsletter
   url: https://grinnews.substack.com/p/145-a-new-mining-guide-for-the-newly
   emoji: 🌌
+- key: grinnews-grinventions-1
+  date: 2021-10-22
+  title: Realizing POW Chain Security By Way of Decentralization
+  source: Grin Newsletter
+  url: https://grinnews.substack.com/p/143-realizing-pow-chain-security
+  emoji: 🤝
+https://grinnews.substack.com/p/143-realizing-pow-chain-security
 - key: grinpost-grinventions-2
   date: 2021-09-29
   title: GRIN, a more DECENTRALIZED Way, Next Chapter.
