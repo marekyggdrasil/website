@@ -15,7 +15,7 @@
   <link rel="canonical" href="https://mareknarozniak.com/2021/04/22/symmetric/">
   <link rel="alternate" type="application/rss+xml" title="Marek Narozniak's Homepage" href="https://mareknarozniak.com/feed.xml">
   
-  <!-- Begin Jekyll SEO tag v2.7.1 -->
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Symmetric Ciphers | Marek Narozniak’s Homepage</title>
 <meta name="generator" content="Jekyll v4.0.0" />
 <meta property="og:title" content="Symmetric Ciphers" />
@@ -35,7 +35,7 @@
 <meta name="twitter:site" content="@MarekNarozniak" />
 <meta name="twitter:creator" content="@MarekNarozniak" />
 <script type="application/ld+json">
-{"url":"https://mareknarozniak.com/2021/04/22/symmetric/","image":"https://mareknarozniak.com/assets/figures/png/symmetric/ciphertext3.png","headline":"Symmetric Ciphers","dateModified":"2021-04-22T00:00:00+08:00","datePublished":"2021-04-22T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://mareknarozniak.com/2021/04/22/symmetric/"},"author":{"@type":"Person","name":"Marek Narozniak"},"description":"Few words about how to be the one in control of your own secrets.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://mareknarozniak.com/2021/04/22/symmetric/"},"image":"https://mareknarozniak.com/assets/figures/png/symmetric/ciphertext3.png","url":"https://mareknarozniak.com/2021/04/22/symmetric/","author":{"@type":"Person","name":"Marek Narozniak"},"headline":"Symmetric Ciphers","description":"Few words about how to be the one in control of your own secrets.","datePublished":"2021-04-22T00:00:00+08:00","dateModified":"2021-04-22T00:00:00+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   
@@ -126,10 +126,10 @@
 <p>The <code class="highlighter-rouge">ROT13</code> cipher is a particular case of <a href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar’s cipher</a> with private key, or shift value, fixed to <code class="highlighter-rouge">13</code>. It does not make it much more secure as one might perform a frequency analysis of symbols and after a fair amount of trials guess the rotation number. We can make it slightly less insecure by introducing a key-word which is a specific word with unique letters that introduces a slight re-ordering in the charset. The key-word becomes the first letters of the charset and those letters are removed later on.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">applyCipher</span><span class="p">(</span><span class="n">alphabet</span><span class="p">,</span> <span class="n">cipher</span><span class="p">):</span>
-    <span class="n">unique</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="p">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">cipher</span><span class="p">)))))</span>
+    <span class="n">unique</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">cipher</span><span class="p">)))))</span>
     <span class="n">applied</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">alphabet</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">unique</span><span class="p">:</span>
-        <span class="n">applied</span> <span class="o">=</span> <span class="n">applied</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="s">''</span><span class="p">)</span>
+        <span class="n">applied</span> <span class="o">=</span> <span class="n">applied</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="s">''</span><span class="p">)</span>
     <span class="n">applied</span> <span class="o">=</span> <span class="n">unique</span> <span class="o">+</span> <span class="n">applied</span>
     <span class="k">return</span> <span class="n">applied</span>
 </code></pre></div></div>
@@ -140,7 +140,7 @@
     <span class="n">lookup</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">applyCipher</span><span class="p">(</span><span class="n">alphabet</span><span class="p">,</span> <span class="n">cipher</span><span class="p">),</span> <span class="n">rot</span><span class="p">)</span>
     <span class="n">ciphertext</span> <span class="o">=</span> <span class="s">''</span>
     <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">plaintext</span><span class="p">:</span>
-        <span class="n">index</span> <span class="o">=</span> <span class="n">alphabet</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">alphabet</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
         <span class="n">cp</span> <span class="o">=</span> <span class="n">lookup</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
         <span class="n">ciphertext</span> <span class="o">+=</span> <span class="n">cp</span>
     <span class="k">return</span> <span class="n">ciphertext</span>
@@ -152,7 +152,7 @@
     <span class="n">lookup</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">applyCipher</span><span class="p">(</span><span class="n">alphabet</span><span class="p">,</span> <span class="n">cipher</span><span class="p">),</span> <span class="n">rot</span><span class="p">)</span>
     <span class="n">plaintext</span> <span class="o">=</span> <span class="s">''</span>
     <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ciphertext</span><span class="p">:</span>
-        <span class="n">index</span> <span class="o">=</span> <span class="n">lookup</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">lookup</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
         <span class="n">cp</span> <span class="o">=</span> <span class="n">alphabet</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
         <span class="n">plaintext</span> <span class="o">+=</span> <span class="n">cp</span>
     <span class="k">return</span> <span class="n">plaintext</span>

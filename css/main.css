@@ -26,16 +26,19 @@ figure > img { display: block; }
 @media only screen and (max-width: 600px) { img.figure { max-width: 100%; } }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) { img.figure { max-width: 65%; } div.caption { margin-right: 17.5%; } }
+@media only screen and (min-width: 600px) { img.figure { max-width: 65%; }
+  div.caption { margin-right: 17.5%; } }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) { img.figure { max-width: 65%; } div.caption { margin-right: 17.5%; } }
+@media only screen and (min-width: 768px) { img.figure { max-width: 65%; }
+  div.caption { margin-right: 17.5%; } }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) { img.figure { max-width: 65%; } }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) { img.figure { max-width: 65%; } div.caption { margin-right: 17.5%; margin-left: 17.5%; } }
+@media only screen and (min-width: 1200px) { img.figure { max-width: 65%; }
+  div.caption { margin-right: 17.5%; margin-left: 17.5%; } }
 
 div.caption { font-size: 0.875rem; }
 
@@ -101,11 +104,13 @@ hr { border: none; border-top: 1px solid #f7f7f7; margin: 2rem auto; }
 
 .post-list > li time { font-size: 0.875rem; color: #aaa; }
 
-@media screen and (max-width: 600px) { .post-list > li time { display: block; font-size: 0.875rem; } .post-list > li bio { display: block; } }
+@media screen and (max-width: 600px) { .post-list > li time { display: block; font-size: 0.875rem; }
+  .post-list > li bio { display: block; } }
 
 .post-list > li .grayed { color: gray; font-weight: bold; text-decoration: none; cursor: not-allowed; }
 
-@media only screen and (min-width: 768px) { .post-list > li { display: flex; } .post-list > li time + div.title-container { position: absolute; margin-left: 6rem; } }
+@media only screen and (min-width: 768px) { .post-list > li { display: flex; }
+  .post-list > li time + div.title-container { position: absolute; margin-left: 6rem; } }
 
 .tag-title { color: #0645ad; }
 
