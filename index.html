@@ -40,13 +40,13 @@ layout: default
 	</section>
 	<section>
 		  <h1 class="smallcap"><a class="site-title" href="/">LiveStream</a></h1>
-      <p>To join me live, check the <a href="{{ site.liveyoutube }}">upcoming live events</a>. There is also a dedicated <a href="{{site.livefb}}">Facebook page</a> along with regularly updated <a href="{{site.livefbevents}}">events</a>.</p>
+      <p>To join me live, check the <a href="{{ site.liveyoutube }}">upcoming live events</a>. There is also a dedicated <a href="{{site.livefb}}">Facebook page</a> along with regularly updated <a href="{{site.livefbevents}}">events</a>. Below the most recent ten streams.</p>
 		  <ul class="post-list">
-			    {% for mention in site.data.livestream %}
+			    {% for mention in site.data.livestream limit: 10 %}
 				  {% include video-list-entry.html %}
 			    {% endfor %}
 		  </ul>
-      <p>Complete list of recorded events is available under <a href="/live">live events archive page</a>.</p>
+      <p>Complete list of all recorded events is available under <a href="/live">live events archive page</a>.</p>
 	</section>
 	<section>
 		<h1 class="smallcap"><a class="site-title" href="/">Online articles and tutorials</a></h1>
