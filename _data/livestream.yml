@@ -1,102 +1,133 @@
-- key: ff-episode012
-  date: 2021-12-13
-  title: 🕹️ Astos! ⚔️ Episode 12 🔴 Final Fantasy LiveStream 🎬
+- date: '2022-01-13'
+  key: stream-34
+  title: '🕹️ Anya rescued! 💈 Episode #13 🔴 EarthBound LiveStream 🎬'
+  url: https://youtu.be/IUo90a3Wkl4
+- date: '2022-01-10'
+  key: stream-33
+  title: '🕹️ Our Favourite Cave ⚔️ Episode #15 🔴 Final Fantasy LiveStream 🎬'
+  url: https://youtu.be/w6gU6ksDvDc
+- date: '2022-01-06'
+  key: stream-32
+  title: '🕹️ Moles and Lucky Sandwich 💈 Episode #12 🔴 EarthBound LiveStream 🎬'
+  url: https://youtu.be/zzgTaMcVDcE
+- date: '2022-01-05'
+  key: stream-31
+  title: '🕹️ TNT ⚔️ Episode #14 🔴 Final Fantasy LiveStream 🎬'
+  url: https://youtu.be/lBDVXC4KA1w
+- date: '2022-01-01'
+  key: stream-30
+  title: '🕹️ Happy Happyism 💈 Episode #11 🔴 EarthBound LiveStream 🎬'
+  url: https://youtu.be/LW0cA22pCac
+- date: '2021-12-30'
+  key: stream-29
+  title: '🕹️ Freakin'' UFOs 💈 Episode #10 🔴 EarthBound LiveStream 🎬'
+  url: https://youtu.be/9yXaSvuc0rk
+- date: '2021-12-25'
+  key: stream-28
+  title: '🕹️ Delivery Boi ⚔️ Episode #13 🔴 Final Fantasy LiveStream 🎬'
+  url: https://youtu.be/3rJBd-jpkQs
+- date: '2021-12-23'
+  key: stream-27
+  title: '🕹️ Pencil Eraser 💈 Episode #9 🔴 EarthBound LiveStream 🎬'
+  url: https://youtu.be/6hToeiIDw_I
+- date: '2021-12-16'
+  key: stream-26
+  title: '🕹️ Mushroomizing 💈 Episode #8 🔴 EarthBound LiveStream 🎬'
+  url: https://youtu.be/FYh8BS2Cpb8
+- date: '2021-12-13'
+  key: stream-25
+  title: '🕹️ Astos! ⚔️ Episode #12 🔴 Final Fantasy LiveStream 🎬'
   url: https://youtu.be/NeOBw5cEpVU
-- key: qm-episode006
-  date: 2021-12-11
-  title: 🎙️ Quantum Adiabatic Computing 🔴 Episode 6 🎬 Quantum Programming LiveStream
+- date: '2021-12-11'
+  key: stream-24
+  title: '🎙️ Quantum Adiabatic Computing 🔴 Episode #7 🎬 Quantum Programming LiveStream'
   url: https://youtu.be/Pj1pUrFTouk
-- key: eb-episode007
-  date: 2021-12-09
-  title: 🕹️ Meeting Everdred💈 Episode 7 🔴 EarthBound LiveStream 🎬
+- date: '2021-12-09'
+  key: stream-23
+  title: '🕹️ Meeting Everdred 💈 Episode #7 🔴 EarthBound LiveStream 🎬'
   url: https://youtu.be/HG8wctbiq4A
-- key: ff-episode011
-  date: 2021-12-06
-  title: 🕹️ Marsh Cave, Wizards and Crown! ⚔️ Episode 11 🔴 Final Fantasy LiveStream 🎬
+- date: '2021-12-06'
+  key: stream-22
+  title: '🕹️ Marsh Cave, Wizards and Crown! ⚔️ Episode #11 🔴 Final Fantasy LiveStream
+    🎬'
   url: https://youtu.be/foYMWpG1Dig
-- key: ff-episode010
-  date: 2021-12-04
-  title: 🕹️ Grinding session ⚔️ Episode 10 🔴 Final Fantasy LiveStream 🎬
+- date: '2021-12-04'
+  key: stream-21
+  title: '🕹️ Grinding session ⚔️ Episode #10 🔴 Final Fantasy LiveStream 🎬'
   url: https://youtu.be/iod_8LKo18M
-- key: eb-episode006
-  date: 2021-12-02
-  title: 🕹️ Fighting Police 💈 Episode 6 🔴 EarthBound LiveStream 🎬
+- date: '2021-12-02'
+  key: stream-20
+  title: '🕹️ Fighting Police 💈 Episode #6 🔴 EarthBound LiveStream 🎬'
   url: https://youtu.be/77PzyK_A7Ko
-- key: ff-episode009
-  date: 2021-11-29
-  title: 🕹️ Marsh Cave killed us! ⚔️ Episode 9 🔴 Final Fantasy LiveStream 🎬
+- date: '2021-11-29'
+  key: stream-19
+  title: '🕹️ Marsh Cave killed us! ⚔️ Episode #9 🔴 Final Fantasy LiveStream 🎬'
   url: https://youtu.be/TTO4MSbj2qw
-- key: qm-episode005
-  date: 2021-11-27
-  title: 🎙️ Schrödinger Equation 🔴 Episode 5 🎬 Quantum Programming LiveStream
+- date: '2021-11-27'
+  key: stream-18
+  title: '🎙️ Schrödinger Equation 🔴 Episode #6 🎬 Quantum Programming LiveStream'
   url: https://youtu.be/wM0xT_rvLnc
-- key: eb-episode005
-  date: 2021-11-25
-  title: 🕹️ Giant Step? 💈 Episode 5 🔴 EarthBound LiveStream 🎬
+- date: '2021-11-25'
+  key: stream-17
+  title: '🕹️ Giant Step? 💈 Episode #5 🔴 EarthBound LiveStream 🎬'
   url: https://youtu.be/kxCqJ8lPajE
-- key: ff-episode008
-  date: 2021-11-23
-  title: 🕹️ Levelin' Oppppp' ⚔️ Episode 8 🔴 Final Fantasy LiveStream 🎬
+- date: '2021-11-23'
+  key: stream-16
+  title: '🕹️ Levelin'' Oppppp'' ⚔️ Episode #8 🔴 Final Fantasy LiveStream 🎬'
   url: https://youtu.be/ETxlghP-BY8
-- key: eb-episode004
-  date: 2021-11-18
-  title: 🕹️ Bye Frank! 💈 Episode 4 🔴 EarthBound LiveStream 🎬
+- date: '2021-11-18'
+  key: stream-15
+  title: '🕹️ Bye Frank! 💈 Episode #4 🔴 EarthBound LiveStream 🎬'
   url: https://youtu.be/hkevOyF3Gkg
-- key: ff-episode007
-  date: 2021-11-15
-  title: 🕹️ King Who Lost the Crown ⚔️ Episode 7 🔴 Final Fantasy LiveStream 🎬
+- date: '2021-11-15'
+  key: stream-14
+  title: '🕹️ King Who Lost the Crown ⚔️ Episode #7 🔴 Final Fantasy LiveStream 🎬'
   url: https://youtu.be/cpmD8JFU5eU
-- key: qm-episode004
-  date: 2021-11-13
-  title: 🎙️ Quantum Teleportation 🔴 Episode 4 🎬 Quantum Programming LiveStream
+- date: '2021-11-13'
+  key: stream-13
+  title: '🎙️ Quantum Teleportation 🔴 Episode #5 🎬 Quantum Programming LiveStream'
   url: https://youtu.be/4m1TG1qfzWw
-- key: eb-episode003
-  date: 2021-11-11
-  title: 🕹️ Leveling up 💈 Episode 3 🔴 EarthBound LiveStream 🎬
+- date: '2021-11-11'
+  key: stream-12
+  title: '🕹️ Leveling up 💈 Episode #3 🔴 EarthBound LiveStream 🎬'
   url: https://youtu.be/fwu5j4PZ-x0
-- key: ff-episode006
-  date: 2021-11-08
-  title: 🕹️ Leveling in the Elves Land ⚔️ Episode 6 🔴 Final Fantasy LiveStream 🎬
+- date: '2021-11-08'
+  key: stream-11
+  title: '🕹️ Leveling in the Elves Land ⚔️ Episode #6 🔴 Final Fantasy LiveStream 🎬'
   url: https://youtu.be/EOAhcTEqR6Y
-- key: eb-episode002
-  date: 2021-11-06
-  title: 🕹️ Onett 💈 Episode 2 🔴 EarthBound LiveStream 🎬
+- date: '2021-11-06'
+  key: stream-10
+  title: '🕹️ Onett 💈 Episode #2 🔴 EarthBound LiveStream 🎬'
   url: https://youtu.be/B1purkZ3jcw
-- key: ff-episode005
-  date: 2021-11-05
-  title: 🕹️ Pravoca ⚔️ Episode 5 🔴 Final Fantasy LiveStream 🎬
+- date: '2021-11-05'
+  key: stream-9
+  title: '🕹️ Pravoca ⚔️ Episode #5 🔴 Final Fantasy LiveStream 🎬'
   url: https://youtu.be/QgtWdx9xuuE
-- key: eb-episode001
-  date: 2021-11-04
-  title: 🕹️ 199x 💈 Episode 1 🔴 EarthBound LiveStream 🎬
+- date: '2021-11-04'
+  key: stream-8
+  title: '🕹️ 199x 💈 Episode #1 🔴 EarthBound LiveStream 🎬'
   url: https://youtu.be/WNVZ51jbWuk
-- key: ff-episode004
-  date: 2021-10-31
-  title: 🕹️ Pirates ⚔️ Episode 4 🔴 Final Fantasy LiveStream 🎬
-- key: qm-episode003
-  date: 2021-10-30
-  title: 🎙️ Quantum Measurements 🔴 Episode 3 🎬 Quantum Programming LiveStream
+- date: '2021-10-30'
+  key: stream-6
+  title: '🎙️ Quantum Measurements 🔴 Episode #4 🎬 Quantum Programming LiveStream'
   url: https://youtu.be/O6ZZfGgGu7g
-- key: ff-episode003
-  date: 2021-10-28
-  title: 🕹️ Matoya ⚔️ Episode 3 🔴 Final Fantasy LiveStream 🎬
+- date: '2021-10-28'
+  key: stream-5
+  title: '🕹️ Matoya ⚔️ Episode #3 🔴 Final Fantasy LiveStream 🎬'
   url: https://youtu.be/L-Pm-tNeB8Q
-- key: ff-episode002
-  date: 2021-10-25
-  title: 🕹️ Garland ⚔️ Episode 2 🔴 Final Fantasy LiveStream 🎬
+- date: '2021-10-25'
+  key: stream-4
+  title: '🕹️ Garland ⚔️ Episode #2 🔴 Final Fantasy LiveStream 🎬'
   url: https://youtu.be/iwP5YkQm7eo
-- key: ff-episode001
-  date: 2021-10-23
-  title: 🕹️ Corneria ⚔️ Episode 1 🔴 Final Fantasy LiveStream 🎬
+- date: '2021-10-23'
+  key: stream-3
+  title: '🕹️ Corneria ⚔️ Episode #1 🔴 Final Fantasy LiveStream 🎬'
   url: https://youtu.be/lYmJ_fn_f1c
-- key: qm-episode0025
-  date: 2021-10-18
-  title: 🎙️ The Bald Sphere 🔴 Episode 2.5 🎬 Quantum Programming LiveStream
+- date: '2021-10-18'
+  key: stream-2
+  title: '🎙️ The Bald Sphere 🔴 Episode #3 🎬 Quantum Programming LiveStream'
   url: https://youtu.be/gKWkENTb_P0
-- key: qm-episode002
-  date: 2021-10-16
-  title: 🎙️ Quantum Operators 🔴 Episode 2 🎬 Quantum Programming LiveStream
-- key: qm-episode001
-  date: 2021-10-02
-  title: 🎙️ Quantum States 🔴 Episode 1 🎬 Quantum Programming LiveStream
+- date: '2021-10-02'
+  key: stream-0
+  title: '🎙️ Quantum States 🔴 Episode #1 🎬 Quantum Programming LiveStream'
   url: https://youtu.be/F7vxR64R3Tw
