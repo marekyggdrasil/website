@@ -5,8 +5,8 @@
     <description></description>
     <link>https://mareknarozniak.com/</link>
     <atom:link href="https://mareknarozniak.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 30 Mar 2022 12:04:22 +0800</pubDate>
-    <lastBuildDate>Wed, 30 Mar 2022 12:04:22 +0800</lastBuildDate>
+    <pubDate>Wed, 20 Apr 2022 10:45:39 +0200</pubDate>
+    <lastBuildDate>Wed, 20 Apr 2022 10:45:39 +0200</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -77,7 +77,7 @@ H_{\Delta} &amp;amp;= \sum_j^{L-1} i \Delta (\left \vert j \rangle \langle j+1 \
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;/ol&gt;
 </description>
-        <pubDate>Mon, 09 Aug 2021 00:00:00 +0800</pubDate>
+        <pubDate>Mon, 09 Aug 2021 00:00:00 +0200</pubDate>
         <link>https://mareknarozniak.com/2021/08/09/bdg/</link>
         <guid isPermaLink="true">https://mareknarozniak.com/2021/08/09/bdg/</guid>
         
@@ -262,7 +262,7 @@ M1001 80h400000v40h-400000z'/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span
 &lt;li&gt;&lt;span id=&quot;PhysRevLett.126.090502&quot;&gt;Huang, H.-L., Narozniak, M., Liang, F., Zhao, Y., Castellano, A. D., Gong, M., Wu, Y., Wang, S., Lin, J., Xu, Y., Deng, H., Rong, H., Dowling, J. P., Peng, C.-Z., Byrnes, T., Zhu, X., &amp;amp; Pan, J.-W. (2021). Emulating Quantum Teleportation of a Majorana Zero Mode Qubit. &lt;i&gt;Phys. Rev. Lett.&lt;/i&gt;, &lt;i&gt;126&lt;/i&gt;(9), 090502. https://doi.org/10.1103/PhysRevLett.126.090502&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;narozniak2020majorana&quot;&gt;Narozniak, M., Dartiailh, M. C., Dowling, J. P., Shabani, J., &amp;amp; Byrnes, T. (2021). Quantum gates for Majoranas zero modes in topological superconductors in one-dimensional geometry. &lt;i&gt;Phys. Rev. B&lt;/i&gt;, &lt;i&gt;103&lt;/i&gt;(20), 205429. https://doi.org/10.1103/PhysRevB.103.205429&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
-        <pubDate>Fri, 09 Jul 2021 00:00:00 +0800</pubDate>
+        <pubDate>Fri, 09 Jul 2021 00:00:00 +0200</pubDate>
         <link>https://mareknarozniak.com/2021/07/09/topological-teleportation/</link>
         <guid isPermaLink="true">https://mareknarozniak.com/2021/07/09/topological-teleportation/</guid>
         
@@ -437,7 +437,7 @@ C_\text{outputs} - C_\text{inputs} &amp;amp;= b G + 0 H = b G
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Pedersen&quot;&gt;Pedersen, T. P. Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing. In &lt;i&gt;Advances in Cryptology — CRYPTO ’91&lt;/i&gt; (pp. 129–140). Springer Berlin Heidelberg. https://doi.org/10.1007/3-540-46766-1_9&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
-        <pubDate>Tue, 22 Jun 2021 00:00:00 +0800</pubDate>
+        <pubDate>Tue, 22 Jun 2021 00:00:00 +0200</pubDate>
         <link>https://mareknarozniak.com/2021/06/22/ct/</link>
         <guid isPermaLink="true">https://mareknarozniak.com/2021/06/22/ct/</guid>
         
@@ -556,7 +556,7 @@ M834 80h400000v40h-400000z'/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;narozniak2020majorana&quot;&gt;Narozniak, M., Dartiailh, M. C., Dowling, J. P., Shabani, J., &amp;amp; Byrnes, T. (2021). Quantum gates for Majoranas zero modes in topological superconductors in one-dimensional geometry. &lt;i&gt;Phys. Rev. B&lt;/i&gt;, &lt;i&gt;103&lt;/i&gt;(20), 205429. https://doi.org/10.1103/PhysRevB.103.205429&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;PhysRevLett.126.090502&quot;&gt;Huang, H.-L., Narozniak, M., Liang, F., Zhao, Y., Castellano, A. D., Gong, M., Wu, Y., Wang, S., Lin, J., Xu, Y., Deng, H., Rong, H., Dowling, J. P., Peng, C.-Z., Byrnes, T., Zhu, X., &amp;amp; Pan, J.-W. (2021). Emulating Quantum Teleportation of a Majorana Zero Mode Qubit. &lt;i&gt;Phys. Rev. Lett.&lt;/i&gt;, &lt;i&gt;126&lt;/i&gt;(9), 090502. https://doi.org/10.1103/PhysRevLett.126.090502&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
-        <pubDate>Wed, 09 Jun 2021 00:00:00 +0800</pubDate>
+        <pubDate>Wed, 09 Jun 2021 00:00:00 +0200</pubDate>
         <link>https://mareknarozniak.com/2021/06/09/majorana-qubits/</link>
         <guid isPermaLink="true">https://mareknarozniak.com/2021/06/09/majorana-qubits/</guid>
         
@@ -716,7 +716,7 @@ valid
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Schnorr&quot;&gt;Schnorr, C. P. Efficient Identification and Signatures for Smart Cards. In &lt;i&gt;Advances in Cryptology — CRYPTO’ 89 Proceedings&lt;/i&gt; (pp. 239–252). Springer New York. https://doi.org/10.1007/0-387-34805-0_22&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
-        <pubDate>Tue, 25 May 2021 00:00:00 +0800</pubDate>
+        <pubDate>Tue, 25 May 2021 00:00:00 +0200</pubDate>
         <link>https://mareknarozniak.com/2021/05/25/schnorr-signature/</link>
         <guid isPermaLink="true">https://mareknarozniak.com/2021/05/25/schnorr-signature/</guid>
         
@@ -875,7 +875,7 @@ U_c = \prod_{j=1}^{L-1}  U_{\gamma_{(j,l)},\gamma_{(j+1,l)}}
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;narozniak2020majorana&quot;&gt;Narozniak, M., Dartiailh, M. C., Dowling, J. P., Shabani, J., &amp;amp; Byrnes, T. (2021). Quantum gates for Majoranas zero modes in topological superconductors in one-dimensional geometry. &lt;i&gt;Phys. Rev. B&lt;/i&gt;, &lt;i&gt;103&lt;/i&gt;(20), 205429. https://doi.org/10.1103/PhysRevB.103.205429&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
-        <pubDate>Sun, 09 May 2021 00:00:00 +0800</pubDate>
+        <pubDate>Sun, 09 May 2021 00:00:00 +0200</pubDate>
         <link>https://mareknarozniak.com/2021/05/09/braiding/</link>
         <guid isPermaLink="true">https://mareknarozniak.com/2021/05/09/braiding/</guid>
         
@@ -994,7 +994,7 @@ U_c = \prod_{j=1}^{L-1}  U_{\gamma_{(j,l)},\gamma_{(j+1,l)}}
 
 &lt;p&gt;It wouldn’t be my article if I didn’t make a cartoon-related anegdote, so here it comes. If &lt;a href=&quot;https://en.wikipedia.org/wiki/Sorceress_of_Castle_Grayskull&quot;&gt;the Sorceress&lt;/a&gt; knew about &lt;code class=&quot;highlighter-rouge&quot;&gt;AES128&lt;/code&gt; maybe she would not need &lt;a href=&quot;https://en.wikipedia.org/wiki/He-Man&quot;&gt;He-Man&lt;/a&gt; to protect the secrets of Castle Grayskull from the Evil Forces of &lt;a href=&quot;https://en.wikipedia.org/wiki/Skeletor&quot;&gt;Skeletor&lt;/a&gt;. That would make the cartoon far less fun to watch. As usual, hope you enjoyed this short tutorial with few basic examples and feel free to tweet me if you find errors!&lt;/p&gt;
 </description>
-        <pubDate>Thu, 22 Apr 2021 00:00:00 +0800</pubDate>
+        <pubDate>Thu, 22 Apr 2021 00:00:00 +0200</pubDate>
         <link>https://mareknarozniak.com/2021/04/22/symmetric/</link>
         <guid isPermaLink="true">https://mareknarozniak.com/2021/04/22/symmetric/</guid>
         
@@ -1224,7 +1224,7 @@ N_{\alpha,\beta} &amp;amp;= f^\dagger_{\beta,\alpha} f_{\beta,\alpha}
 &lt;li&gt;&lt;span id=&quot;Kitaev2001&quot;&gt;Kitaev, A. Y. (2001). Unpaired Majorana fermions in quantum wires. &lt;i&gt;Physics-Uspekhi&lt;/i&gt;, &lt;i&gt;44&lt;/i&gt;(10S), 131–136. https://doi.org/10.1070/1063-7869/44/10s/s29&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;PhysRevLett.126.090502&quot;&gt;Huang, H.-L., Narozniak, M., Liang, F., Zhao, Y., Castellano, A. D., Gong, M., Wu, Y., Wang, S., Lin, J., Xu, Y., Deng, H., Rong, H., Dowling, J. P., Peng, C.-Z., Byrnes, T., Zhu, X., &amp;amp; Pan, J.-W. (2021). Emulating Quantum Teleportation of a Majorana Zero Mode Qubit. &lt;i&gt;Phys. Rev. Lett.&lt;/i&gt;, &lt;i&gt;126&lt;/i&gt;(9), 090502. https://doi.org/10.1103/PhysRevLett.126.090502&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
-        <pubDate>Fri, 09 Apr 2021 00:00:00 +0800</pubDate>
+        <pubDate>Fri, 09 Apr 2021 00:00:00 +0200</pubDate>
         <link>https://mareknarozniak.com/2021/04/09/mzms/</link>
         <guid isPermaLink="true">https://mareknarozniak.com/2021/04/09/mzms/</guid>
         
@@ -1396,7 +1396,7 @@ Bob's signature on message 2 is valid? False
 &lt;li&gt;&lt;span id=&quot;Miller&quot;&gt;Miller, V. S. Use of Elliptic Curves in Cryptography. In &lt;i&gt;Lecture Notes in Computer Science&lt;/i&gt; (pp. 417–426). Springer Berlin Heidelberg. https://doi.org/10.1007/3-540-39799-x_31&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;Fersch2016&quot;&gt;Fersch, M., Kiltz, E., &amp;amp; Poettering, B. (2016, October). On the Provable Security of (EC)DSA Signatures. &lt;i&gt;Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security&lt;/i&gt;. https://doi.org/10.1145/2976749.2978413&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
-        <pubDate>Tue, 16 Mar 2021 00:00:00 +0800</pubDate>
+        <pubDate>Tue, 16 Mar 2021 00:00:00 +0100</pubDate>
         <link>https://mareknarozniak.com/2021/03/16/ecdsa/</link>
         <guid isPermaLink="true">https://mareknarozniak.com/2021/03/16/ecdsa/</guid>
         
@@ -1502,7 +1502,7 @@ Bob's signature on message 2 is valid? False
 
 &lt;p&gt;It has been a lot lighter than usual. I want to do more of the less formal writing on this blog. I hope this post puts me on this direction. I am an advocator and enthusiast of &lt;a href=&quot;https://en.wikipedia.org/wiki/Autodidacticism&quot;&gt;autodidacticism&lt;/a&gt; and I would be willing to write more about it if there is such interest. I have not revealed the source-code of Bruce, I am too afraid people would start using it and I might have a lot of maintenance work to do. I would consider sharing it if there is more people interested. You are welcome to Tweet me and we can talk about it!&lt;/p&gt;
 </description>
-        <pubDate>Sat, 27 Feb 2021 00:00:00 +0800</pubDate>
+        <pubDate>Sat, 27 Feb 2021 00:00:00 +0100</pubDate>
         <link>https://mareknarozniak.com/2021/02/27/study-bot/</link>
         <guid isPermaLink="true">https://mareknarozniak.com/2021/02/27/study-bot/</guid>
         
