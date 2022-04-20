@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<div class="home">
+	  <section>
+		    <h1 class="smallcap"><a class="site-title" href="/">Marek Narozniak's Mentions and Interviews</a></h1>
+        <span class="back">&larr; <a href="{{ site.baseurl }}/">Index</a></span>
+        <h2 class="smallcap"><a class="site-title" href="/">Press interviews</a></h2>
+        <p>A collection of press interviews and comments I made that have appeared online.</p>
+		    <ul class="post-list">
+		        {% for mention in site.data.mentions %}
+            {% if mention.category == 'interviews' %}
+				    {% include mention-list-entry.html %}
+            {% endif %}
+			      {% endfor %}
+		    </ul>
+        <h2 class="smallcap"><a class="site-title" href="/">GRIN Mimblewimble updates</a></h2>
+        <p>On behalf of Grinventions I worked on some projects for GRIN digital cash cryptocurrency. I am often mentions in related newsletters.</p>
+		    <ul class="post-list">
+		        {% for mention in site.data.mentions %}
+            {% if mention.category == 'grin-news' %}
+				    {% include mention-list-entry.html %}
+            {% endif %}
+			      {% endfor %}
+		    </ul>
+        <span class="back">&larr; <a href="{{ site.baseurl }}/">Index</a></span>
+	  </section>
+</div>
