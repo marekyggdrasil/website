@@ -149,7 +149,7 @@
 
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><msub><mi>x</mi><mi>R</mi></msub><mo>=</mo><msub><mi>x</mi><msup><mi>R</mi><mo mathvariant="normal">′</mo></msup></msub></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(V)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">x_R = x_{R^\prime} \tag{V}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6828285714285715em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="tag"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">V</span></span><span class="mord">)</span></span></span></span></span></span>
 
-<p>Now assuming the only way of computing <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span> is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mtext>II</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\text{II})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">II</span></span><span class="mclose">)</span></span></span></span> then producing fake signature from the public key <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span> would require to solve the <em>eliptic curve discrete logarithm problem</em> (ECDLP). However it is not known if <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mtext>II</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\text{II})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">II</span></span><span class="mclose">)</span></span></span></span> is the only way of producing the signature proof, thus there is no formal proof difficulty of breaking ECDSA is equivalent of ECDLP. However, ECDSA has been used for decades extensively, including Bitcoin and Ethereum and there has been no incident of forging a signature to produce a fake transaction and stealing cryptographic coins. This provides an empirical evidence of security of ECDSA. To formally prove the security of ECDSA a different approach has been taken by Fersch <a class="citation" href="#Fersch2016">(Fersch et al., 2016)</a> based on bijective random oracle model. I am not an expert on it and I will just let you be the judges in this matter.</p>
+<p>Now assuming the only way of computing <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span> is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mtext>II</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\text{II})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">II</span></span><span class="mclose">)</span></span></span></span> then producing fake signature from the public key <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span> would require to solve the <em>eliptic curve discrete logarithm problem</em> (ECDLP). However it is not known if <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mtext>II</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\text{II})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">II</span></span><span class="mclose">)</span></span></span></span> is the only way of producing the signature proof, thus there is no formal proof difficulty of breaking ECDSA is equivalent of ECDLP. However, ECDSA has been used for decades extensively, including Bitcoin and Ethereum and there has been no incident of forging a signature to produce a fake transaction and stealing cryptographic coins. This provides an empirical evidence of security of ECDSA. To formally prove the security of ECDSA a different approach has been taken by Fersch <a class="citation" href="#Fersch2016">(Fersch, Kiltz, &amp; Poettering, 2016)</a> based on bijective random oracle model. I am not an expert on it and I will just let you be the judges in this matter.</p>
 
 <p>Another thing to mention is that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> does not necessarily need to be random, it could be deterministically chosen based on the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">e</span></span></span></span> value and the private key as specified in <a href="https://tools.ietf.org/html/rfc6979#section-3.2">RFC6979</a>. That would be the deterministic-ECDSA variant.</p>
 
@@ -256,13 +256,51 @@ Bob's signature on message 2 is valid? False
 
 <p>That’s it for this tutorial, if you find errors or have some suggestions for improvements do not hesitate to tweet me!</p>
 
-<ol class="bibliography"><li><span id="Diffie1976">Diffie, W., &amp; Hellman, M. (1976). New directions in cryptography. <i>IEEE Transactions on Information Theory</i>, <i>22</i>(6), 644–654. https://doi.org/10.1109/tit.1976.1055638</span></li>
-<li><span id="fips1994186">FIPS, P. U. B. (1994). 186 National Institute of Standards and Technology. <i>FIPS PUB 186: Digital Signature Standard</i>.</span></li>
-<li><span id="vanstone1992responses">Vanstone, S. (1992). Responses to NIST’s proposal. <i>Communications of the ACM</i>, <i>35</i>(7), 50–52.</span></li>
-<li><span id="Elgamal1985">Elgamal, T. (1985). A public key cryptosystem and a signature scheme based on discrete logarithms. <i>IEEE Transactions on Information Theory</i>, <i>31</i>(4), 469–472. https://doi.org/10.1109/tit.1985.1057074</span></li>
-<li><span id="Koblitz1987">Koblitz, N. (1987). Elliptic curve cryptosystems. <i>Mathematics of Computation</i>, <i>48</i>(177), 203–203. https://doi.org/10.1090/s0025-5718-1987-0866109-5</span></li>
-<li><span id="Miller">Miller, V. S. Use of Elliptic Curves in Cryptography. In <i>Lecture Notes in Computer Science</i> (pp. 417–426). Springer Berlin Heidelberg. https://doi.org/10.1007/3-540-39799-x_31</span></li>
-<li><span id="Fersch2016">Fersch, M., Kiltz, E., &amp; Poettering, B. (2016, October). On the Provable Security of (EC)DSA Signatures. <i>Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security</i>. https://doi.org/10.1145/2976749.2978413</span></li></ol>
+<ol class="bibliography"><li><div>
+    <span id="Diffie1976">Diffie, W., &amp; Hellman, M. (1976). New directions in cryptography. <i>IEEE Transactions on Information Theory</i>, <i>22</i>(6), 644–654.</span>
+    
+    <span><a href="https://doi.org/10.1109/tit.1976.1055638">10.1109/tit.1976.1055638</a></span>
+    
+</div>
+</li>
+<li><div>
+    <span id="fips1994186">FIPS, P. U. B. (1994). 186 National Institute of Standards and Technology. <i>FIPS PUB 186: Digital Signature Standard</i>.</span>
+    
+</div>
+</li>
+<li><div>
+    <span id="vanstone1992responses">Vanstone, S. (1992). Responses to NIST’s proposal. <i>Communications of the ACM</i>, <i>35</i>(7), 50–52.</span>
+    
+</div>
+</li>
+<li><div>
+    <span id="Elgamal1985">Elgamal, T. (1985). A public key cryptosystem and a signature scheme based on discrete logarithms. <i>IEEE Transactions on Information Theory</i>, <i>31</i>(4), 469–472.</span>
+    
+    <span><a href="https://doi.org/10.1109/tit.1985.1057074">10.1109/tit.1985.1057074</a></span>
+    
+</div>
+</li>
+<li><div>
+    <span id="Koblitz1987">Koblitz, N. (1987). Elliptic curve cryptosystems. <i>Mathematics of Computation</i>, <i>48</i>(177), 203–203.</span>
+    
+    <span><a href="https://doi.org/10.1090/s0025-5718-1987-0866109-5">10.1090/s0025-5718-1987-0866109-5</a></span>
+    
+</div>
+</li>
+<li><div>
+    <span id="Miller">Miller, V. S. Use of Elliptic Curves in Cryptography. In <i>Lecture Notes in Computer Science</i> (pp. 417–426). Springer Berlin Heidelberg.</span>
+    
+    <span><a href="https://doi.org/10.1007/3-540-39799-x_31">10.1007/3-540-39799-x_31</a></span>
+    
+</div>
+</li>
+<li><div>
+    <span id="Fersch2016">Fersch, M., Kiltz, E., &amp; Poettering, B. (2016). On the Provable Security of (EC)DSA Signatures. In <i>Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security</i>. ACM.</span>
+    
+    <span><a href="https://doi.org/10.1145/2976749.2978413">10.1145/2976749.2978413</a></span>
+    
+</div>
+</li></ol>
 
 
     <p>[<a href="#top">Back to Top</a>]</p>
