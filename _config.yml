@@ -21,8 +21,11 @@ include:
 # just leave empty to disable it
 google_analytics: "UA-93578712-1"
 disqus_shortname:
-# scholar:
-#  style: mla
+
+# Bibliography
+scholar:
+  style: _data/apa2.csl
+  bibliography_template: bib
 
 # for jekyll-seo-tag plugin
 
