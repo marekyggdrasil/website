@@ -11,9 +11,9 @@ katex: true
 
 Quantum teleportation {% cite PhysRevLett.70.1895 --file references %} has [already been covered](/2020/03/22/simulating-quantum-teleportation/) on this blog. This was the first tutorial I have written on this website. Right now we are going to re-visit this concept again from a slightly different perspective. Recently we have been talking a lot about the [Majorana zero modes](/2020/04/09/mzms/), creating them using the [topological phase transitions](/2021/05/09/braiding/) and performing quantum computation by braiding them defining the [Majorana qubits](/2021/06/09/majorana-qubits/). The question to ask now is, would it be possible to perform the quantum teleportation on such states defined on the Kitaev chains? In other words, could we teleport a state from one Kitaev chain onto another using nothing else but braids of their edges? Turns out yes!
 
-It was June 5th, 2019. Very fun time as [Jonathan Dowling](https://en.wikipedia.org/wiki/Jonathan_Dowling) visited us in Shanghai to be a speaker at [ITU Workshop on Quantum Information Technology (QIT) for Networks](https://www.itu.int/en/ITU-T/Workshops-and-Seminars/2019060507/Pages/default.aspx) conference which we all attended. During the break time I was chatting with my PhD advisor [Tim Byrnes](https://nyu.timbyrnes.net/), we discussed teleporting states in the Kitaev chains and we got quite excited with this idea. It took us quite few months to develop a necessary theory to make it work, which eventually resulted the PRL publication {% cite PhysRevLett.126.090502 --file references %} which additionally has been highlighted [on the NYU Shanghai website](https://shanghai.nyu.edu/news/nyu-shanghai-scientists-develop-method-teleporting-quantum-states-using-majorana-fermions).
+It was June 5th, 2019. Very fun time as [Jonathan Dowling](https://en.wikipedia.org/wiki/Jonathan_Dowling) visited us in Shanghai to be a speaker at [ITU Workshop on Quantum Information Technology (QIT) for Networks](https://www.itu.int/en/ITU-T/Workshops-and-Seminars/2019060507/Pages/default.aspx). At our lab, we all joined and attended it. During the break time, I was chatting with my Ph.D. advisor [Tim Byrnes](https://nyu.timbyrnes.net/), we discussed teleporting states in the Kitaev chains and we got quite excited about this idea. It took us quite a few months to develop a necessary theory to make it work, which eventually resulted in the PRL publication {% cite PhysRevLett.126.090502 --file references %} which additionally has been highlighted [on the NYU Shanghai website](https://shanghai.nyu.edu/news/nyu-shanghai-scientists-develop-method-teleporting-quantum-states-using-majorana-fermions).
 
-The key to perform the quantum teleportation is the ability to perform the entangling operations. As we have few entangling gates described in {% cite narozniak2020majorana --file references %} and also in [this tutorial](/2021/06/09/majorana-qubits/) we found that the inner braid equivalent to $$ \sqrt{X_1 X_2} $$ operation does produce the effect of quantum teleportation with slightly different classical correction.
+The key to performing quantum teleportation is the ability to perform entangling operations. As we have few entangling gates described in {% cite narozniak2020majorana --file references %} and also in [this tutorial](/2021/06/09/majorana-qubits/) we found that the inner braid equivalent to $$ \sqrt{X_1 X_2} $$ operation does produce the effect of quantum teleportation with slightly different classical correction.
 
 We start by producing the entangled state. Working in the logical space we begin by creating entanglement between second and third logical qubits using inner braid which corresponds to $$ \sqrt{X_2 X_3} $$ operation
 
@@ -46,17 +46,17 @@ $$
 \end{aligned}
 $$
 
-from which we can deduce what corrections have to be applied depending on the measurements of the first two logical qubits. Under the form of logical circuit those $$ X $$ and $$ Z $$ corrections depending on measurements are
+from which we can deduce what corrections have to be applied depending on the measurements of the first two logical qubits. Under the form of a logical circuit, those $$ X $$ and $$ Z $$ corrections depending on measurements are
 
 {% include figure.html max-width="70%" fll="/assets/figures/svg/topological-teleportation/topological-teleportation.svg" alt="" %}
 
-The rightmost logical qubit is prepared in the logical $$ \left \vert +_L \right> $$ state to avoid getting entangled with the rest of the system in case of the $$ X $$-correction getting applied. The teleportation itself is performed entirely using the braiding operations, however classical correction as requires the logical $$ X $$-operation needs an extra qubit.
+The rightmost logical qubit is prepared in the logical $$ \left \vert +_L \right> $$ state to avoid getting entangled with the rest of the system in case the $$ X $$-correction getting applied. The teleportation itself is performed entirely using the braiding operations, however classical correction requires the logical $$ X $$-operation needs an extra qubit.
 
-I did this tutorial slightly different than we described in the paper. Here we do not simply assume the existence of such ancilla Kitaev chain, we also prepare it. If we include the state preparation an extra ancilla topological qubit is required and one more inner braid
+I did this tutorial slightly differently than we described in the paper. Here we do not simply assume the existence of such an ancilla Kitaev chain, we also prepare it. If we include the state preparation an extra ancilla topological qubit is required and one more inner braid
 
 {% include figure.html max-width="70%" fll="/assets/figures/svg/topological-teleportation/blog_topological_teleportation_braiding_diagram.svg" alt="" %}
 
-The above diagram contains classical correction operators which of course do not need to always be applied. To more formally define the measurement we will prepare appropriate projection operators. But first, a topological qubit in logical $$ Z $$-basis could be written as
+The above diagram contains classical correction operators which of course do not need to always be applied. To more formally define the measurement we will prepare appropriate projection operators. But first, a topological qubit on logical $$ Z $$-basis could be written as
 
 $$
 \begin{aligned}
@@ -88,7 +88,7 @@ $$
 \end{aligned}
 $$
 
-This was for the case of $$ 5 $$ topological qubits each of length $$ L = 2 $$. The partial trace arguments would need to be adjusted for different system size. I have numerically simulated the above approach and feel free to review the [Python source code](https://github.com/marekyggdrasil/majorana/blob/40e12fa0f9ae7f22eebd11ead92ed15e7d97aefc/teleport.py). The bar plot comparing fidelities for the cases with and without classical correction are as follows
+This was for the case of $$ 5 $$ topological qubits each of length $$ L = 2 $$. The partial trace arguments would need to be adjusted for different system sizes. I have numerically simulated the above approach and feel free to review the [Python source code](https://github.com/marekyggdrasil/majorana/blob/40e12fa0f9ae7f22eebd11ead92ed15e7d97aefc/teleport.py). The bar plot comparing fidelities for the cases with and without classical correction are as follows
 
 {% include figure.html
 max-width="70%" fll="/assets/figures/png/topological-teleportation/outcomes.png" alt="Effect of classical correction on fidelities per outcome"
@@ -96,6 +96,6 @@ caption="Bar plot showing how unreliable teleportation is without the classical 
 
 The exact distribution depends on the random state. There would always be one outcome with perfect fidelity as there is one outcome that does not require any classical correction.
 
-Today we have simulated the topological teleportation by applying sequences of unitary braids on topological states. The full source code of this simulation is published under MIT licence [on GitHub](https://github.com/marekyggdrasil/majorana). If you find errors please tweet me and let me know.
+Today we have simulated the topological teleportation by applying sequences of unitary braids to topological states. The full source code of this simulation is published under an MIT license [on GitHub](https://github.com/marekyggdrasil/majorana). If you find errors please tweet me and let me know.
 
 {% bibliography --file references --file wiki --cited %}
