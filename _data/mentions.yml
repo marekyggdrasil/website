@@ -1,3 +1,15 @@
+- key: mina-blog-meet-marek-turkish
+  date: 2022-09-27
+  title: zkApp Geliştiricisi Marek Narozniak ile Tanışın
+  source: B62 Blog
+  url: https://www.b62.io/zkapp-gelistiricisi-marek-narozniak-ile-tanisin/
+  category: interviews
+- key: mina-blog-meet-marek
+  date: 2022-09-27
+  title: Meet the zkApp Builder — Marek Narozniak
+  source: Mina Foundation Blog
+  url: https://minaprotocol.com/blog/meet-zkapp-builder-marek-narozniak
+  category: interviews
 - key: pudong-lockdown-reuters
   date: 2022-03-30
   title: Shanghai in lockdown "It’s like being in a cage"
