@@ -10,6 +10,12 @@
   source: Mina Foundation Blog
   url: https://minaprotocol.com/blog/meet-zkapp-builder-marek-narozniak
   category: interviews
+- key: cointelegraph-quantum-blockchain
+  date: 2022-04-22
+  title: Quantum computing to run economic models on crypto adoption
+  source: Cointelegraph
+  url: https://cointelegraph.com/news/quantum-computing-to-run-economic-models-on-crypto-adoption
+  category: interviews
 - key: pudong-lockdown-reuters
   date: 2022-03-30
   title: Shanghai in lockdown "It’s like being in a cage"
