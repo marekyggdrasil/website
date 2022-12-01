@@ -1,3 +1,8 @@
+- date: 2022-11-29
+  title: Implemented an example of an Escrow zkApp
+  repository: o1-labs/snarkyjs
+  pr:
+    url: https://github.com/o1-labs/snarkyjs/pull/613
 - date: 2021-11-11
   title: Prepared a more meaningful example of tvtk usage in Mayavi
   repository: enthought/mayavi
