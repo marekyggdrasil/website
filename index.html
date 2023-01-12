@@ -37,6 +37,14 @@ layout: default
 		</ul>
     <p>Complete list of all mentions and interviews is available on <a href="/mentions">dedicated mentions page</a>.</p>
 	</section>
+  <section>
+		  <h1 class="smallcap"><a class="site-title" href="/">Authored modules</a></h1>
+		  <ul class="post-list">
+		      {% for module in site.data.modules %}
+				  {% include module-list-entry.html %}
+			    {% endfor %}
+		  </ul>
+	</section>
 	<section>
 		<h1 class="smallcap"><a class="site-title" href="/">Open-Source Contributions</a></h1>
 		<ul class="post-list">

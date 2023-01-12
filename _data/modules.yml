@@ -1,0 +1,36 @@
+- key: secp256k1-zkp-mw
+  description: a CFFI wrapper of the secp256k1-zkp library
+  date: 2022-12-30
+  title: secp256k1-zkp-mw
+  language: Python
+  url: https://pypi.org/project/secp256k1-zkp-mw/
+- key: polishify
+  description: a tool for fixing subtitle encoding for Polish language
+  date: 2022-08-07
+  title: polishify
+  language: Python
+  url: https://pypi.org/project/polishify/
+- key: minicurve
+  description: a nifty educational elliptic-curve visualization library
+  date: 2021-09-11
+  title: minicurve
+  language: Python
+  url: https://pypi.org/project/minicurve/
+- key: mimblewimble
+  description: implementation of the Mimblewimble protocol
+  date: 2021-07-23
+  title: mimblewimble
+  language: Python
+  url: https://pypi.org/project/mimblewimble/
+- key: truthsayer
+  description: a bot for playing Dune the board game over Discord
+  date: 2021-06-30
+  title: truthsayer
+  language: Python
+  url: https://pypi.org/project/truthsayer/
+- key: brackette
+  description: a state manager implementing Memento design pattern
+  date: 2021-06-29
+  title: brackette
+  language: Python
+  url: https://pypi.org/project/brackette/
