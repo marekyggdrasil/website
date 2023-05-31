@@ -1,3 +1,13 @@
+- date: 2023-05-31
+  title: Implemented avoid throwing an error if private key is missing
+  repository: o1-labs/snarkyjs
+  pr:
+    url: https://github.com/o1-labs/snarkyjs/pull/931
+    nb: 931
+  suggestion:
+    url: https://github.com/o1-labs/snarkyjs/issues/930
+    nb: 930
+    type: issue
 - date: 2022-11-30
   title: Implemented an example of an Escrow zkApp
   repository: o1-labs/snarkyjs
