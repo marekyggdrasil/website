@@ -14,11 +14,11 @@ layout: default
             {% endif %}
 			      {% endfor %}
 		    </ul>
-        <h2 class="smallcap"><a class="site-title" href="/">GRIN Mimblewimble updates</a></h2>
-        <p>On behalf of Grinventions I worked on some projects for GRIN digital cash cryptocurrency. I am often mentions in related newsletters.</p>
+        <h2 class="smallcap"><a class="site-title" href="/">Mentions in the newsletters</a></h2>
+        <p>I am actively contributing to various open-source projects and my contributions are often mentioned in their dedicated newsletters.</p>
 		    <ul class="post-list">
 		        {% for mention in site.data.mentions %}
-            {% if mention.category == 'grin-news' %}
+            {% if mention.category == 'mentions' %}
 				    {% include mention-list-entry.html %}
             {% endif %}
 			      {% endfor %}
