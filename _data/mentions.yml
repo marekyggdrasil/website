@@ -34,6 +34,36 @@
   source: Mina Foundation Blog
   url: https://minaprotocol.com/blog/meet-zkapp-builder-marek-narozniak
   category: interviews
+- key: grinventions-secp256k1-zkp-bounty
+  date: 2022-09-17
+  title: 1️⃣4️⃣ GRIN ツ Only Proof of Work ⛓️
+  source: Grin POST
+  url: https://grinpost.substack.com/p/14-grin-only-proof-of-work
+  category: mentions
+- key: grinventions-telegram-mimblewimble-py
+  date: 2022-08-17
+  title: 1️⃣2️⃣ Grinツ ⚙️Shifting Gears, Privacy Matters
+  source: Grin POST
+  url: https://grinpost.substack.com/p/12-grin-shifting-gears
+  category: mentions
+- key: grinventions-meet-ups
+  date: 2022-08-03
+  title: Grinツ July 2022 #1️⃣1️⃣* ☕ ツ Community meetups revive.
+  source: Grin POST
+  url: https://grinpost.substack.com/p/grin-july-2022-11-community-meetups
+  category: mentions
+- key: grinventions-telegram-2
+  date: 2022-07-17
+  title: Grinツ July 2022 #1️⃣0️⃣ 🍉 *PIBD a novel sync method & *Wallet-API Tutorial
+  source: Grin POST
+  url: https://grinpost.substack.com/p/grin-july-2022-10-pibd-a-novel-sync
+  category: mentions
+- key: grinventions-telegram
+  date: 2022-07-01
+  title: Grinツ 🍒 June 2022 #2 0️⃣9️⃣ GRIN Telegram Bot-New Tools, Satoshi Vision & MW
+  source: Grin POST
+  url: https://grinpost.substack.com/p/grin-june-2022-2
+  category: mentions
 - key: cointelegraph-quantum-blockchain
   date: 2022-04-22
   title: Quantum computing to run economic models on crypto adoption
