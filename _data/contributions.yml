@@ -1,3 +1,13 @@
+- date: 2023-11-03
+  title: Fixed the Escrow smart contract example
+  repository: o1-labs/o1js
+  pr:
+    url: https://github.com/o1-labs/o1js/pull/1224
+    nb: 1224
+  suggestion:
+    url: https://github.com/o1-labs/o1js/issues/1218
+    nb: 1218
+    type: issue
 - date: 2023-05-31
   title: Implemented avoid throwing an error if private key is missing
   repository: o1-labs/snarkyjs
